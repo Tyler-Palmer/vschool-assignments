@@ -1,0 +1,49 @@
+.title{
+    color: cornflowerblue
+}
+
+#other-text{
+    color: firebrick
+}
+
+/* Classes can be applied mutiple times--general items*/
+/* Id is more specific and used for individual items--will overrule class*/
+
+#container{
+
+}
+
+h1{
+    color: darkgreen;
+    font-family: Georgia;
+    text-align: center;
+}
+
+h2{
+    font-family: Georgia;
+    text-align: center;
+}
+
+p{
+    line-height: 25px;
+}
+
+#uppercase{
+    text-transform: uppercase; 
+}
+
+a{
+    text-decoration: none;
+    
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+img{
+    width: 30%;
+    height: 30%;
+    float: left;
+    margin-right: 20px;
+}
