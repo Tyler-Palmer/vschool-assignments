@@ -1,0 +1,107 @@
+body{
+    background-color: grey;
+}
+
+#nav{
+    background-color: wheat;
+    width: 95%;
+    position: fixed;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    z-index: 2;
+    top: 20px;
+    font-weight: bold;
+}
+
+.title-box{
+    width: 75%;
+    height: 100px;
+    margin-top: 100px;
+    margin-left: 17%;
+    background-color: sienna;
+}
+
+.title-box h1{
+    font-size: 4em;
+    padding: 10px;
+    margin-left: 30%;
+}
+
+img{
+    float: left;
+    margin-right: 10px;
+    border: solid 5px;
+    border-color: white;
+}
+
+p{
+    text-align: justify;
+}
+
+li{
+    float: left;
+    margin-left: 30px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+#feed{
+    margin-top: 15px;
+    padding-top: 10px;
+    /* position: relative; */
+    margin-left: 25%;
+    top: 100px;
+    width: 50%;
+    border: 5px;
+}
+
+#one{
+    background-color: gainsboro;
+    padding: 10px;
+    margin-top: 10px;
+    border: solid 10px;
+    border-color: white;
+}
+
+#two{
+    background-color: gainsboro;
+    padding: 10px;
+    margin-top: 10px;
+    border: solid 10px;
+    border-color: white;
+}
+
+#three{
+    background-color: gainsboro;
+    padding: 10px;
+    margin-top: 10px;
+    border: solid 10px;
+    border-color: white;
+}
+
+#four{
+    background-color: gainsboro;
+    padding: 10px;
+    margin-top: 10px;
+    border: solid 10px;
+    border-color: white;
+}
+
+.leftColumn{
+    background-color: burlywood;
+    margin-top: -80px;
+    float: left;
+    width: 15%;
+    height: 600px;
+    position: fixed;
+    
+}
+
+.leftColumn li{
+    float: left;
+    margin-left: 10px;
+    margin-right: 20px;
+    padding: 10px;
+    font-size: 2em;
+    font-weight: bold;
+}

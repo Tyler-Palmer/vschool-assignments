@@ -9,7 +9,7 @@ just fix the existing ones.
 
 // Written by Kent, Clark
 
-var Enemies=["Lex","Batman","Darkseid","Brainiac","General Zod","Doomsday"];
+var enemies=["Lex","Batman","Darkseid","Brainiac","General Zod","Doomsday"];
 
 function whoWins(isThereKryptonite, enemyName){
     if (!isThereKryptonite){
@@ -20,7 +20,7 @@ function whoWins(isThereKryptonite, enemyName){
 }
 }
 
-for (var i=0; i<Enemies.length; i++){
+for (var i=0; i<enemies.length; i++){
     var isThereKryptonite;
     if (i%2 == 0){
         isThereKryptonite = true;

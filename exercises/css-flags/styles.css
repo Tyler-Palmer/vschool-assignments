@@ -1,0 +1,331 @@
+body{
+    background-color: lightgrey;
+}
+
+.france{
+margin: 20px;
+}
+
+#franceOne{
+    width: 150px;
+    height: 300px;
+    display: inline-block;
+    background-color: blue;
+}
+
+#franceTwo{
+    width: 150px;
+    height: 300px;
+    display: inline-block;
+    background-color: white;
+}
+
+#franceThree{
+    width: 150px;
+    height: 300px;
+    display: inline-block;
+    background-color: red;
+}
+
+.germany{
+    margin: 20px;
+}
+
+#germanyOne{
+    width: 500px;
+    height: 100px;
+    background-color: black;
+}
+
+#germanyTwo{
+    width: 500px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    
+}
+
+#germanyThree{
+    width: 500px;
+    height: 100px;
+    background-color:yellow;
+}
+
+.madagascar{
+    margin: 20px;
+}
+
+#madagascarOne{
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    position: absolute;
+}
+
+#madagascarTwo{
+    width: 400px;
+    height: 150px;
+    background-color: red;
+    position: absolute;
+    margin-left: 200px;
+}
+
+#madagascarThree{
+    width: 400px;
+    height: 150px;
+    background-color: green;
+    position: relative;
+    display: inline-block;
+    margin-top: 150px;
+    margin-left: 200px;
+}
+
+.switzerland{
+    margin: 20px;
+    width: 400px;
+    height: 400px;
+}
+
+#swissBack{
+    width: 400px;
+    height: 400px;
+    background-color: red;
+    position: absolute;
+}
+
+#swissHor{
+    width: 200px;
+    height: 75px;
+    background-color: white;
+    display: inline-block;
+    position: absolute;
+    margin-left: 100px;
+    margin-top: 175px;
+}
+
+#swissVert{
+    width: 75px;
+    height: 200px;
+    background-color: white;
+    display: inline-block;
+    position: absolute;
+    margin-left: 165px;
+    margin-top: 110px;
+}
+
+.sweden{
+    width: 500px;
+    height: 300px;
+    margin: 20px;
+}
+
+#swedBack{
+    width: 500px;
+    height: 300px;
+    background-color: blue;
+    position: absolute;
+}
+
+#swedHor{
+    width: 500px;
+    height: 75px;
+    background-color: goldenrod;
+    display: inline-block;
+    position: absolute;
+    margin-top: 110px;
+}
+
+#swedVert{
+    width: 75px;
+    height: 300px;
+    background-color: goldenrod;
+    display: inline-block;
+    position: absolute;
+    margin-left: 125px;
+}
+
+.gambia{
+    width: 500px;
+    height: 300px;
+    margin: 20px;
+}
+
+#gamBack{
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    position: absolute;
+}
+
+#gamOne{
+    width: 500px;
+    height: 100px;
+    background-color: red;
+    display: inline-block;
+    position: absolute;
+}
+
+#gamTwo{
+    width: 500px;
+    height: 80px;
+    background-color: blue;
+    position: absolute;
+    margin-top: 120px;
+}
+
+#gamThree{
+    width: 500px;
+    height: 100px;
+    background-color: green;
+    display: inline-block;
+    position: absolute;
+    margin-top: 220px;
+}
+
+.tonga{
+    height: 300px;
+    width: 500px;
+    margin: 20px;
+    margin-top: 40px;
+}
+
+#tongaBack{
+    width: 500px;
+    height: 300px;
+    background-color: red;
+    position: absolute;
+}
+
+#tongaInner{
+    width: 200px;
+    height: 150px;
+    background-color: white;
+    position: absolute;
+}
+
+#tongaVert{
+    width: 30px;
+    height: 75px;
+    background-color: red;
+    display: inline-block;
+    position: absolute;
+    margin-left: 85px;
+    margin-top: 25px;
+}
+
+#tongaHor{
+    width: 75px;
+    height: 30px;
+    background-color: red;
+    display: inline-block;
+    position: absolute;
+    margin-left: 62px;
+    margin-top: 48px;
+}
+
+.japan{
+    width: 500px;
+    height: 300px;
+    margin: 20px;
+}
+
+#japBack{
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    position: absolute;
+}
+
+#japCircle{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    margin-left: 150px;
+    margin-top: 50px;
+}
+
+.greece{
+    height: 333px;
+    width: 500px;
+    margin: 20px;
+}
+
+#grBack{
+    width: 500px;
+    height: 333px;
+    background-color: white;
+    position: absolute;
+}
+
+#grBox{
+    width: 185px;
+    height: 185px;
+    background-color: blue;
+    position: absolute;
+}
+
+#grOne{
+    height: 37px;
+    width: 350px;
+    background-color: blue;
+    position: absolute;
+    margin-left: 150px;
+}
+
+#grTwo{
+    height: 37px;
+    width: 350px;
+    background-color: blue;
+    position: absolute;
+    margin-left: 150px;
+    margin-top: 74px;
+}
+
+#grThree{
+    height: 37px;
+    width: 350px;
+    background-color: blue;
+    position: absolute;
+    margin-left: 150px;
+    margin-top: 148px;
+}
+
+#grFour{
+    height: 37px;
+    width: 500px;
+    background-color: blue;
+    position: absolute;
+    margin-top: 222px;
+}
+
+#grFive{
+    height: 37px;
+    width: 500px;
+    background-color: blue;
+    position: absolute;
+    margin-top: 296px;
+}
+
+#grHor{
+    height: 37px;
+    width: 185px;
+    background-color: white;
+    position: absolute;
+    margin-top: 74px;
+}
+
+#grVert{
+    height: 185px;
+    width: 37px;
+    background-color: white;
+    position: absolute;
+    margin-left: 74px;
+}
+
+.niger{
+    height: 300px;
+    width: 500px;
+    margin: 20px;
+}

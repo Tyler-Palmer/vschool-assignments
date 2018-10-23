@@ -1,0 +1,55 @@
+#calcBody{
+    display: inline-block;
+    position: relative;
+    left: 500px;
+    top: 30px;
+    padding: 20px;
+    border: 2px solid;
+    box-shadow: 3px 5px 4px #ccc;
+    background-color: #f3970f;
+}
+
+#add{
+    padding: 10px;
+    background-color: #FF5E5B;
+    border: 1px solid;
+}
+
+#subtract{
+    padding: 10px;
+    background-color:  #00CECB;;
+    border: 1px solid;
+    margin-top: 10px;
+}
+
+#multiply{
+        padding: 10px;
+        background-color:  #FFED66;;
+        border: 1px solid;
+        margin-top: 10px;
+    
+}
+
+#addResult{
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+#subtResult{
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+#multResult{
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+h2{
+    margin: 10px 10px 10px 80px;
+    font-weight: 2em;
+}
+
+body{
+    font-family: sans-serif
+}

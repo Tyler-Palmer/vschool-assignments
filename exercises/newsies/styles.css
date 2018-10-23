@@ -1,0 +1,74 @@
+body{
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+}
+
+header{
+    text-align: center;
+}
+
+header .Newspaper{
+    font-size: 6em;
+    margin-top: -.15em;
+    margin-bottom: -1em;
+}
+
+header h1.title{
+    font-size: 10em;
+    font-style: bold;
+    margin-bottom: -.1em;
+}
+
+h2{
+    font-size: 5em;
+}
+
+.ads #classified{
+    font-size: 4em;
+    font-style: bold;
+    color: red;
+    padding: -10px;
+}
+
+.ads{
+    margin: 10px;
+    border: solid;
+}
+.adImage{
+    width: 50%;
+    height: 50%;
+}
+.ads #ad1{
+    margin: 10px;
+    width: 30%;
+    border: dashed;
+    float: left;
+    padding: 5px;
+    display: inline-block;
+}
+
+.ads #ad2{
+    margin: 10px;
+    width: 30%;
+    border: dashed;
+    float: left;
+    padding: 5px;
+    display: inline-block;
+}
+
+.ads #ad3{
+    margin: 10px;
+    width: 30%;
+    border: dashed;
+    float: left;
+    padding: 5px;
+    display: inline-block;
+}
+
+.body{
+    border: solid;
+    margin: 10px;
+    padding: 5px;
+    display: inline-block;
+    float: right;
+}
