@@ -1,0 +1,31 @@
+.f-container {
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+    position: relative;
+    margin: 5px;
+}
+
+.f-blue {
+    position: absolute;
+    height: 200px;
+    width: 100px;
+    background-color: blue;
+    left: 0;
+}
+
+.f-white {
+    position: absolute;
+    height: 200px;
+    width: 100px;
+    background-color: whitesmoke;
+    right: 100px;
+}
+
+.f-red {
+    position: absolute;
+    height: 200px;
+    width: 100px;
+    background-color: firebrick;
+    right: 0;
+}

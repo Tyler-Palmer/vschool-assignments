@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mario Pest Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+</head>
+<body>
+    <header>Mario Pest Control
+            <div id="placeholderImage">
+                <img src="https://ubisafe.org/images/triforce-transparent-16-bit-5.png" height="498" width="300">
+            </div>
+    </header>
+    <div class="container">
+        <form name="inputForm">
+            <div class="baddie" id="baddieOne">
+                    <div class="namePrice">
+                        <h2>Goombas</h2>
+                        <h5>5 Coins</h5>
+                    </div>
+                <div class ="placeholderImage">
+                    <img src="https://www194.lunapic.com/editor/working/154049869294863954?6604700848">
+                </div>
+                <div class = inputBox>
+                <input type="number" name="goombaIn" placeholder="How many Goombas did ya' get?">
+                </div>
+            </div>
+            <div class="baddie" id="baddieTwo">
+                    <div class="namePrice">
+                        <h2>Bob-Ombs</h2>
+                        <h5>7 Coins</h5>
+                    </div>
+                <div class ="placeholderImage">
+                    <img src="https://www194.lunapic.com/do-not-link-here-use-hosting-instead/154049876244126109?6768237804">
+                </div>
+                <input type="number" id="bobombIn" placeholder="How many Bob-ombs did ya' get?">
+            </div>
+            <div class="baddie" id="baddieThree">
+                    <div class="namePrice">
+                        <h2>Cheep-cheeps</h2>
+                        <h5>11 Coins</h5>
+                    </div>
+                <div class ="placeholderImage">
+                    <img src="https://www194.lunapic.com/editor/working/154049876244126109?2152764662">
+                </div>
+                <input type="number" id="cheepIn" placeholder="How many Cheep-cheeps did ya' get?">
+            </div>
+        <button type="submit" id="addUp">Submit</button>
+        </form>
+    <div id="resultsArea">
+        <h3>Total Cost</h3>
+        <h4 class="lists" id="results"></h4>
+        <h4 class="list">Coins</h4>
+    </div>
+    </div>
+    <footer>
+        <p>Mario@goplumbyourself.com</p>
+        <p>https://www.goplumbyourself.com</p>
+        <p>123 Pipedream Blvd.</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

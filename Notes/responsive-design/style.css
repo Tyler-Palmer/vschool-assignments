@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.box1,
+.box2,
+.box3,
+.box4 {
+    width: 200px;
+    height: 200px;
+    background-color: cornflowerblue;
+    margin: 5px auto;
+    display: block;
+}
+
+@media (min-width: 1000px){
+    .box1,
+    .box2,
+    .box3,
+    .box4 {
+        display: inline-block;
+    }
+}
+
+
+/* max-width:  pixel size or less  */
+/* min-width:  pixel size or more */
+/* or   (min-width: 400px), (max-width: 500px) */
+/* and  (min-width: 400px) and (max-width: 500px) */
+/* 
+@media (min-width: 550px) and (max-width: 650px){
+    .box1 {
+        background-color: orange;
+    }
+} */
+
+/* @media (min-width: 600px){
+    .box2 {
+        width: 400px;
+    } */
+}

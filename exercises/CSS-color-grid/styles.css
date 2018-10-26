@@ -83,3 +83,18 @@
     border: 5px solid white;
 
 }
+
+@media (max-width: 768px){
+    #line1,
+    #line2a,
+    #line2b,
+    #line2c,
+    #line2d,
+    #line3a,
+    #line3b,
+    #line4a,
+    #line4b {
+        display: block;
+        width: 100%;
+    }
+}
