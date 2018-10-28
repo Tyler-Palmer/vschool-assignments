@@ -9,7 +9,7 @@
 function basicStr(str){
     return str;
 }
-console.log(basicStr('this is a string')
+console.log(basicStr('this is a string'))
 //
 var duplicates = [];
   
@@ -29,7 +29,8 @@ function noDuplicateAgain(str){
     }
     return newArr.join('');
   }
-  console.log(noDuplicateAgain('this is a string'));
+  console.log(noDuplicateAgain('this is a string'))
+  console.log(duplicates)
 //
   function noDuplicate(str){
     let splitStr = str.split('');
