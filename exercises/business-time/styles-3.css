@@ -1,0 +1,186 @@
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: arial;
+    height: 100%;
+    width: 100%;
+    /* background-color: #70C1B3; */
+    z-index: -1;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+header{
+    background-color: #70C1B3;
+    top: -10px;
+    padding: 5px;
+    color: #ffffff;
+    text-align: center;
+    z-index: 1;
+}
+
+nav{
+    position: relative;
+    margin-top: 0px;
+    display: flex;
+    background: #50514F;
+    flex-direction: row;
+    justify-content: space-around;
+    z-index: 1;
+    height: 15%;
+}
+
+nav a{
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: space-around;
+    padding: 10px;
+    color: white;
+    z-index:1;
+}
+
+nav a:hover{
+    background-color: #247BA0;
+    color: black;
+}
+
+h1{
+    font-size: 5em;
+   font-family: 'Helvetica Neue', sans-serif;
+   font-weight: bold;
+   letter-spacing: -1px; 
+   line-height: 1;
+}
+.padmasana{
+    display: flex;
+    flex-direction: column;
+    background-image: url(./exercises/business-images/padmasana.svg);
+    background-attachment: fixed;
+    background-position: flex-start;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: flex-start;
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    z-index: -1;
+    background-repeat: no-repeat;
+}
+
+.parallax1{
+    display: flex;
+    height: 300px;
+    width: 100%;
+    background-image: url(./images/succulents.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+.parallax2{
+    display: flex;
+    height: 400px;
+    width: 100%;
+    background-image: url(./images/succulents.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+}
+
+.parallax1 > img,
+.parallax2 > img{
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.about-container{
+display: flex;
+position: fixed;
+height: 400px;
+width: 100px;
+background-color: #50514F;
+}
+.menuBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 1000px;
+    background-color: #FFE066;
+    /* opacity: .75; */
+}
+
+.benefits,
+.about,
+.calendar,{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.calendar > span{
+    align-self: center;
+
+}
+
+h3.menuText{
+    display: block;
+    font-size: 3em;
+    color: #fff;
+    width: 100%;
+}
+
+span{
+    width: 100%;
+    height: 100%;
+}
+
+/* Footer */
+ .container{
+    display: flex;
+    justify-content: center;
+    background-color: #F25F5C;
+    height: 50px;
+    z-index: 2;
+    color: white;
+}
+
+@media only screen and (min-width: 1024px){
+    .menuBox{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 400px;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .menuBox{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 400px;
+    }
+}
