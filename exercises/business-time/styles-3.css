@@ -120,6 +120,7 @@ background-color: #50514F;
     width: 100%;
     height: 1000px;
     background-color: #FFE066;
+    padding-top: 20px;
     /* opacity: .75; */
 }
 
@@ -134,8 +135,8 @@ background-color: #50514F;
     margin-top: 10px;
 }
 
-.calendar > span{
-    align-self: center;
+.calendar span{
+    padding-left: 40px;
 
 }
 

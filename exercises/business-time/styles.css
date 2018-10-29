@@ -113,6 +113,7 @@ h1{
     height: 1000px;
     background-color: #70C1B3;
     z-index: 1;
+    padding-top: 20px;
     /* opacity: .75; */
 }
 
@@ -127,8 +128,8 @@ h1{
     margin-top: 10px;
 }
 
-.calendar > span{
-    align-self: center;
+.calendar span{
+    padding-left: 40px;
 
 }
 
