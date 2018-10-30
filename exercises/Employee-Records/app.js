@@ -15,8 +15,8 @@ function Employee (name, jobTitle, salary, status){
         console.log(`Name: ${name}, Job Title: ${jobTitle}, Salary: ${salary}, Status: ${status}`)
     }
     this.pushEmployee = function(){
-        (for i = 0; i < Employee().length; i++){
-            
+        for(let i = 0; i < Employee().length; i++){
+            employees.push(Employee([i]))
         }
     }
 }
