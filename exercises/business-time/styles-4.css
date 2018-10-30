@@ -46,7 +46,7 @@ nav a{
 }
 
 nav a:hover{
-    background-color: #247BA0;
+    background-color: #FFE066;
     color: black;
 }
 
@@ -56,19 +56,6 @@ h1{
    font-weight: bold;
    letter-spacing: -1px; 
    line-height: 1;
-}
-.padmasana > img{
-    /* background-image: url('./exercises/business-time/images/lotus-flower.png');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    justify-content: flex-start; */
-    /* height: 25%;
-    width: 25%;
-    position: absolute;
-    z-index: 2;
-    color: white; */
 }
 
 .schedule{
@@ -82,12 +69,37 @@ h1{
 .parallax1{
     height: 600px;
     width: 100%;
+    position: relative;
+    display: flex;
     background-image: url(./images/succulents.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 1;
+    z-index: -1;
+}
+
+.parallax1 .schedule{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: white;
+    background: #247BA0;
+    top: 10%;
+    height: 45%;
+    /* padding: 10px; */
+    width: 100%;
+    border-radius: 20px;
+}
+.parallax1 .schedule ul{
+    padding-left: 10px;
+    line-height: 1.5em;
+}
+
+.parallax1 .schedule h3, h5{
+    line-height: .3em;
 }
 
 .parallax2{
@@ -188,5 +200,10 @@ span{
         flex-wrap: wrap;
         width: 100%;
         height: 400px;
+    }
+    .parallax1 .schedule{
+        height: 45%;
+        width: 50%;
+        left: 25%;
     }
 }

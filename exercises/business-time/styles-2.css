@@ -46,7 +46,7 @@ nav a{
 }
 
 nav a:hover{
-    background-color: #247BA0;
+    background-color: #F25F5C;
     color: black;
 }
 
@@ -150,6 +150,7 @@ z-index:2;
     background-color: grey;
     opacity: .9;
     height: 300px;
+    width: 100%;
 }
 
 .text-container-2a{
