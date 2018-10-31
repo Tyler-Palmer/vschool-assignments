@@ -30,7 +30,7 @@ function walk(){
 //Opening
 console.log(`You wake up. It's early morning. Slowly your senses come to you and you become aware that you are lying down on a park bench in a picturesque park overlooking the city\n`)
 console.log(`Looking around, you notice that it is eerily quiet and no one is around. No city sounds, no birds, no insects, even the air is still, only a slight ringing in your ear punctuates the silence. "What is going on?" You ask yourself.\n`)
-console.log(`Suddenly, as if  you feel a haptic pulse in your left palm and you jolt upright\n`)
+console.log(`Suddenly, as if you feel a haptic pulse in your left palm and you jolt upright\n`)
 console.log(`Intuitively, you use your thumb to tap your palm, and a holographic screen appears in your vision...\n`)
 console.log(`"Greetings traveller, welcome back." prints in your display and a sense of unadultured excitement begins to creep in. You know this feeling, you let it happen. Something feels familiar here.\n`)
 
