@@ -1,0 +1,110 @@
+body{
+    background: #C6FFDD;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+    padding: 50px;
+
+}
+
+audio1{
+    z-index: 2;
+}
+.box1,.box2{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.square{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    margin: 20px;
+    border-radius: 15%;
+    box-shadow: 10px 10px 5px 0 #999;
+    transition-property: all;
+    transition-duration: .3s;
+    transition-timing-function: ease;
+}
+
+/* #square-1{
+    margin-bottom: 20px;
+}
+#square-2{
+    margin-bottom: 20px;
+
+}
+#square-3{
+    margin-bottom: 20px;
+
+} */
+
+.square:hover{
+    box-shadow: 10px 10px 10px 0 rgb(51, 51, 51);
+    width: 310px;
+    height: 310px;
+}
+
+#square-1:hover{
+    background-color: #00FDDC
+}
+#square-2:hover{
+    background-color: #4BB3FD
+}
+#square-3:hover{
+    background-color: #DF44FF
+}
+#square-4:hover{
+    background-color: #FF5964
+}
+#square-5:hover{
+    background-color: #FF7F44
+}
+#square-6:hover{
+    background-color: #F6F740
+}
+
+#square-1{
+    transition-property: all;
+}
+
+/*Blinking*/
+
+#square-1:active{
+    background-color: gold;
+    animation: blinker 1s linear infinite;
+}
+
+#square-2:active{
+    background-color: gold;
+    animation: blinker 1s linear infinite;
+}
+
+#square-3:active{
+    background-color: gold;
+    animation: blinker 1s linear infinite;
+}
+
+#square-4:active{
+    background-color: gold;
+    animation: blinker 1s linear infinite;
+}
+#square-5:active{
+    background-color: gold;
+    animation: blinker 1s linear infinite;
+}
+#square-6:active{
+    background-color: gold;
+    animation: blinker 1s linear infinite;
+}
+@keyframes blinker{
+    50%{
+        opacity: 0;
+    }
+}

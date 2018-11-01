@@ -1,10 +1,11 @@
 var ask = require("readline-sync")
 
 ////////////////////////
-/// Player and Enemie Constructors
+/// Player and Enemy Constructors
 
 function Player(name, hp){
-
+    this.name = name
+    this.hp = 
 }
 
 function Enemy(type, hp){
@@ -15,7 +16,12 @@ function Enemy(type, hp){
 /// Global Variables
 
 var player1 = new Player()
-var playerChoiceOptions1 = ["walk", "look around", "pick up item", "yell for help", "attack", "run", "look at inventory", "quit"]
+var playerChoiceOptions1 = ["walk", "look around", "pick up item", "call for help", "attack", "run", "look at inventory", "quit"]
+var playerChoiceOption2 = ["walk", "look around","look at inventory", "quit"]
+
+var isDead = false
+var hasWon = false
+var 
 
 ///////////////////////////
 //// Game Functions
@@ -24,8 +30,16 @@ function walk(){
 
 }
 
+////// Player Fighting Dynamics
+
+
+////// Enemy Fighting Dynamics
+
+
 ///////////////////////////
 /////// Game Loop ////////
+
+/// Stages of main loops for each section
 
 //Opening
 console.log(`You wake up. It's early morning. Slowly your senses come to you and you become aware that you are lying down on a park bench in a picturesque park overlooking the city\n`)
@@ -41,8 +55,22 @@ console.log(`\nExcellent, ${player1.name}, let's begin.`)
 
 //Insert option to skip ahead if user remembers the stage
 
-//Part 1
+//Part 1 (5 + 1 walks)/////////
 
 var p1q1 = ask.question(`\nWe need to get to the city-center, but it is a bit of a walk. Are you ready ${player1.name}? `)
+
+//if yes, auto walk to edge of park, sense danger lurking
+
+//give options, next walk --> start enemy chance of appearing 1/4 chance, enemies only of weaker variety
+
+//while part 1, every few walks = slightly different scene, introduce events that make you remember what you're doing
+
+//Part 1 ends with one piece of the puzzle being acquired, knowledge or physical location is now the edge of the city
+
+//Part 2 (10 walks)//////////
+
+//give options of two diffe
+
+
 
 
