@@ -18,7 +18,7 @@ function Player(name, hp, inventory){
         }
     }
 }
-var enemy = new Enemy("Gh",50, "Coin")
+var enemy = new Enemy("Ghost",50, "Coin")
 function Enemy(type, hp, inventory, attack){
     this.type = type
     this.hp = hp
@@ -80,24 +80,26 @@ function walk1(){
 function flee(){
     var fleeChance = Math.floor(Math.random()* 2)
     if (fleeChance === 1){
-        console.log(`You successfully escaped from the ${enemy.name}.`)
+        console.log(`You successfully escaped from the ${enemy.type}.`)
         walk1()
+        break;
     }else{
-        console.log(`You weren't able to escape.`)
+        console.log(`You weren't able to escape. And the enemy attacks you.\n`)
         enemyAttack()
+
     }
 }
 
 function attackEnemy(){
     var pAttackAmount = player1.attack1()
     enemy.hp -= pAttackAmount
-    console.log(`${player1.name} hit the ${enemy.type} for ${pAttackAmount} damage. It's remaining hp is: ${enemy.hp}`)
+    console.log(`\n${player1.name} hit the ${enemy.type} for ${pAttackAmount} damage. It's remaining hp is: ${enemy.hp}`)
 }
 
 function enemyAttack(){
     var eAttackAmount = enemy.attack()   
     player1.hp -= eAttackAmount
-    console.log(`The ${enemy.type} hit you for ${eAttackAmount} damage. Your remaining hp is: ${player1.hp}`)
+    console.log(`\nThe ${enemy.type} hit you for ${eAttackAmount} damage. Your remaining hp is: ${player1.hp}`)
 }
 
 function attackSequence1(){
@@ -120,12 +122,12 @@ function attackSequence1(){
                 if(!enemyIsDead){
                     enemyIsDead = true;
                     console.log(`You killed the ${enemy.type}.\n`)
-                    walk1()
+                    part1()
                     break;
                 }else{
                     attackEnemy();
                     enemyAttack();
-                    attackSequenceOptions2
+                    break;
                 }
         }
     }
@@ -172,7 +174,7 @@ var opening = readline.keyIn(`We've got a long way to walk, press "w" to get sta
 part1()
 //Part 1 (5 + 1 walks)/////////
 function part1(){
-    if (walkCounter < 5 && !isDead){
+    if (walkCounter < 5 || !isDead){
         while(!isDead && walkCounter < 5){
             //var answer1 = readline.keyIn(`We've got a long way to walk, press "w" to get started or "q" to quit. `, {limit: 'wq'})
                 switch(opening){
