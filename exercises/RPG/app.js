@@ -123,6 +123,7 @@ function part1(){
                 case "w":
                     walk1();
                     walkCounter += 1;
+                    console.log(`Number of walks: ${walkCounter}`)
                     var choice1a = readline.keyIn(`You're getting closer! \n\n Press "w" to get started walking, press "i" to check your inventory, or "q" to quit.`, {limit: ['w','i','q']})
                     break;
                 case "q":
@@ -139,14 +140,15 @@ function part1(){
                 case "w":
                     walk1();
                     walkCounter += 1;
+                    console.log(`Number of walks: ${walkCounter}`)
                     var choice2a = readline.keyIn(`You're getting closer! \n\n Press "w" to get started walking, press "i" to check your inventory, or "q" to quit.`, {limit: ['w','i','q']})
             }
 
             switch(choice1b){
                 case "w":
-                walk1();
-                walkCounter += 1;
-                var choice1a = readline.keyIn(`You're getting closer! \n\n Press "w" to get started walking, press "i" to check your inventory, or "q" to quit.`, {limit: ['w','i','q']})
+                    walk1();
+                    walkCounter += 1;
+                    var choice1a = readline.keyIn(`You're getting closer! \n\n Press "w" to get started walking, press "i" to check your inventory, or "q" to quit.`, {limit: ['w','i','q']})
 
 
                 case "q":
