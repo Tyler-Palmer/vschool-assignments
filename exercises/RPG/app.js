@@ -18,12 +18,15 @@ function Player(name, hp, inventory){
         }
     }
 }
-
-function Enemy(name, type, hp, inventory){
-    this.name = name
+var enemy = new Enemy("Gh",50, "Coin")
+function Enemy(type, hp, inventory, attack){
     this.type = type
     this.hp = hp
     this.inventory = inventory
+    this.attack = function(){
+        return Math.floor(Math.random() * (30 - 10) + 10)
+    }
+    this.isDead = false
 }
 
 /////////////////////////
@@ -34,6 +37,7 @@ var playerChoiceOption1 = ["walk", "look around", "pick up item", "flee", "attac
 var playerChoiceOption2 = ["walk", "look around","look at inventory", "quit"]
 var playerChoiceOption3 = ["walk", "quit"]
 
+var enemyIsDead = false
 var isDead = false
 var hasWon = false
 var inventoryCount = 0
@@ -46,35 +50,85 @@ var walkCounter = 0
 function randomNum1(){
     var rand = Math.floor(Math.random()*100)
     if (rand < 25){
-        return "attacked"
+        return true
     } else{
-        return "safe"
+        return false
     }
 }
     //Attack chance 1/3
-function randomNum1(){
+function randomNum2(){
     var rand = Math.floor(Math.random()*100)
     if (rand <= 33){
-        return "attacked"
+        return true
     } else{
-        return "safe"
+        return false
     }
 }
 
 
 function walk1(){
-    console.log("You walked a bit")
+    var attackChance = randomNum1()
+    if (attackChance === true){
+        console.log(`\nYou walk along the path and an enemy appears!\n`)
+        enemyCreation1()
+        attackSequence1()
+    } else{
+        console.log(`\n\nWhile walking you notice something seems to be lurking in the shadows but you're safe for now.`)
+    }
 }
 
 function flee(){
-
+    var fleeChance = Math.floor(Math.random()* 2)
+    if (fleeChance === 1){
+        console.log(`You successfully escaped from the ${enemy.name}.`)
+        walk1()
+    }else{
+        console.log(`You weren't able to escape.`)
+        enemyAttack()
+    }
 }
 
 function attackEnemy(){
-
+    var pAttackAmount = player1.attack1()
+    enemy.hp -= pAttackAmount
+    console.log(`${player1.name} hit the ${enemy.type} for ${pAttackAmount} damage. It's remaining hp is: ${enemy.hp}`)
 }
 
 function enemyAttack(){
+    var eAttackAmount = enemy.attack()   
+    player1.hp -= eAttackAmount
+    console.log(`The ${enemy.type} hit you for ${eAttackAmount} damage. Your remaining hp is: ${player1.hp}`)
+}
+
+function attackSequence1(){
+    enemyCreation1()
+    var attackSequenceOptions = readline.keyIn(`Alright ${player1.name}, you can press "a" to attack the enemy, or "r" to run away. What do you want to do? `, {limit: ['a','r']})
+    while(enemy.hp > 0 || player1.hp > 0){
+        switch(attackSequenceOptions){
+            case "a":
+            attackEnemy();
+            enemyAttack();
+            var attackSequenceOptions2 = readline.keyIn(`\n\n Press "a" to keep attacking or "r" to attempt to run away. `)
+            break;
+
+            case "r":
+            flee();
+            break;
+        }
+        switch(attackSequenceOptions2){
+            case "a":
+                if(!enemyIsDead){
+                    enemyIsDead = true;
+                    console.log(`You killed the ${enemy.type}.\n`)
+                    walk1()
+                    break;
+                }else{
+                    attackEnemy();
+                    enemyAttack();
+                    attackSequenceOptions2
+                }
+        }
+    }
 
 }
 
@@ -87,8 +141,9 @@ function enemyDie(){
 
 }
 
-function enemyCreation(){
-
+function enemyCreation1(){
+    var enemy = new Enemy("Ghost",50, "Coin")
+    return enemy
 }
 ////// Player Fighting Dynamics
 
@@ -117,42 +172,57 @@ var opening = readline.keyIn(`We've got a long way to walk, press "w" to get sta
 part1()
 //Part 1 (5 + 1 walks)/////////
 function part1(){
-    while(player1.hp > 0 && walkCounter < 5){
-        //var answer1 = readline.keyIn(`We've got a long way to walk, press "w" to get started or "q" to quit. `, {limit: 'wq'})
-            switch(opening){
-                case "w":
-                    walk1();
-                    walkCounter += 1;
-                    console.log(`Number of walks: ${walkCounter}`)
-                    var choice1a = readline.keyIn(`You're getting closer! \n\n Press "w" to get started walking, press "i" to check your inventory, or "q" to quit.`, {limit: ['w','i','q']})
-                    break;
-                case "q":
-                    console.log(`Well that's dumb, you're a quitter ${player1.name}.`);
-                    player1.hp = 0;
-                    break;
-                case "i":
-                    console.log(`You don't have anything in your inventory yet`);
-                    var choice1b = readline.keyIn(`Press "w" to walk, or "q" to quit.`, {limit: ['w','q']})
-                    break;
-            }
-            
-            switch(choice1a){
-                case "w":
-                    walk1();
-                    walkCounter += 1;
-                    console.log(`Number of walks: ${walkCounter}`)
-                    var choice2a = readline.keyIn(`You're getting closer! \n\n Press "w" to get started walking, press "i" to check your inventory, or "q" to quit.`, {limit: ['w','i','q']})
-            }
+    if (walkCounter < 5 && !isDead){
+        while(!isDead && walkCounter < 5){
+            //var answer1 = readline.keyIn(`We've got a long way to walk, press "w" to get started or "q" to quit. `, {limit: 'wq'})
+                switch(opening){
+                    case "w":
+                        walk1();
+                        walkCounter += 1;
+                        console.log(`\nNumber of walks: ${walkCounter}`)
+                        var choice1a = readline.keyIn(`You're getting closer! \n\n Press "w" to get started walking, press "i" to check your inventory, or "q" to quit.`, {limit: ['w','i','q']})
+                        break;
+                        
+                    case "q":
+                        console.log(`\n\nWell that's dumb, you're a quitter ${player1.name}.`);
+                        isDead = true;
+                        break;
 
-            switch(choice1b){
-                case "w":
-                    walk1();
-                    walkCounter += 1;
-                    var choice1a = readline.keyIn(`You're getting closer! \n\n Press "w" to get started walking, press "i" to check your inventory, or "q" to quit.`, {limit: ['w','i','q']})
+                    case "i":
+                        console.log(`You don't have anything in your inventory yet`);
+                        var choice1b = readline.keyIn(`Press "w" to walk, or "q" to quit.`, {limit: ['w','q']})
+                        break;
+                }
+                
+                switch(choice1a){
+                    case "w":
+                        walk1();
+                        walkCounter += 1;
+                        console.log(`\n\nNumber of walks: ${walkCounter}`)
+                        var choice2a = readline.keyIn(`\n\nYou're getting closer! \n\n Press "w" to get started walking, press "i" to check your inventory, or "q" to quit.`, {limit: ['w','i','q']})
+                        break;
+                    
+                    case"q":
+                        console.log(`\n\nWell that's dumb, you're a quitter ${player1.name}.`);
+                        isDead = true;
+                        break;
+                }
+
+                switch(choice1b){
+                    case "w":
+                        walk1();
+                        walkCounter += 1;
+                        var choice1a = readline.keyIn(`\n\nYou're getting closer! \n\n Press "w" to get started walking, press "i" to check your inventory, or "q" to quit.`, {limit: ['w','i','q']})
 
 
-                case "q":
-            }
+                    case "q":
+                    console.log(`\n\nWell that's dumb, you're a quitter ${player1.name}.`);
+                    isDead = true;
+                    break;
+                }
+        }
+    }else{
+        isDead = true
     }
 }
 
