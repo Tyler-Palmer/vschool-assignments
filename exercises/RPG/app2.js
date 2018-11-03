@@ -1,10 +1,5 @@
 function randomNum1(){
-    var rand = Math.floor(Math.random()*100)
-    if (rand <= 25){
-        return "attacked"
-    } else{
-        return "safe"
-    }
+   return Math.floor(Math.random() * (50 - 30) + 30)
 }
 
 console.log(randomNum1())

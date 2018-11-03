@@ -11,7 +11,11 @@ function Player(name, hp, inventory){
         return Math.floor(Math.random() * (50 - 30) + 30)
     }
     this.attack2 = function(){
-        return Math.floor(Math.random() * 100)
+        if ((Math.floor(Math.random() * 10) >= 5)){
+            return Math.floor(Math.random() * 100)
+        }else{
+            console.log("Oooooo... your attack missed.")
+        }
     }
 }
 
@@ -58,8 +62,8 @@ function randomNum1(){
 }
 
 
-function walk(){
-console.log("You walked a bit")
+function walk1(){
+    console.log("You walked a bit")
 }
 
 function flee(){
@@ -106,15 +110,51 @@ console.log(`"Greetings traveller, welcome back." prints in your display and a s
 
 //Greeting
 console.log(`The holoscreen prompts you: \n`)
-player1.name = readline.question(`Do you remember your name? What do you call yourself?`)
-console.log(`\nExcellent, ${player1.name}, let's begin.`)
-answer1 = readline.keyIn(playerChoiceOption3,`We've got a long way to walk, press "w" to get started or "q" to quit.`,{limit:'wq})
-
+player1.name = readline.question(`Do you remember your name? What do you call yourself? `)
+console.log(`\nExcellent, ${player1.name}, let's begin.\n`)
+var opening = readline.keyIn(`We've got a long way to walk, press "w" to get started walking, press "i" to check your inventory, or "q" to quit. `, {limit: ['w','q', 'i']})
 //Insert option to skip ahead if user remembers the stage
-
+part1()
 //Part 1 (5 + 1 walks)/////////
+function part1(){
+    while(player1.hp > 0 && walkCounter < 5){
+        //var answer1 = readline.keyIn(`We've got a long way to walk, press "w" to get started or "q" to quit. `, {limit: 'wq'})
+            switch(opening){
+                case "w":
+                    walk1();
+                    walkCounter += 1;
+                    var choice1a = readline.keyIn(`You're getting closer! \n\n Press "w" to get started walking, press "i" to check your inventory, or "q" to quit.`, {limit: ['w','i','q']})
+                    break;
+                case "q":
+                    console.log(`Well that's dumb, you're a quitter ${player1.name}.`);
+                    player1.hp = 0;
+                    break;
+                case "i":
+                    console.log(`You don't have anything in your inventory yet`);
+                    var choice1b = readline.keyIn(`Press "w" to walk, or "q" to quit.`, {limit: ['w','q']})
+                    break;
+            }
+            
+            switch(choice1a){
+                case "w":
+                    walk1();
+                    walkCounter += 1;
+                    var choice2a = readline.keyIn(`You're getting closer! \n\n Press "w" to get started walking, press "i" to check your inventory, or "q" to quit.`, {limit: ['w','i','q']})
+            }
 
-// var p1q1 = ask.question(`\nWe need to get to the city-center, but it is a bit of a walk. Are you ready ${player1.name}? `)
+            switch(choice1b){
+                case "w":
+                walk1();
+                walkCounter += 1;
+                var choice1a = readline.keyIn(`You're getting closer! \n\n Press "w" to get started walking, press "i" to check your inventory, or "q" to quit.`, {limit: ['w','i','q']})
+
+
+                case "q":
+            }
+    }
+}
+
+// var p1q1 = readline.question(`\nWe need to get to the city-center, but it is a bit of a walk. Are you ready ${player1.name}? `)
 
 //if yes, auto walk to edge of park, sense danger lurking
 

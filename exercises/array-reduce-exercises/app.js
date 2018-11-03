@@ -7,7 +7,7 @@ function total(arr){
     return newArr
 }
 
-console.log(total([1,2,3]))
+// console.log(total([1,2,3]))
 
 //Turn an array of numbers into a long string of all those numbers
 
@@ -18,14 +18,15 @@ function stringConcat(arr){
     return str
 }
 
-console.log(stringConcat([1,2,3]))
+// console.log(stringConcat([1,2,3]))
 
 //Turn an array of voter objects into a count of how many people voted
 
 function totalVotes(arr) {
-    var count = arr.reduce(function(total, num){
-        if (arr.voted === true){
-           return total + num.voted
+    var count = 0
+    arr.reduce(function(total, num){
+        if (num.voted === true){
+           count++
         }
     })
     return count
