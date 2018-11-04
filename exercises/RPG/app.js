@@ -70,7 +70,6 @@ function walk1(){
     var attackChance = randomNum1()
     if (attackChance === true){
         console.log(`\nYou walk along the path and an enemy appears!\n`)
-        enemyCreation1()
         attackSequence1()
     } else{
         console.log(`\n\nWhile walking you notice something seems to be lurking in the shadows but you're safe for now.`)
@@ -82,10 +81,10 @@ function flee(){
     if (fleeChance === 1){
         console.log(`You successfully escaped from the ${enemy.type}.`)
         walk1()
-        break;
     }else{
         console.log(`You weren't able to escape. And the enemy attacks you.\n`)
         enemyAttack()
+
 
     }
 }
@@ -93,7 +92,12 @@ function flee(){
 function attackEnemy(){
     var pAttackAmount = player1.attack1()
     enemy.hp -= pAttackAmount
-    console.log(`\n${player1.name} hit the ${enemy.type} for ${pAttackAmount} damage. It's remaining hp is: ${enemy.hp}`)
+    if(enemy.hp <= 0){
+        enemyIsDead = true
+        part1()
+    }else{
+        console.log(`\n${player1.name} hit the ${enemy.type} for ${pAttackAmount} damage. It's remaining hp is: ${enemy.hp}`)
+    }
 }
 
 function enemyAttack(){
@@ -129,6 +133,10 @@ function attackSequence1(){
                     enemyAttack();
                     break;
                 }
+            
+            case "r":
+            flee();
+            break;
         }
     }
 
@@ -140,7 +148,8 @@ function die(){
 }
 
 function enemyDie(){
-
+    enemy.hp = 0
+    enemyIsDead = true
 }
 
 function enemyCreation1(){
@@ -177,6 +186,7 @@ function part1(){
     if (walkCounter < 5 || !isDead){
         while(!isDead && walkCounter < 5){
             //var answer1 = readline.keyIn(`We've got a long way to walk, press "w" to get started or "q" to quit. `, {limit: 'wq'})
+                
                 switch(opening){
                     case "w":
                         walk1();
@@ -224,6 +234,7 @@ function part1(){
                 }
         }
     }else{
+        console.log(`\n\n\n You reached the end of the road thusfar...`)
         isDead = true
     }
 }
