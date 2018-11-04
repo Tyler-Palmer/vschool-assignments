@@ -112,10 +112,17 @@ function attackSequence1(){
     while(enemy.hp > 0 || player1.hp > 0){
         switch(attackSequenceOptions){
             case "a":
-            attackEnemy();
-            enemyAttack();
-            var attackSequenceOptions2 = readline.keyIn(`\n\n Press "a" to keep attacking or "r" to attempt to run away. `)
-            break;
+            if(!enemy.hp <= 0){
+                enemyIsDead = true;
+                console.log(`You killed the ${enemy.type}.\n`)
+                part1()
+                break;
+            }else{
+                attackEnemy();
+                enemyAttack();
+                var attackSequenceOptions2 = readline.keyIn(`\n\n Press "a" to keep attacking or "r" to attempt to run away. `)
+                break;
+            }
 
             case "r":
             flee();
@@ -123,7 +130,7 @@ function attackSequence1(){
         }
         switch(attackSequenceOptions2){
             case "a":
-                if(!enemyIsDead){
+                if(!enemy.hp <= 0){
                     enemyIsDead = true;
                     console.log(`You killed the ${enemy.type}.\n`)
                     part1()
