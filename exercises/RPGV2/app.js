@@ -42,11 +42,11 @@ var beamRifle = {
 
 function Enemy(){
    var name = ["Humanoid Robot", "Sentinel Robot", "Battle Robot", "Mech Robot", "Stealth Robot"]
-   var item = [healthInjector.name, powerGloves.name, endGame.name];
+   var item = [healthInjector.name, powerGloves.name, endGame.name, beamRifle.name];
    this.item = item[Math.floor(Math.random()* item.length)];
    this.name = name[Math.floor(Math.random()* name.length)];
-   this.hitPoints = Math.floor(Math.random()* 100 + 50);
-   this.attackPower = Math.floor(Math.random()* 100 + 10);
+   this.hitPoints = Math.floor(Math.random()* 150 + 50);
+   this.attackPower = Math.floor(Math.random()* 100 + 30);
 }
 
 
@@ -69,8 +69,8 @@ console.log(`"Greetings traveller, welcome back." prints in your display screen 
 console.log(`The holoscreen prompts you: \n`)
 
 player1.name = readline.question(`"Do you remember your name? What do you call yourself?" `)
-console.log(`\n"Excellent, ${player1.name}, you know where to go, let's begin. Danger is ahead, but you will be assisted." \n`)
-console.log(`\nYou exit the gates and begin heading towards the city center. As you walk, you feel it's draw, pulling you. `)
+console.log(`\n"Excellent, ${player1.name}, you know where to go, let's begin. Danger is ahead, but you will be assisted. Last as long as you can." \n`)
+console.log(`\nYou exit the gates and begin heading towards the city center. `)
 
 while(playerGame === false){
     var choice = readline.keyIn(`"We've got a long way to walk, press "w" to get started walking, press "i" to check your inventory, or "q" to quit." `, {limit: ['w','q', 'i']})
@@ -121,9 +121,11 @@ while(playerGame === false){
                                 player1.inventory.splice(player1.inventory.indexOf(usedItem))
                                 console.log(`You used a Health Injector and your health is now: ${player1.hitPoints}`)
 
-                            }else if (player1.inventory[usedItem] === "Multi-dimensional Portal Gun"){
+                            }else if (player1.inventory[usedItem] === "Multi-Dimensional Portal Gun"){
                                 console.log(`You found the secret item and use it to Teleport out of the game. Cheater.`)
-                                playerGame = endGame.value;
+                                playerGame =true;
+                                fightChoice = false;
+                                break;
 
                             }else if (player1.inventory[usedItem] === "Power Gloves"){
                                 player1.attackPower += powerGloves.attackPower
@@ -162,6 +164,7 @@ while(playerGame === false){
                     if(player1.hitPoints <= 0){
                         console.log(`You suck ${player1.name}, you're dead.`)
                         playerGame = true;
+                        fightChoice = false;
                         break;
                     }else{
                         console.log(`You killed the ${enemy.name}, and you now have a ${enemy.item} in your inventory.`)
@@ -172,6 +175,8 @@ while(playerGame === false){
                     if(player1.fightsWon === 5){
                         console.log(`You won!`)
                         playerGame = true;
+                        fightChoice = false;
+                        player1.hitPoints = 0;
                         //can add part 2 return new function for part 2
                     }
                 }else{
@@ -205,44 +210,51 @@ while(playerGame === false){
             }else{
                 console.log(`You walk safely, but sense something lurking in the folds of space-time...\n`)
                 }
-            }else if(choice === "i"){
-                console.log(`Your Name is: ${player1.name}\n Your Health is: ${player1.hitPoints}\n Your Attack Power is: ${player1.attackPower}\n Your inventory includes: ${player1.inventory}\n`)
-                var pickItem = readline.keyInYN(`Would you like to use an item? "y" or "n"`)
-                if(pickItem === y){
-                    if(player1.inventory.length === 0){
-                        pickItem = false;
-                        console.log(`You don't have anything in your inventory.`)
-                    }else{
-                    pickItem = true;
-                    console.log(`Here is your list of items: ${player1.inventory}`)
-                    var usedItem = readline.keyInSelect(player1.inventory)
-                    }
-                }else{
+        }else if(choice === "i"){
+            console.log(`Your Name is: ${player1.name}\n Your Health is: ${player1.hitPoints}\n Your Attack Power is: ${player1.attackPower}\n Your inventory includes: ${player1.inventory}\n`)
+            var pickItem = readline.keyInYN(`Would you like to use an item? "y" or "n"`)
+            if(pickItem === y){
+                if(player1.inventory.length === 0){
                     pickItem = false;
+                    console.log(`You don't have anything in your inventory.`)
+                }else{
+                pickItem = true;
+                console.log(`Here is your list of items: ${player1.inventory}`)
+                var usedItem = readline.keyInSelect(player1.inventory)
                 }
-                if (player1.inventory[usedItem] === "Health Injector"){
-                    player1.hitPoints += healthInjector.value
-                    player1.inventory.splice(player1.inventory.indexOf(usedItem))
-                    console.log(`You used a Health Injector and your health is now: ${player1.hitPoints}`)
-
-                }else if (player1.inventory[usedItem] === "Multi-Dimensional Portal Gun "){
-                    console.log(`You found the secret item and use it to Teleport out of the game. Cheater.`)
-                    playerGame = endGame.value;
-
-                }else if (player1.inventory[usedItem] === "Power Gloves"){
-                    player1.attackPower += powerGloves.attackPower
-                    player1.inventory.splice(player1.inventory.indexOf(usedItem))
-                    console.log(`You equipped the Attack Gloves and your Attack Power is now: ${player1.attackPower}`)
-
-                }else if (player1.inventory[usedItem] === "Beam Rifle"){
-                    player1.attackPower += beamRifle.attackPower
-                    player1.inventory.splice(player1.inventory.indexOf(usedItem))
-                    console.log(`You equipped a Beam Rifle and your Attack Power is now: ${player1.attackPower}`)
-            }else if(choice === "q"){
-                console.log(`You're a quitter ${player1.name}`)
-                playerGame = endGame.value;
+            }else{
+                pickItem = false;
             }
+            //
+            if (player1.inventory[usedItem] === "Health Injector"){
+                player1.hitPoints += healthInjector.value
+                player1.inventory.splice(player1.inventory.indexOf(usedItem))
+                console.log(`You used a Health Injector and your health is now: ${player1.hitPoints}`)
+
+            }else if (player1.inventory[usedItem] === "Multi-Dimensional Portal Gun"){
+                console.log(`You found the secret item and use it to Teleport out of the game. Cheater.`)
+                playerGame = true;
+                fightChoice = false;
+                break;
+
+            }else if (player1.inventory[usedItem] === "Power Gloves"){
+                player1.attackPower += powerGloves.attackPower
+                player1.inventory.splice(player1.inventory.indexOf(usedItem))
+                console.log(`You equipped the Power Gloves and your Attack Power is now: ${player1.attackPower}`)
+
+            }else if (player1.inventory[usedItem] === "Beam Rifle"){
+                player1.attackPower += beamRifle.attackPower
+                player1.inventory.splice(player1.inventory.indexOf(usedItem))
+                console.log(`You equipped a Beam Rifle and your Attack Power is now: ${player1.attackPower}`)
+        }
+        }else if(choice === "q"){
+            console.log(`You're a quitter ${player1.name}`)
+            playerGame = true;
+            fightChoice = false;
+            break;
+
+        }
 }
-if(backgroundSound){
-    backgroundSound.kill()
-}
+// if(backgroundSound){
+//     backgroundSound.kill()
+// }
