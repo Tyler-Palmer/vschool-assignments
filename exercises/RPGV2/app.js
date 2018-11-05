@@ -59,7 +59,7 @@ console.log(`\nExcellent, ${player1.name}, let's begin.\n`)
 
 while(playerGame === false){
     var choice = readline.keyIn(`We've got a long way to walk, press "w" to get started walking, press "i" to check your inventory, or "q" to quit. `, {limit: ['w','q', 'i']})
-        if(choice === "w" && !enemyIsDead){
+        if(choice === "w"){
             if(enemyChance() === 1){
                 var enemy = new Enemy();
                 console.log(enemy)
@@ -67,18 +67,25 @@ while(playerGame === false){
                 combatChoice = readline.keyIn(`What do you want to do? Press "a" to attack. Press "r" to run.`, {limit: ['a','r']})
                 if(combatChoice === 'a'){
                     fightChoice = true;
-                    while(enemy.hitPoints >= 0 && player1.hitPoints >= 0){  
+                    while(enemy.hitPoints > 0 && player1.hitPoints > 0){
                         enemy.hitPoints -= player1.attackPower;
                         console.log(`You hit the ${enemy.name}, for ${player1.attackPower} damage and their health is now ${enemy.hitPoints}`)
+                        if(enemy.hitPoints <= 0){      
+                            // console.log(`You killed the ${enemy.name}`)
+                        }else{
                         player1.hitPoints -= enemy.attackPower;
                         console.log(`The ${enemy.name} hit you for ${enemy.attackPower} damage and your health is now ${player1.hitPoints}`)
-                        var midAttackChoice = readline.keyIn(`Press "a" to keep fighting, press "i" to check your inventory, press "r" to run`, {limit: ['a','i','r']})
+                        var midAttackChoice = readline.keyIn(`Press "a" to keep fighting, press "i" to check your inventory, press "r" to run\n`, {limit: ['a','i','r']})
                         //Mid-Fight Prompts
                         if (midAttackChoice === 'a'){
                             enemy.hitPoints -= player1.attackPower;
                             console.log(`You hit the ${enemy.name}, for ${player1.attackPower} damage and their health is now ${enemy.hitPoints}`)
+                            if(enemy.hitPoints <= 0){      
+                                console.log(`You killed the ${enemy.name}`)
+                            }else{
                             player1.hitPoints -= enemy.attackPower;
                             console.log(`The ${enemy.name} hit you for ${enemy.attackPower} damage and your health is now ${player1.hitPoints}`)
+                            }
                         }else if(midAttackChoice === 'i'){
                             console.log(`Your Name is: ${player1.name}\n Your Health is: ${player1.hitPoints}\n Your Attack Power is: ${player1.attackPower}\n Your inventory includes: ${player1.inventory}\n`)
                             var pickItem = readline.keyInYN(`Would you like to use an item? "y" or "n"`)
@@ -135,6 +142,7 @@ while(playerGame === false){
                                 }
                             }
                         }
+                    }
                     }
                     if(player1.hitPoints <= 0){
                         console.log(`You suck ${player1.name}, you're dead.`)

@@ -28,7 +28,93 @@
                                 ]
                             }
 
-           ]
+           ],
+           "Cold Sandwiches": [
+               {
+                   "item1": [
+                       {
+                           "BLT": [
+                               {
+                                   "ingredients": ["bread", "butter", "bacon", "lettuce", "tomato", "mayo", "pesto"],
+                                   "description": "A scrumptious blt quartered and served the way mom used to"
+                               }
+                           ]
+                       }
+                   ],
+                   "item2": [
+                    {
+                        "PBJ": [
+                            {
+                                "ingredients": ["bread", "peanutbutter", "raspberry jam"],
+                                "description": "A classic PBJ made spaceship-style"
+                            }
+                        ]
+                    }
+                ]
+               }
+           ],
+           "Hot Sandwiches": [
+            {
+                "item1": [
+                    {
+                        "Reuben": [
+                            {
+                                "ingredients": ["bread", "butter", "pastrami", "1000 island sauce", "tomato", "saurkraut","secret spices"],
+                                "description": "A scrumptious reuben made homestyle and juicy"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "Desserts": [
+            {
+                "item1": [
+                    {
+                        "Brownie Sundae": [
+                            {
+                                "ingredients": ["Fat, mult-layered brownie", "icecream", "chocolate syrup"],
+                                "description": "Chocolate, chocolate, chocolate deliciousness"
+                            }
+                        ]
+                    }
+                ],
+                "item2": [
+                    {
+                        "Creme Brulee": [
+                            {
+                                "ingredients": ["Sugar, custard, water"],
+                                "description": "World-class Creme Brulee"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "Drinks": [
+            {
+                "item1": [
+                    {
+                        "Old Fashioned": [
+                            {
+                                "ingredients": ["Bourbon", "sugar cube", "bitters", "orange peel", "splash water"],
+                                "description": "An old-fashioned old-fashioned, just how it should be"
+                            }
+                        ]
+                    }
+                ],
+                "item2": [
+                    {
+                        "Cosmo": [
+                            {
+                                "ingredients": ["Vodka", "lime juice", "triple-sec", "cranberry juice"],
+                                "description": "Basic Cosmo for a basic person"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
         }
     ]
 }

@@ -11,20 +11,20 @@ var Skier = {
             location: "Utah",
             difficulty: 6,
             bestAspect: "fun",
-        }, 
-        {
+            }, 
+            {
             name: "Alta",
             location: "Utah",
             difficulty: 8,
             bestAspect: "steep lines and deep snow"
-        },
-        {
+            },
+            {
             name: "Park City",
             location: "Utah",
             difficulty: 6,
             bestAspect: "terrain park"
-        }
-    ],
+            }
+        ],
         friends: [
             {name: "Kyle",
             age: 25,
@@ -38,21 +38,24 @@ var Skier = {
                 location: "Utah",
                 difficulty: 6,
                 bestAspect: "fun",
-            }, 
-            {
+                }, 
+                {
                 name: "Alta",
                 location: "Utah",
                 difficulty: 8,
                 bestAspect: "steep lines and deep snow"
-            },
-            {
+                },
+                {
                 name: "Squaw",
                 location: "California",
                 difficulty: 8,
                 bestAspect: "cliffs"
-            }
-        ]
-        },
+                }
+            ],
+            friends:    [
+                
+            ]
+            },
             {name: "Ben",
             age: 27,
             favoriteTrick: {
@@ -65,21 +68,20 @@ var Skier = {
                 location: "Utah",
                 difficulty: 6,
                 bestAspect: "fun",
-            }, 
-            {
+                }, 
+                {
                 name: "Alta",
                 location: "Utah",
                 difficulty: 8,
                 bestAspect: "steep lines and deep snow"
-            },
-            {
+                },
+                {
                 name: "Squaw",
                 location: "California",
                 difficulty: 8,
                 bestAspect: "cliffs"
+                }
+                ]
             }
         ]
-        },
-        }
-    ],
-}
+    }
