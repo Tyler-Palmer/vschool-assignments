@@ -3,8 +3,13 @@ var readline = require("readline-sync")
 var playerGame = false
 var fightChoice = false
 var y = true;
+var enemyIsDead = false
 var run = function(){
     return Math.floor(Math.random()*2)
+}
+
+var enemyChance = function(){
+    return Math.floor(Math.random()* 4)
 }
 
 var healthPotion = {
@@ -54,52 +59,86 @@ console.log(`\nExcellent, ${player1.name}, let's begin.\n`)
 
 while(playerGame === false){
     var choice = readline.keyIn(`We've got a long way to walk, press "w" to get started walking, press "i" to check your inventory, or "q" to quit. `, {limit: ['w','q', 'i']})
-        if(choice === "w"){
-            var enemy = new Enemy();
-            console.log(enemy)
-            console.log(`You ran into a ${enemy.name}!`)
-            combatChoice = readline.keyIn(`What do you want to do? Press "a" to attack. Press "r" to run.`, {limit: ['a','r']})
-            if(combatChoice === 'a'){
-                fightChoice = true;
-                while(enemy.hitPoints > 0 && player1.hitPoints > 0){  
-                    enemy.hitPoints -= player1.attackPower;
-                    console.log(`You hit the ${enemy.name}, for ${player1.attackPower} damage and their health is now ${enemy.hitPoints}`)
-                    player1.hitPoints -= enemy.attackPower;
-                    console.log(`The ${enemy.name} hit you for ${enemy.attackPower} damage and your health is now ${player1.hitPoints}`)
-                }
-                if(player1.hitPoints <= 0){
-                    console.log(`You suck ${player1.name}, you're dead.`)
-                    playerGame = true;
-                    break;
-                }else{
-                    console.log(`You killed the ${enemy.name}, and you now have a ${enemy.item} in your inventory.`)
-                    player1.inventory.push(enemy.item)
-                    player1.fightsWon += 1
-                    console.log(`Fights won: ${player1.fightsWon}`)
-                }
-                if(player1.fightsWon === 5){
-                    console.log(`You won!`)
-                    playerGame = true;
-                    //can add part 2 return new function for part 2
-                }
-            }else{
-                fightChoice = false;
-                if(run() === 1){
-                    console.log(`You got away.`)
-                    combatChoice = true;
-                }else{
-                    player1.hitPoints -= enemy.attackPower;
-                    console.log(`You weren't able to get away. The ${enemy.name} gets an attack in for ${enemy.attackPower} damage and your Health is ${player1.hitPoints} now.`)
-                    combatChoice = true;
-
-                    while(player1.hitPoints > 0 && enemy.hitPoints < 0){
+        if(choice === "w" && !enemyIsDead){
+            if(enemyChance() === 1){
+                var enemy = new Enemy();
+                console.log(enemy)
+                console.log(`You ran into a ${enemy.name}!`)
+                combatChoice = readline.keyIn(`What do you want to do? Press "a" to attack. Press "r" to run.`, {limit: ['a','r']})
+                if(combatChoice === 'a'){
+                    fightChoice = true;
+                    while(enemy.hitPoints >= 0 && player1.hitPoints >= 0){  
                         enemy.hitPoints -= player1.attackPower;
                         console.log(`You hit the ${enemy.name}, for ${player1.attackPower} damage and their health is now ${enemy.hitPoints}`)
                         player1.hitPoints -= enemy.attackPower;
                         console.log(`The ${enemy.name} hit you for ${enemy.attackPower} damage and your health is now ${player1.hitPoints}`)
+                        var midAttackChoice = readline.keyIn(`Press "a" to keep fighting, press "i" to check your inventory, press "r" to run`, {limit: ['a','i','r']})
+                        //Mid-Fight Prompts
+                        if (midAttackChoice === 'a'){
+                            enemy.hitPoints -= player1.attackPower;
+                            console.log(`You hit the ${enemy.name}, for ${player1.attackPower} damage and their health is now ${enemy.hitPoints}`)
+                            player1.hitPoints -= enemy.attackPower;
+                            console.log(`The ${enemy.name} hit you for ${enemy.attackPower} damage and your health is now ${player1.hitPoints}`)
+                        }else if(midAttackChoice === 'i'){
+                            console.log(`Your Name is: ${player1.name}\n Your Health is: ${player1.hitPoints}\n Your Attack Power is: ${player1.attackPower}\n Your inventory includes: ${player1.inventory}\n`)
+                            var pickItem = readline.keyInYN(`Would you like to use an item? "y" or "n"`)
+                            if(pickItem === y){
+                                if(player1.inventory.length === 0){
+                                    pickItem = false;
+                                    console.log(`You don't have anything in your inventory.`)
+                                }else{
+                                pickItem = true;
+                                console.log(`Here is your list of items: ${player1.inventory}`)
+                                var usedItem = readline.keyInSelect(player1.inventory)
+                                }
+                            }else{
+                                pickItem = false;
+                            }
+                            if (player1.inventory[usedItem] === "Health Potion"){
+                                player1.hitPoints += healthPotion.value
+                                player1.inventory.splice(player1.inventory.indexOf(usedItem))
+                                console.log(`You used a Health Potion and your health is now: ${player1.hitPoints}`)
+
+                            }else if (player1.inventory[usedItem] === "God Status"){
+                                console.log(`You found the secret, you're God and you end the game.`)
+                                playerGame = endGame.value;
+
+                            }else if (player1.inventory[usedItem] === "Attack Potion"){
+                                player1.attackPower += attackPotion.attackPower
+                                player1.inventory.splice(player1.inventory.indexOf(usedItem))
+                                console.log(`You used an Attack Potion and your Attack Power is now: ${player1.attackPower}`)
+                            }
+                        }else{
+                            fightChoice = false;
+                            if(run() === 1){
+                                console.log(`You got away.`)
+                                combatChoice = true;
+                            }else{
+                                player1.hitPoints -= enemy.attackPower;
+                                console.log(`You weren't able to get away. The ${enemy.name} gets an attack in for ${enemy.attackPower} damage and your Health is ${player1.hitPoints} now.`)
+                                combatChoice = true;
+
+                                while(player1.hitPoints > 0 && enemy.hitPoints > 0){
+                                    enemy.hitPoints -= player1.attackPower;
+                                    console.log(`You hit the ${enemy.name}, for ${player1.attackPower} damage and their health is now ${enemy.hitPoints}`)
+                                    player1.hitPoints -= enemy.attackPower;
+                                    console.log(`The ${enemy.name} hit you for ${enemy.attackPower} damage and your health is now ${player1.hitPoints}`)
+                                }
+                                if(player1.hitPoints <= 0){
+                                    console.log(`You suck ${player1.name}, you're dead.`)
+                                    break;
+                                }else{
+                                    console.log(`You killed the ${enemy.name}, and you now have a ${enemy.item} in your inventory.`)
+                                    player1.inventory.push(enemy.item)
+                                    player1.fightsWon += 1
+                                    console.log(`Fights won: ${player1.fightsWon}`)
+                                }
+                            }
+                        }
                     }
                     if(player1.hitPoints <= 0){
                         console.log(`You suck ${player1.name}, you're dead.`)
+                        playerGame = true;
                         break;
                     }else{
                         console.log(`You killed the ${enemy.name}, and you now have a ${enemy.item} in your inventory.`)
@@ -107,40 +146,73 @@ while(playerGame === false){
                         player1.fightsWon += 1
                         console.log(`Fights won: ${player1.fightsWon}`)
                     }
-                }
-
-            }
-        }else if(choice === "i"){
-            console.log(`Your Name is: ${player1.name}\n Your Health is: ${player1.hitPoints}\n Your Attack Power is: ${player1.attackPower}\n Your inventory includes: ${player1.inventory}\n`)
-            var pickItem = readline.keyInYN(`Would you like to use an item? "y" or "n"`)
-            if(pickItem === y){
-                if(player1.inventory.length === 0){
-                    pickItem = false;
-                    console.log(`You don't have anything in your inventory.`)
+                    if(player1.fightsWon === 5){
+                        console.log(`You won!`)
+                        playerGame = true;
+                        //can add part 2 return new function for part 2
+                    }
                 }else{
-                pickItem = true;
-                console.log(`Here is your list of items: ${player1.inventory}`)
-                var usedItem = readline.keyInSelect(player1.inventory)
+                    fightChoice = false;
+                    if(run() === 1){
+                        console.log(`You got away.`)
+                        combatChoice = true;
+                    }else{
+                        player1.hitPoints -= enemy.attackPower;
+                        console.log(`You weren't able to get away. The ${enemy.name} gets an attack in for ${enemy.attackPower} damage and your Health is ${player1.hitPoints} now.`)
+                        combatChoice = true;
+
+                        while(player1.hitPoints > 0 && enemy.hitPoints > 0){
+                            enemy.hitPoints -= player1.attackPower;
+                            console.log(`You hit the ${enemy.name}, for ${player1.attackPower} damage and their health is now ${enemy.hitPoints}`)
+                            player1.hitPoints -= enemy.attackPower;
+                            console.log(`The ${enemy.name} hit you for ${enemy.attackPower} damage and your health is now ${player1.hitPoints}`)
+                        }
+                        if(player1.hitPoints <= 0){
+                            console.log(`You suck ${player1.name}, you're dead.`)
+                            break;
+                        }else{
+                            console.log(`You killed the ${enemy.name}, and you now have a ${enemy.item} in your inventory.`)
+                            player1.inventory.push(enemy.item)
+                            player1.fightsWon += 1
+                            console.log(`Fights won: ${player1.fightsWon}`)
+                        }
+                    }
                 }
+                /// End of first choice
             }else{
-                pickItem = false;
-            }
-            if (player1.inventory[usedItem] === "Health Potion"){
-                player1.hitPoints += healthPotion.value
-                player1.inventory.splice(player1.inventory.indexOf(usedItem))
-                console.log(`You used a Health Potion and your health is now: ${player1.hitPoints}`)
+                console.log(`You walk safely, but sense something lurking in the shadows...\n`)
+                }
+            }else if(choice === "i"){
+                console.log(`Your Name is: ${player1.name}\n Your Health is: ${player1.hitPoints}\n Your Attack Power is: ${player1.attackPower}\n Your inventory includes: ${player1.inventory}\n`)
+                var pickItem = readline.keyInYN(`Would you like to use an item? "y" or "n"`)
+                if(pickItem === y){
+                    if(player1.inventory.length === 0){
+                        pickItem = false;
+                        console.log(`You don't have anything in your inventory.`)
+                    }else{
+                    pickItem = true;
+                    console.log(`Here is your list of items: ${player1.inventory}`)
+                    var usedItem = readline.keyInSelect(player1.inventory)
+                    }
+                }else{
+                    pickItem = false;
+                }
+                if (player1.inventory[usedItem] === "Health Potion"){
+                    player1.hitPoints += healthPotion.value
+                    player1.inventory.splice(player1.inventory.indexOf(usedItem))
+                    console.log(`You used a Health Potion and your health is now: ${player1.hitPoints}`)
 
-            }else if (player1.inventory[usedItem] === "God Status"){
-                console.log(`You found the secret, you're God and you end the game.`)
+                }else if (player1.inventory[usedItem] === "God Status"){
+                    console.log(`You found the secret, you're God and you end the game.`)
+                    playerGame = endGame.value;
+
+                }else if (player1.inventory[usedItem] === "Attack Potion"){
+                    player1.attackPower += attackPotion.attackPower
+                    player1.inventory.splice(player1.inventory.indexOf(usedItem))
+                    console.log(`You used an Attack Potion and your Attack Power is now: ${player1.attackPower}`)
+                }
+            } else if(choice === "q"){
+                console.log(`You're a quitter ${player1.name}`)
                 playerGame = endGame.value;
-
-            }else if (player1.inventory[usedItem] === "Attack Potion"){
-                player1.attackPower += attackPotion.attackPower
-                player1.inventory.splice(player1.inventory.indexOf(usedItem))
-                console.log(`You used an Attack Potion and your Attack Power is now: ${player1.attackPower}`)
             }
-        } else if(choice === "q"){
-            console.log(`You're a quitter ${player1.name}`)
-            playerGame = endGame.value;
-        }
 }
