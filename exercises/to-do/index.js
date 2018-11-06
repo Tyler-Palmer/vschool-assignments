@@ -16,12 +16,13 @@ function listTodos(arr){
     var header1 = document.createElement("h1")
     var header2 = document.createElement("h1")
     var header3 = document.createElement("h1")
+    var image = document.createElement("img")
 
     var title = document.createElement("h3")
     var description = document.createElement("h3")
     var completed = document.createElement("h3")
     
-    //Put the Todo title inside of that element
+    //Put the Todo items inside of that element
     header1.textContent = "Title:"
     title.textContent = arr[i].title
 
@@ -51,17 +52,24 @@ function listTodos(arr){
 
 //Part 2: Post a new Todo
 
-var todoForm = document.addTodoForm
+var toDoForm = document.addTodoForm
 
-todoForm.addEventListener("Submit", function(event){
+toDoForm.addEventListener("submit", function(event){
     event.preventDefault()
     //When the user submits//Grab the user input
-    var title = todoForm.title.value
+    var title = toDoForm.title.value
+    var description = toDoForm.description.value
+    var completed = toDoForm.completed.value
 
-    //Put that input in a new object
-    var newTodo = {}
-    newTodo.title = title
-
+    //Put dat input in a new object
+    var newToDo = {}
+    newToDo.title = title
+    newToDo.description = description
+    newToDo.completed = completed
     //Send a Post request
-    axios.post("https://api.vschool.io/tyler/todo", newTodo).
+    axios.post("https://api.vschool.io/tyler/todo", newToDo).then(function(response){
+        console.log(response.data) //Should be a new todo with an #id added
+    }).catch(function(error){
+        console.log(error)
+    })
 })

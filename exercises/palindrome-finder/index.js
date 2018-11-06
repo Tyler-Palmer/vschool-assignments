@@ -32,7 +32,7 @@
 function isPalindrome(str){
         var normalized = str.match(/[a-z]/gi).join('').toLowerCase()
         console.log(normalized)
-        var reversed = str.match(/[a-z]/gi).join('').toLowerCase().split('').reverse().join('')
+        var reversed = normalized.split('').reverse().join('')
         console.log(reversed)
         if(normalized === reversed){
             console.log("Yup, that's a palindrome")
