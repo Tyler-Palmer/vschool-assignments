@@ -17,3 +17,8 @@
 .finished{
     text-decoration: line-through;
 }
+
+.todo img{
+    width: 200px;
+    height: 200px;
+}
