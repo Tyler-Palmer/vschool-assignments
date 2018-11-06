@@ -11,9 +11,7 @@ function backgroundMusic(){
 
 //////////////
 var playerGame = false
-var fightChoice = false
 var y = true;
-var enemyIsDead = false
 var run = function(){
     return Math.floor(Math.random()*2)
 }
@@ -46,7 +44,7 @@ function Enemy(){
    this.item = item[Math.floor(Math.random()* item.length)];
    this.name = name[Math.floor(Math.random()* name.length)];
    this.hitPoints = Math.floor(Math.random()* 200 + 50);
-   this.attackPower = Math.floor(Math.random()* 100 + 30);
+   this.attackPower = Math.floor(Math.random()* 100 + 10);
 }
 
 
@@ -61,9 +59,9 @@ backgroundMusic()
 //Opening
 console.log(`You wake up. It's early morning. Slowly your senses come to you and you become aware that you are lying down on a park bench in a picturesque park overlooking the city\n`)
 console.log(`Looking around, you notice that it is eerily quiet and no one is around. No city sounds, no birds, no insects, even the air is still, only a slight ringing in your ear punctuates the silence. "What is going on?" You ask yourself.\n`)
-console.log(`Suddenly, as if you feel a haptic pulse in your left palm and you jolt upright\n`)
+console.log(`Suddenly, you feel a haptic pulse in your left palm and you jolt upright\n`)
 console.log(`Intuitively, you use your thumb to tap your palm, and a holographic screen appears in your vision...\n`)
-console.log(`"Greetings traveller, welcome back." prints in your display screen and a passing moment of insight hits your consciousness. You know you've been here before\n`)
+console.log(`"Greetings traveller, welcome back." prints in your display screen and realization hits you like a wave. You know you've been here before\n`)
 
 //Greeting
 console.log(`The holoscreen prompts you: \n`)
@@ -80,8 +78,7 @@ while(playerGame === false){
                 console.log(`\n\nA ${enemy.name} appears out of the folds of space-time and begins rushing towards you.\n`)
                 combatChoice = readline.keyIn(`What do you want to do? Press "a" to attack. Press "r" to run. `, {limit: ['a','r']})
                 if(combatChoice === 'a'){
-                    fightChoice = true;
-                    while(enemy.hitPoints > 0 && player1.hitPoints > 0){
+                        while(enemy.hitPoints > 0 && player1.hitPoints > 0){
                         enemy.hitPoints -= player1.attackPower;
                         console.log(`You attack the ${enemy.name}, for ${player1.attackPower} damage and their health is now ${enemy.hitPoints}`)
                         if(enemy.hitPoints <= 0){      
@@ -127,7 +124,7 @@ while(playerGame === false){
                             }else if (player1.inventory[usedItem] === "Multi-Dimensional Portal Gun"){
                                 console.log(`You found the secret item and use it. Cheater. Use "control + c" to teleport out of the game.`)
                                 playerGame =true;
-                                fightChoice = false;
+                
                                 player1.hitPoints = 0;
                                 break;
 
@@ -137,7 +134,7 @@ while(playerGame === false){
                                 console.log(`You equipped the Power Gloves and your Attack Power is now: ${player1.attackPower}`)
                             }
                         }else{
-                            fightChoice = false;
+            
                             if(run() === 1){
                                 console.log(`You got away.`)
                                 combatChoice = true;
@@ -145,12 +142,23 @@ while(playerGame === false){
                                 player1.hitPoints -= enemy.attackPower;
                                 console.log(`You weren't able to get away. The ${enemy.name} gets an attack in for ${enemy.attackPower} damage and your Health is now ${player1.hitPoints} now.`)
                                 combatChoice = true;
+                                if(enemy.hitPoints <= 0){      
+                                console.log(`You eliminated the ${enemy.name}`)
+                            }else{
+                            player1.hitPoints -= enemy.attackPower;
+                            console.log(`The ${enemy.name} attacked you for ${enemy.attackPower} damage and your health is now ${player1.hitPoints}`)
+                            }
 
                                 while(player1.hitPoints > 0 && enemy.hitPoints > 0){
                                     enemy.hitPoints -= player1.attackPower;
                                     console.log(`You attack the ${enemy.name}, for ${player1.attackPower} damage and their health is now ${enemy.hitPoints}`)
-                                    player1.hitPoints -= enemy.attackPower;
-                                    console.log(`The ${enemy.name} attacked you for ${enemy.attackPower} damage and your health is now ${player1.hitPoints}`)
+                                    console.log(enemy.hitPoints);
+                                    if(enemy.hitPoints <= 0){
+                                        console.log(`You eliminated the ${enemy.name}.`)
+                                    }else{
+                                        player1.hitPoints -= enemy.attackPower;
+                                        console.log(`The ${enemy.name} attacked you for ${enemy.attackPower} damage and your health is now ${player1.hitPoints}`)
+                                    }
                                 }
                                 if(player1.hitPoints <= 0){
                                     console.log(`You suck ${player1.name}, you're dead.`)
@@ -168,10 +176,10 @@ while(playerGame === false){
                     if(player1.hitPoints <= 0){
                         console.log(`You suck ${player1.name}, you're dead.`)
                         playerGame = true;
-                        fightChoice = false;
+        
                         break;
                     }else{
-                        console.log(`The ${enemy.name} dropped a ${enemy.item} and it is store in your inventory.`)
+                        console.log(`The ${enemy.name} dropped a ${enemy.item} and it is stored in your inventory.`)
                         player1.inventory.push(enemy.item)
                         player1.fightsWon += 1
                         console.log(`Fights won: ${player1.fightsWon}`)
@@ -179,15 +187,15 @@ while(playerGame === false){
                     if(player1.fightsWon === 5){
                         console.log(`You won!`)
                         playerGame = true;
-                        fightChoice = false;
+        
                         player1.hitPoints = 0;
                         //can add part 2 return new function for part 2
                     }
                 }else{
-                    fightChoice = false;
+    
                     if(run() === 1){
                         console.log(`You got away.`)
-                        combatChoice = true;
+                        combatChoice = false;
                     }else{
                         player1.hitPoints -= enemy.attackPower;
                         console.log(`You weren't able to get away. The ${enemy.name} gets an attack in for ${enemy.attackPower} damage and your Health is ${player1.hitPoints} now.`)
@@ -196,9 +204,13 @@ while(playerGame === false){
                         while(player1.hitPoints > 0 && enemy.hitPoints > 0){
                             enemy.hitPoints -= player1.attackPower;
                             console.log(`You attack the ${enemy.name}, for ${player1.attackPower} damage and their health is now ${enemy.hitPoints}`)
+                            if(enemy.hitPoints <= 0){
+                                console.log(`You killed the enemy`)
+                            }else{
                             player1.hitPoints -= enemy.attackPower;
                             console.log(`The ${enemy.name} attacks you for ${enemy.attackPower} damage and your health is now ${player1.hitPoints}`)
                         }
+                    }
                         if(player1.hitPoints <= 0){
                             console.log(`You suck ${player1.name}, you're dead.`)
                             break;
@@ -215,7 +227,7 @@ while(playerGame === false){
                 console.log(`\nYou walk safely but sense something lurking in the folds of space-time...\n`)
                 }
         }else if(choice === "i"){
-            console.log(`Your Name is: ${player1.name}\nYour Health is: ${player1.hitPoints}\nYour Attack Power is: ${player1.attackPower}\n Your inventory includes: ${player1.inventory}\n`)
+            console.log(`Your Name is: ${player1.name}\nYour Health is: ${player1.hitPoints}\nYour Attack Power is: ${player1.attackPower}\nYour inventory includes: ${player1.inventory}\n`)
             var pickItem = readline.keyInYN(`Would you like to use an item? "y" or "n"`)
             if(pickItem === y){
                 if(player1.inventory.length === 0){
@@ -238,7 +250,7 @@ while(playerGame === false){
             }else if (player1.inventory[usedItem] === "Multi-Dimensional Portal Gun"){
                 console.log(`You found the secret item and use it. Cheater. Use "control + c" to teleport out of the game.`)
                 playerGame = true;
-                fightChoice = false;
+
                 player1.hitPoints = 0;
                 break;
 
@@ -255,7 +267,6 @@ while(playerGame === false){
         }else if(choice === "q"){
             console.log(`You're a quitter ${player1.name}. Press "control + c" to exit.`)
             playerGame = true;
-            fightChoice = false;
             player1.hitPoints = 0;
             break;
 
