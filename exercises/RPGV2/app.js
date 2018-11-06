@@ -24,7 +24,7 @@ var enemyChance = function(){
 
 var healthInjector = {
     name: "Health Injector",
-    value: 25,
+    value: 50,
 }
 
 var powerGloves = {
@@ -45,7 +45,7 @@ function Enemy(){
    var item = [healthInjector.name, powerGloves.name, endGame.name, beamRifle.name];
    this.item = item[Math.floor(Math.random()* item.length)];
    this.name = name[Math.floor(Math.random()* name.length)];
-   this.hitPoints = Math.floor(Math.random()* 150 + 50);
+   this.hitPoints = Math.floor(Math.random()* 200 + 50);
    this.attackPower = Math.floor(Math.random()* 100 + 30);
 }
 
@@ -86,7 +86,7 @@ while(playerGame === false){
                         enemy.hitPoints -= player1.attackPower;
                         console.log(`You attack the ${enemy.name}, for ${player1.attackPower} damage and their health is now ${enemy.hitPoints}`)
                         if(enemy.hitPoints <= 0){      
-                            // console.log(`You killed the ${enemy.name}`)
+                            console.log(`Way to go!\n`)
                         }else{
                         player1.hitPoints -= enemy.attackPower;
                         console.log(`The ${enemy.name} attacked you for ${enemy.attackPower} damage and your health is now ${player1.hitPoints}`)
@@ -122,9 +122,10 @@ while(playerGame === false){
                                 console.log(`You used a Health Injector and your health is now: ${player1.hitPoints}`)
 
                             }else if (player1.inventory[usedItem] === "Multi-Dimensional Portal Gun"){
-                                console.log(`You found the secret item and use it to Teleport out of the game. Cheater.`)
+                                console.log(`You found the secret item and use it. Cheater. Use "control + c" to teleport out of the game.`)
                                 playerGame =true;
                                 fightChoice = false;
+                                player1.hitPoints = 0;
                                 break;
 
                             }else if (player1.inventory[usedItem] === "Power Gloves"){
@@ -167,7 +168,7 @@ while(playerGame === false){
                         fightChoice = false;
                         break;
                     }else{
-                        console.log(`You killed the ${enemy.name}, and you now have a ${enemy.item} in your inventory.`)
+                        console.log(`The ${enemy.name} dropped a ${enemy.item} and it is store in your inventory.`)
                         player1.inventory.push(enemy.item)
                         player1.fightsWon += 1
                         console.log(`Fights won: ${player1.fightsWon}`)
@@ -232,9 +233,10 @@ while(playerGame === false){
                 console.log(`You used a Health Injector and your health is now: ${player1.hitPoints}`)
 
             }else if (player1.inventory[usedItem] === "Multi-Dimensional Portal Gun"){
-                console.log(`You found the secret item and use it to Teleport out of the game. Cheater.`)
+                console.log(`You found the secret item and use it. Cheater. Use "control + c" to teleport out of the game.`)
                 playerGame = true;
                 fightChoice = false;
+                player1.hitPoints = 0;
                 break;
 
             }else if (player1.inventory[usedItem] === "Power Gloves"){
@@ -248,9 +250,10 @@ while(playerGame === false){
                 console.log(`You equipped a Beam Rifle and your Attack Power is now: ${player1.attackPower}`)
         }
         }else if(choice === "q"){
-            console.log(`You're a quitter ${player1.name}`)
+            console.log(`You're a quitter ${player1.name}. Press "control + c" to exit.`)
             playerGame = true;
             fightChoice = false;
+            player1.hitPoints = 0;
             break;
 
         }

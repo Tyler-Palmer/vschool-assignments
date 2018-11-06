@@ -1,0 +1,261 @@
+.container1{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    /* grid-template-rows: 3; */
+    grid-gap: 10px;
+    
+}
+
+.one{
+    background-color: red;
+    grid-column: 1/3
+}
+
+.two{
+    background-color: blue;
+    grid-column: 3/5
+}
+
+.three{
+    background-color: green;
+    grid-column: 1/4;
+}
+
+.four{
+    background-color: purple;
+    grid-column: 4/5;
+}
+
+.five{
+    background-color: yellow;
+    grid-column: 1/5;
+}
+
+.one,
+.two,
+.three,
+.four,
+.five{
+    height: 100px;
+    border-radius: 10px;
+}
+
+/* Part 2*/
+
+.container2{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: 3;
+    grid-gap: 10px;
+    
+}
+
+.six{
+    background-color: red;
+    grid-column: 1/5
+}
+
+.seven{
+    background-color: blue;
+    grid-column: 1/3;
+    grid-row: 2/4;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.eight{
+    background-color: green;
+    grid-column: 3/5;
+}
+
+.nine{
+    background-color: purple;
+}
+
+.ten{
+    background-color: purple;
+
+}
+
+.six,
+/* .seven, */
+.eight,
+.nine,
+.ten{
+    height: 100px;
+    border-radius: 10px;
+}
+
+/*Problem 3*/
+
+.container3{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    /* grid-auto-rows: 100px; */
+    grid-gap: 10px;
+    
+}
+
+.eleven{
+    background-color: blue;
+}
+
+.twelve{
+    background-color: red;
+}
+
+.thirteen{
+    background-color: blue; 
+}
+
+.fourteen{
+    background-color: red;
+}
+
+.fifteen{
+    background-color: blue;
+}
+
+.sixteen{
+    background-color: red;
+}
+
+.seventeen{
+    background-color: blue;
+}
+
+.eighteen{
+    background-color: red;
+}
+
+.nineteen{
+    background-color: blue;
+}
+
+.twenty{
+    background-color: red;
+}
+
+.twentyone{
+    background-color: blue;
+}
+
+.twentytwo{
+    background-color: red;
+}
+
+.eleven,
+.twelve,
+.thirteen,
+.fourteen,
+.fifteen,
+.sixteen,
+.seventeen,
+.eighteen,
+.nineteen,
+.twenty,
+.twentyone,
+.twentytwo{
+    height: 100px;
+    border-radius: 10px;
+}
+
+/*Problem 4 */
+
+.container4{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto-fill;
+    grid-gap: 10px;
+}
+
+.container4 > div{
+    padding: 15px;
+}
+
+.header{
+    background-color: red;
+}
+
+.sidebar{
+    background-color: blue;
+}
+
+.content{
+    background-color: green;
+}
+
+.sidebar2{
+    background-color: purple;
+}
+
+.footer{
+    background-color: yellow;
+}
+
+.header,
+.sidebar,
+.content,
+.sidebar2,
+.footer{
+    height: auto;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 768px) {
+    .container4{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(auto-fit, 1fr);
+        grid-template-areas:
+            "h h h h"
+            "s c c c"
+            "s2 s2 s2 s2"
+            "f f f f"
+    }
+    .header{
+        grid-area: h;
+    }
+    .sidebar{
+        grid-area: s;
+    }
+    .content{
+        grid-area: c;
+    }
+    .sidebar2{
+        grid-area: s2;
+    }
+    .footer{
+        grid-area: f;
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+    .container4{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(auto-fit, 1fr);
+        grid-template-areas:
+            "h h h h"
+            "s c c s2"
+            "s c c s2"
+            "f f f f"
+    }
+    .header{
+        grid-area: h;
+    }
+    .sidebar{
+        grid-area: s;
+    }
+    .content{
+        grid-area: c;
+    }
+    .sidebar2{
+        grid-area: s2;
+    }
+    .footer{
+        grid-area: f;
+    }
+
+}
