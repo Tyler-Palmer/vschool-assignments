@@ -4,15 +4,22 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Axios Todo</title>
-    <link type="stylesheet" 
+    <link rel="stylesheet" href="style.css">
     
 </head>
 <body>
-    <h1>Todo List</h1>
+    <h1>Add Item:</h1>
+
+    <form name="addTodoForm">
+            <input type="text" name="title" placeholder="Title">
+            <button>Add Todo</button>
+    </form>
+
+    <h1>Todo List:</h1>
 
     <div id="list-container"></div>
-
-    <script src="index.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script> 
+    <script src="index.js"></script>
 </body>
 </html>

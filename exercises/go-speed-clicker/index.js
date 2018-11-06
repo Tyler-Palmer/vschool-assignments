@@ -21,6 +21,6 @@ document.getElementById("clickCount").textContent = clickCount;
 
 window.addEventListener("click", function(){
     clickCount++
-    localStorage.setItem("clickCount", clickCount)
     document.getElementById("clickCount").textContent = clickCount
+    localStorage.setItem("clickCount", clickCount)
 })

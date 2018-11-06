@@ -3,7 +3,7 @@ var sound = require("play-sound")(opts = {})
 
 var backgroundSound;
 function backgroundMusic(){
-    backgroundSound = sound.play("./Chrome Sparks Goddess (mp3cut.net).mp3", function(err){
+    backgroundSound = sound.play("./David Bowie- 03 Moonage Daydream.mp3", function(err){
         if(err && !err.killed) throw err
     });
 }
@@ -24,12 +24,12 @@ var enemyChance = function(){
 
 var healthInjector = {
     name: "Health Injector",
-    value: 50,
+    value: 100,
 }
 
 var powerGloves = {
     name: "Power Gloves",
-    attackPower: 25,
+    attackPower: 40,
 }
 var endGame = {
     name: "Multi-Dimensional Portal Gun",
@@ -37,7 +37,7 @@ var endGame = {
 }
 var beamRifle = {
     name: "Beam Rifle",
-    attackPower: 50
+    attackPower: 75
 }
 
 function Enemy(){
@@ -63,22 +63,21 @@ console.log(`You wake up. It's early morning. Slowly your senses come to you and
 console.log(`Looking around, you notice that it is eerily quiet and no one is around. No city sounds, no birds, no insects, even the air is still, only a slight ringing in your ear punctuates the silence. "What is going on?" You ask yourself.\n`)
 console.log(`Suddenly, as if you feel a haptic pulse in your left palm and you jolt upright\n`)
 console.log(`Intuitively, you use your thumb to tap your palm, and a holographic screen appears in your vision...\n`)
-console.log(`"Greetings traveller, welcome back." prints in your display screen and a passing moment of insight hits your consciousness. Something feels familiar here. You've been here before\n`)
+console.log(`"Greetings traveller, welcome back." prints in your display screen and a passing moment of insight hits your consciousness. You know you've been here before\n`)
 
 //Greeting
 console.log(`The holoscreen prompts you: \n`)
 
 player1.name = readline.question(`"Do you remember your name? What do you call yourself?" `)
-console.log(`\n"Excellent, ${player1.name}, you know where to go, let's begin. Danger is ahead, but you will be assisted. Last as long as you can." \n`)
+console.log(`\n"Excellent, ${player1.name}, you know where to go, let's begin. Danger is ahead, you need to eliminate 5 enemies. Last as long as you can." \n`)
 console.log(`\nYou exit the gates and begin heading towards the city center. `)
 
 while(playerGame === false){
-    var choice = readline.keyIn(`"We've got a long way to walk, press "w" to get started walking, press "i" to check your inventory, or "q" to quit." `, {limit: ['w','q', 'i']})
+    var choice = readline.keyIn(`\n"We've got a long way to walk, press "w" to get started walking, press "i" to check your inventory, or "q" to quit." `, {limit: ['w','q', 'i']})
         if(choice === "w"){
             if(enemyChance() === 1){
                 var enemy = new Enemy();
-                console.log(enemy)
-                console.log(`A ${enemy.name} appears out of the folds of space-time and begins rushing towards you.\n`)
+                console.log(`\n\nA ${enemy.name} appears out of the folds of space-time and begins rushing towards you.\n`)
                 combatChoice = readline.keyIn(`What do you want to do? Press "a" to attack. Press "r" to run. `, {limit: ['a','r']})
                 if(combatChoice === 'a'){
                     fightChoice = true;
@@ -86,7 +85,7 @@ while(playerGame === false){
                         enemy.hitPoints -= player1.attackPower;
                         console.log(`You attack the ${enemy.name}, for ${player1.attackPower} damage and their health is now ${enemy.hitPoints}`)
                         if(enemy.hitPoints <= 0){      
-                            console.log(`Way to go!\n`)
+                            console.log(`\nWay to go!\n`)
                         }else{
                         player1.hitPoints -= enemy.attackPower;
                         console.log(`The ${enemy.name} attacked you for ${enemy.attackPower} damage and your health is now ${player1.hitPoints}`)
@@ -96,13 +95,13 @@ while(playerGame === false){
                             enemy.hitPoints -= player1.attackPower;
                             console.log(`You attack the ${enemy.name}, for ${player1.attackPower} damage and their health is now ${enemy.hitPoints}`)
                             if(enemy.hitPoints <= 0){      
-                                console.log(`You deftly terminate the ${enemy.name}`)
+                                console.log(`You eliminated the ${enemy.name}`)
                             }else{
                             player1.hitPoints -= enemy.attackPower;
                             console.log(`The ${enemy.name} attacked you for ${enemy.attackPower} damage and your health is now ${player1.hitPoints}`)
                             }
                         }else if(midAttackChoice === 'i'){
-                            console.log(`Your Name is: ${player1.name}\n Your Health is: ${player1.hitPoints}\n Your Attack Power is: ${player1.attackPower}\n Your inventory includes: ${player1.inventory}\n`)
+                            console.log(`Your Name is: ${player1.name}\nYour Health is: ${player1.hitPoints}\nYour Attack Power is: ${player1.attackPower}\n Your inventory includes: ${player1.inventory}\n`)
                             var pickItem = readline.keyInYN(`Would you like to use an item? "y" or "n"`)
                             if(pickItem === y){
                                 if(player1.inventory.length === 0){
@@ -110,8 +109,12 @@ while(playerGame === false){
                                     console.log(`You don't have anything in your inventory.`)
                                 }else{
                                 pickItem = true;
-                                console.log(`Here is your list of items: ${player1.inventory}`)
-                                var usedItem = readline.keyInSelect(player1.inventory)
+                                    if(player1.inventory.length === 0){
+                                        console.log("You don't have anything in your inventory.")
+                                    }else{
+                                        console.log(`Here is your list of items: ${player1.inventory}`)
+                                        var usedItem = readline.keyInSelect(player1.inventory)
+                                    }
                                 }
                             }else{
                                 pickItem = false;
@@ -153,7 +156,7 @@ while(playerGame === false){
                                     console.log(`You suck ${player1.name}, you're dead.`)
                                     break;
                                 }else{
-                                    console.log(`You deftly terminated the ${enemy.name}, and you now have a ${enemy.item} in your inventory.`)
+                                    console.log(`You eliminated the ${enemy.name}, and you now have a ${enemy.item} in your inventory.`)
                                     player1.inventory.push(enemy.item)
                                     player1.fightsWon += 1
                                     console.log(`Fights won: ${player1.fightsWon}`)
@@ -200,7 +203,7 @@ while(playerGame === false){
                             console.log(`You suck ${player1.name}, you're dead.`)
                             break;
                         }else{
-                            console.log(`You deftly terminated the ${enemy.name}, and you now have a ${enemy.item} in your inventory.`)
+                            console.log(`You eliminated the ${enemy.name}, and you now have a ${enemy.item} in your inventory.`)
                             player1.inventory.push(enemy.item)
                             player1.fightsWon += 1
                             console.log(`Fights won: ${player1.fightsWon}`)
@@ -209,10 +212,10 @@ while(playerGame === false){
                 }
                 /// End of first choice
             }else{
-                console.log(`You walk safely, but sense something lurking in the folds of space-time...\n`)
+                console.log(`\nYou walk safely but sense something lurking in the folds of space-time...\n`)
                 }
         }else if(choice === "i"){
-            console.log(`Your Name is: ${player1.name}\n Your Health is: ${player1.hitPoints}\n Your Attack Power is: ${player1.attackPower}\n Your inventory includes: ${player1.inventory}\n`)
+            console.log(`Your Name is: ${player1.name}\nYour Health is: ${player1.hitPoints}\nYour Attack Power is: ${player1.attackPower}\n Your inventory includes: ${player1.inventory}\n`)
             var pickItem = readline.keyInYN(`Would you like to use an item? "y" or "n"`)
             if(pickItem === y){
                 if(player1.inventory.length === 0){
@@ -258,6 +261,6 @@ while(playerGame === false){
 
         }
 }
-// if(backgroundSound){
-//     backgroundSound.kill()
-// }
+if(backgroundSound){
+    backgroundSound.kill()
+}
