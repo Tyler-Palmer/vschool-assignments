@@ -29,7 +29,26 @@ function listTodos(arr){
         check.type = "checkbox"
         check.name = "checkOff"
         check.setAttribute("id", arr[i]._id)
+
+    //Part 4 Delete Button
         
+        var deleteD = document.createElement("button")
+        deleteD.textContent = "Delete Item"
+        deleteD.name = "deleteButton"
+        deleteD.setAttribute("id", arr[i]._id)
+        deleteD.addEventListener('click', function(){
+            deleteItem(this.id)
+        })
+
+    //Part 5 Edit Button
+        var edit = document.createElement("button")
+        edit.textContent = "Edit Item"
+        edit.name = "editButton"
+        edit.setAttribute("id", arr[i]._id)
+        edit.addEventListener("click", function(){
+            editItem(this.id)
+        })
+
     //Put the Todo items inside of that element
 
         header1.textContent = "Title:"
@@ -58,6 +77,10 @@ function listTodos(arr){
         todoContainer.appendChild(completed)
         
         todoContainer.appendChild(check)
+
+        todoContainer.appendChild(deleteD)
+
+        todoContainer.appendChild(edit)
         
         if (arr[i].imgUrl){
             todoContainer.appendChild(image)
@@ -66,9 +89,9 @@ function listTodos(arr){
         }
 
         document.getElementById("list-container").appendChild(todoContainer)
+        
         checkOffNow(arr[i])
         }
-    
 }
 
 //Part 2: Post a new Todo
@@ -91,7 +114,7 @@ toDoForm.addEventListener("submit", function(event){
     newToDo.imgUrl = image
     //Send a Post request
     axios.post("https://api.vschool.io/tyler/todo", newToDo).then(function(response){
-        console.log(response.data) //Should be a new todo with an #id added
+        // console.log(response.data) //Should be a new todo with an #id added
     }).catch(function(error){
         console.log(error)
     })
@@ -102,8 +125,7 @@ toDoForm.addEventListener("submit", function(event){
 function checkOffNow (todo){
     var checkBox = document.querySelectorAll("input[name=checkOff]")
     console.log(checkBox)
-    for(var i = 0; i < checkBox.length; i++){
-        console.log(checkBox[i])
+    for(let i = 0; i < checkBox.length; i++){
         checkBox[i].addEventListener('change', function(event){
             event.preventDefault()
             var todoList2 = todo._id
@@ -115,3 +137,30 @@ function checkOffNow (todo){
 }
 
 //Part 4: Delete
+
+function deleteItem(itemId){
+    // var deleteButt = document.querySelectorAll("button[name=deleteButton]")
+    // console.log(deleteButt)
+    // var toBeDeleted = deleteItem._id
+    // console.log(toBeDeleted)
+    // for (let i = 0; i < deleteButt.length; i++){
+    //     deleteButt[i].addEventListener('click', function(event){
+    //         event.preventDefault()
+    //         console.log(`The item to be deleted is: ${toBeDeleted}`)
+            axios.delete(`https://api.vschool.io/tyler/todo/${itemId}`).then(function(response){
+            })
+    //     })
+    // }
+}
+
+//Part 5:
+//Each Todo with have an "edit" Button
+//When clicked, the info will change to input boxes that are autofilled with the old Todo data
+//A user can change the value of these inputs
+//When the "edit" button is clicked, it will change to a "save" button.
+//When "save" is clicked, the form will disapear, and the new values will be displayed.
+//On save, the todo will be edited in the database
+
+function editItem(itemId){
+    
+}
