@@ -114,25 +114,4 @@ function checkOffNow (todo){
     }
 }
 
-
-// function checkOffNow (arr){
-//     var checkBox = document.querySelectorAll("input[name=checkOff]")
-//     console.log(checkBox)
-//     var toDoContainer2 = document.getElementsByClassName("list-container")
-//     for(var i = 0; i < checkBox.length; i++){
-//         checkBox[i].addEventListener('change', function(event){
-//             event.preventDefault()
-//             console.log(arr[i])
-//             console.log(checkBox[i])
-//             if(this.checked){
-//                 var complete
-//                 axios.get('https://api.vschool.io/tyler/todo/').then(function(response){
-//                     complete = response.data.completed
-//                     axios.put('https://api.vschool.io/tyler/todo/' + this._id), {completed: !complete}
-//                 })
-//             }else{
-//                 console.log("It's not checked")
-//             }
-//         })
-//     }
-// }
+//Part 4: Delete
