@@ -13,12 +13,12 @@ const dead = {
 
 class Player {
     constructor(){
-        this.name = ""; //string
-        this.totalCoins = 0; //number
+        this.name = "";
+        this.totalCoins = 0;
         this.status = [poweredUp.name, big.name, small.name, dead.name]
         this.statusIndex = 0;
-        this.hasStar = 0;
-        this.gameActive = true; //becomes false when "status" = "dead"
+        this.hasStar = false;
+        this.gameActive = true;
     }
     setName(namePicked){
         if(namePicked === "Mario"){
@@ -33,10 +33,10 @@ class Player {
         //called whenever player is hit by enemy. Will set the status property "Powered Up" -> "Big" -> "Small" -> "Dead"
         if(this.statusIndex < 0 && this.hasStar > 0){
             console.log(`Your star protected you.`)
-            this.statusIndex -= 1
-        }else if(this.statusIndex === 2){
-            this.statusIndex = 3
-            console.log(`You Lost the game!`)
+            this.statusIndex += 1
+            this.hasStar = false
+        }else if(this.statusIndex >= 2){
+            this.statusIndex +=1
             this.gameActive = false
         }else{
             this.statusIndex += 1
@@ -45,9 +45,9 @@ class Player {
     gotPowerUp(){
         if(this.statusIndex > 0){
             this.statusIndex -= 1
-        }else if(this.statusIndex <= 0){
+        }else if(this.statusIndex <= 0 && this.hasStar === false){
             this.statusIndex -= 1
-            this.hasStar += 1
+            this.hasStar = true
         }
     }
     addCoin(){
@@ -62,7 +62,7 @@ class Player {
             console.log(`Status: ${this.status[this.statusIndex]}`)
         }
         console.log(`Total Coins: ${this.totalCoins}`)
-        if(this.hasStar > 0){
+        if(this.hasStar === true){
             console.log(`Congratulations you got a star!`)
         }
     }
@@ -77,7 +77,8 @@ player1.setName("Mario")
 
 let endgame = function(){
     if (player1.gameActive === false){
-        clearInterval(myGame)
+        console.log(`You lost!`)
+        clearInterval(game)
     }
 }
 
@@ -98,8 +99,7 @@ function runGame(){
 }
 
 //Call Game
-player1.print()
-setInterval(runGame, 1000)
+let game = setInterval(runGame, 1000) 
 
 
 ///Write condition to clear out the star in inventory
