@@ -11,6 +11,7 @@ function listTodos(arr){
         var todoContainer = document.createElement('div')
     //Add a class to that container
         todoContainer.classList.add("todo")
+        todoContainer.setAttribute("id", arr[i]._id)
 
     //Create an html element
         var header1 = document.createElement("h1")

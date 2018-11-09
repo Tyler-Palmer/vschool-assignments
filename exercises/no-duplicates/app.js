@@ -48,3 +48,5 @@ console.log(noDuplicate('this is a string'))
 // }
 
 // remDup('this is a string')
+
+console.log(Math.floor(Math.random()*3))
