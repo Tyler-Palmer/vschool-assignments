@@ -68,14 +68,22 @@ class Player {
     }
 }
 
-function randRange(){
-    return Math.floor(Math.random()*3)
+//Setup game
+
+const player1 = new Player()
+player1.setName("Mario")
+
+//Endgame function
+
+let endgame = function(){
+    if (player1.gameActive === false){
+        clearInterval(myGame)
+    }
 }
+
 //Runs the Game
 function runGame(){
-    while(player1.gameActive === true){
-        player1.print()
-        var randNum = randRange()
+        var randNum = Math.floor(Math.random()*3)
         if(randNum === 0){
             player1.gotHit()
         }else if(randNum === 1){
@@ -85,14 +93,13 @@ function runGame(){
         }else{
             console.log("Functionality not programmed in yet")
         }
-    }
+        player1.print()
+        endgame()
 }
 
-//Setup game
-
-const player1 = new Player()
-player1.setName("Mario")
-
 //Call Game
+player1.print()
+setInterval(runGame, 1000)
 
-myGame = setInterval(runGame(), 1000)
+
+///Write condition to clear out the star in inventory
