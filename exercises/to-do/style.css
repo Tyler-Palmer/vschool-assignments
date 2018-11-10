@@ -1,7 +1,9 @@
 body{
     display: grid;
     background-image: url("./yellow_notepaper.jpg");
-    padding: 20px;
+    background-repeat:no-repeat;
+    background-size:cover;
+    padding: 40px;
 }
 
 .listContainer{
@@ -27,4 +29,14 @@ body{
 .todo img{
     width: 200px;
     height: 200px;
+}
+
+.visibile{
+    display: none;
+}
+
+.invisible{
+    display: none;
+    width: 100px;
+    height:200px;
 }

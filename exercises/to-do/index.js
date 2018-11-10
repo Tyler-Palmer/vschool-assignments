@@ -6,51 +6,80 @@ axios.get('https://api.vschool.io/tyler/todo/').then(function(response){
 
 //Step 1: Get Todos
 function listTodos(arr){
-    for (var i = 0; i < arr.length; i++){
+    for (let i = 0; i < arr.length; i++){
     //Create new container for each Todo item
-        var todoContainer = document.createElement('div')
+        const todoContainer = document.createElement('div')
     //Add a class to that container
         todoContainer.classList.add("todo")
-        todoContainer.setAttribute("id", arr[i]._id)
+        todoContainer.id = arr[i]._id
 
     //Create an html element
-        var header1 = document.createElement("h1")
-        var header2 = document.createElement("h1")
-        var header3 = document.createElement("h1")
+        const header1 = document.createElement("h1")
+        const header2 = document.createElement("h1")
+        const header3 = document.createElement("h1")
         
-        var image = document.createElement("img")
+        const image = document.createElement("img")
 
-        var title = document.createElement("h3")
-        var description = document.createElement("h3")
-        var completed = document.createElement("h3")
+        const title = document.createElement("h3")
+        const description = document.createElement("h3")
+        const completed = document.createElement("h3")
 
-    //Part 3 Checkbox
+    //Part 3 Create checkbox and assign specific data ID
 
-        var check = document.createElement("input")
+        const check = document.createElement("input")
         check.type = "checkbox"
         check.name = "checkOff"
-        check.setAttribute("id", arr[i]._id)
+        check.id = arr[i]._id
 
-    //Part 4 Delete Button
+    //Part 4 Create Delete Button, assign specific data ID, create Event Listener for function to perform Delete
         
-        var deleteD = document.createElement("button")
+        const deleteD = document.createElement("button")
         deleteD.textContent = "Delete Item"
         deleteD.name = "deleteButton"
-        deleteD.setAttribute("id", arr[i]._id)
+        deleteD.id = arr[i]._id
         deleteD.addEventListener('click', function(){
             deleteItem(this.id)
         })
 
-    //Part 5 Edit Button
-        var edit = document.createElement("button")
+    //Part 5 Create Edit Button, assign specific data ID, create Event Listener for function to perform Edit
+        const edit = document.createElement("button")
         edit.textContent = "Edit Item"
         edit.name = "editButton"
-        edit.setAttribute("id", arr[i]._id)
+        edit.id = arr[i]._id
+        
         edit.addEventListener("click", function(){
             editItem(this.id)
         })
 
-    //Put the Todo items inside of that element
+        //Part 5 Edit Form Creation
+        const editForm = document.createElement("form")
+        editForm.setAttribute("id", arr[i]._id)
+        editForm.setAttribute("name", "formInput")
+        editForm.classList.add("invisible")
+
+        const formTitle = document.createElement("input")
+        formTitle.type = "text"
+        formTitle.setAttribute("name", "formTitle")
+
+        const formDesc = document.createElement("input")
+        formDesc.type = "text"
+        formDesc.setAttribute("name", "formDesc")
+
+        const formComplete = document.createElement("input")
+        formComplete.type = "text"
+        formComplete.setAttribute("name", "formComplete")
+
+
+        const formImage = document.createElement("input")
+        formImage.type = "text"
+        formImage.setAttribute("name", "formImage")
+
+
+        const formSave = document.createElement("button")
+        formSave.textContent = "Save Item"
+        formSave.name = "editSave"
+
+    //Part 1 Put the Todo items inside of that element
 
         header1.textContent = "Title:"
         title.textContent = arr[i].title
@@ -67,7 +96,13 @@ function listTodos(arr){
 
         image.src = arr[i].imgUrl
 
-    //Put element on the DOM
+        //Part 5 Edit Form information assignment
+        formTitle.value = arr[i].title
+        formDesc.value = arr[i].description
+        formComplete.value = arr[i].completed
+        formImage.value = arr[i].imgUrl
+
+    //Put todo elements on the DOM in each todo DIV
         todoContainer.appendChild(header1)
         todoContainer.appendChild(title)
 
@@ -88,7 +123,15 @@ function listTodos(arr){
         }else{
             console.log("No image")
         }
-
+        todoContainer.appendChild(editForm)
+        
+        editForm.appendChild(formTitle)
+        editForm.appendChild(formDesc)
+        editForm.appendChild(formComplete)
+        editForm.appendChild(formImage)
+        editForm.appendChild(formSave)
+      
+    //Put each todo DIV in the list-container main DIV and call function to check if item to be marked/unmarked complete
         document.getElementById("list-container").appendChild(todoContainer)
         
         checkOffNow(arr[i])
@@ -96,7 +139,6 @@ function listTodos(arr){
 }
 
 //Part 2: Post a new Todo
-
 var toDoForm = document.addTodoForm
 
 toDoForm.addEventListener("submit", function(event){
@@ -124,13 +166,13 @@ toDoForm.addEventListener("submit", function(event){
 //Part 3: Put Part 1, "Put" new value of complete or incomplete in database
 
 function checkOffNow (todo){
-    var checkBox = document.querySelectorAll("input[name=checkOff]")
+    const checkBox = document.querySelectorAll("input[name=checkOff]")
     console.log(checkBox)
     for(let i = 0; i < checkBox.length; i++){
         checkBox[i].addEventListener('change', function(event){
             event.preventDefault()
-            var todoList2 = todo._id
-            var complete = todo.completed    
+            const todoList2 = todo._id
+            const complete = todo.completed    
             axios.put(`https://api.vschool.io/tyler/todo/${todoList2}`, {completed: !complete}).then(function(response){
             })
         })    
@@ -140,18 +182,8 @@ function checkOffNow (todo){
 //Part 4: Delete
 
 function deleteItem(itemId){
-    // var deleteButt = document.querySelectorAll("button[name=deleteButton]")
-    // console.log(deleteButt)
-    // var toBeDeleted = deleteItem._id
-    // console.log(toBeDeleted)
-    // for (let i = 0; i < deleteButt.length; i++){
-    //     deleteButt[i].addEventListener('click', function(event){
-    //         event.preventDefault()
-    //         console.log(`The item to be deleted is: ${toBeDeleted}`)
-            axios.delete(`https://api.vschool.io/tyler/todo/${itemId}`).then(function(response){
-            })
-    //     })
-    // }
+    axios.delete(`https://api.vschool.io/tyler/todo/${itemId}`).then(function(response){
+    })
 }
 
 //Part 5:
@@ -163,5 +195,45 @@ function deleteItem(itemId){
 //On save, the todo will be edited in the database
 
 function editItem(itemId){
-    
+    //Get the specific item to be edited by ID & toggle edit form to be visible
+    let editItem = document.getElementById(itemId)
+    for(let i = 0; i < editItem.childNodes.length - 1; i++){
+        editItem.childNodes[i].classList.toggle("visibile");
+    }
+    //grab the form to edit (the last childNode, then listen for 'submit' from 'save' button)
+    console.log(editItem.childNodes)
+    editItem.childNodes[editItem.childNodes.length-1].style.display = "block"
+    editItem.childNodes[editItem.childNodes.length-1].addEventListener("submit", function(event){
+        event.preventDefault()
+        //Grab the user input values, if no change to values, values stay the same
+        let title;
+        let description;
+        let completed; 
+        let image; 
+        if(editItem.childNodes[editItem.childNodes.length-1].formTitle.value === ""){
+        }else{
+            title = editItem.childNodes[editItem.childNodes.length-1].formTitle.value
+        }
+        if(editItem.childNodes[editItem.childNodes.length-1].formDesc.value === ""){
+        }else{
+            description = editItem.childNodes[editItem.childNodes.length-1].formDesc.value
+        }
+        if(editItem.childNodes[editItem.childNodes.length-1].formComplete.value === ""){
+        }else{
+            completed = editItem.childNodes[editItem.childNodes.length-1].formComplete.value
+        }
+        if(editItem.childNodes[editItem.childNodes.length-1].formImage.value === ""){
+        }else{
+            image = editItem.childNodes[editItem.childNodes.length-1].formImage.value
+        }
+        //Place input values into object and use put request to assign the new/same values to the item
+        var editTodo = {}
+        editTodo.title = title
+        editTodo.description = description
+        editTodo.completed = completed
+        editTodo.imgUrl = image
+        axios.put(`https://api.vschool.io/tyler/todo/${editItem.childNodes[editItem.childNodes.length-1].id}`, editTodo).then(function(response){
+            console.log(response.data)
+        })
+    })
 }
