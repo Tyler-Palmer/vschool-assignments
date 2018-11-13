@@ -158,10 +158,7 @@ toDoForm.addEventListener("submit", function(event){
     //Send a Post request
     axios.post("https://api.vschool.io/tyler/todo", newToDo).then(function(response){
         // console.log(response.data) //Should be a new todo with an #id added
-    }).catch(function(error){
-        console.log(error)
-    })
-})
+    }).catch(error => console.log(error))
 
 //Part 3: Put Part 1, "Put" new value of complete or incomplete in database
 

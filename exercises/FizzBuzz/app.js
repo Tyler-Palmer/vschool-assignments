@@ -15,3 +15,7 @@ function fizzBuzz(){
     }
 }
 fizzBuzz();
+////////
+const fizzBuzz = () => {
+
+}

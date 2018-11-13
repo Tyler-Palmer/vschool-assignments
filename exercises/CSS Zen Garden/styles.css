@@ -1,5 +1,223 @@
-.header{
-    background-image: "./huntington.jpg, gridlines-opaque.png";
-    background-repeat: no-repeat, no-repeat;
-    background-size: 100%;
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One|Libre+Baskerville:400,400italic);
+@font-face { 
+    font-family: 'verdemoderna';
+    src: url('./fonts/verdemoderna.woff') format('woff');
+    }
+@font-face { 
+    font-family: 'italic';
+    src: url('./fonts/italic.woff') format('woff');
+    }
+
+body{
+  color: #325050;
+  font-family: 'Libre Baskerville', sans-serif;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+  "h"
+  "l"
+  "f"
+  "r";
+  padding: 0;
+  margin: 0;
+  font-family: 'Libre Baskerville', 'sans-serif';
+  background: #fff;
 }
+
+h1{
+    font-family: 'Julius Sans One', 'sans-serif';
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-top: 35px;
+    display: flex;
+
+}
+
+h1::before{
+    position: relative;
+    content: "";
+    opacity: .6;
+    background: url(./enso.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: block;
+    height: 50px;
+    width: 50px;
+    left: 43%;
+    top: 20px;
+    margin: 0 25px 0 0;
+    padding: 0 0 35px 0;
+
+}
+
+h2{
+    font-style: italic;
+    color: #fff;
+    font-weight: 100;
+    opacity: .6;
+}
+
+.about h3{
+    width: 80%;
+}
+
+h3{
+    font-family: 'Julius Sans One', 'sans-serif';
+    font-size: 1.5em;
+    font-weight: 100;
+    line-height: 1.2;
+    margin: 2em 0 0 0;
+}
+
+p{
+    line-height: 2;
+}
+
+.header{
+    background-image: url(./contours@2x.png),url(./noise.png), url(gridlines.png),url(./huntington.jpg);
+    background-repeat: repeat, repeat, repeat, no-repeat;
+    background-size: 50%, auto, auto, cover;
+    background-attachment: fixed, fixed, fixed, scroll;
+    background-position: center;
+    grid-area: h;
+    height: 250px;
+    width: 100%;
+    /* background: #325050; */
+    text-align: center;
+    font-size: 70%;
+}
+
+.mainLeft{
+display: block;
+grid-area: l;
+font-size: 80%;
+}
+
+.intro, .enlightenment, .about{
+    margin: 0 10%;
+}
+.intro{
+    padding-top: 2em;
+}
+
+.participation{
+    background-attachment: scroll, scroll, fixed;
+    background-color: rgba(138,188,159,0.5);
+    background-image: url(./contours-opaque.png), url(./gridlines-opaque.png), url(./bamboo.png);
+    background-repeat: repeat, repeat, no-repeat;
+    background-size: auto, auto, cover;
+    padding: 10px 10% 15px 10%;
+}
+.requirements{
+    margin: 0 10%;
+}
+
+.pre-footer{
+    display: flex;
+    background-image: url(./contours@2x.png),url(./noise.png), url(gridlines.png), url(./koi.jpg);
+    background-size:  50%, cover;
+    background-attachment: fixed, fixed, fixed, scroll;
+    background-repeat: no-repeat;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'italic';
+    margin: 0;
+    width: auto;
+    height: 120px;
+    text-align: center;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #325050;
+    height: 65px;
+    font-family: 'verdemoderna';
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.footer a:link{
+    text-decoration: none;
+    color: #fff;
+}
+
+.pre-footer a:link{
+    text-decoration: none;
+    color: #fff;
+    opacity: .5;
+    font-family:'Libre Baskerville', sans-serif;
+}
+
+
+.mainRight{
+    margin-top: -20px;
+}
+
+.examples{
+    padding-bottom: 10px;
+    background-color: #EEF4F0
+}
+
+.examples ul{
+    list-style: none;
+    padding-inline-start: 10px;
+}
+
+.examples li{
+    border-top: solid 1px #d9e3dc;
+    margin-bottom: 15px;
+}
+
+.examples h3{
+    font-size: 1.2em;
+    color: #607476;
+    margin-top: 10px;
+}
+
+.examples a:link{
+    text-decoration: none;
+    color: #616857;
+    font-size: .7em;
+}
+
+.examples span{
+   color: #c0cac3;
+   font-family: 'italic';
+   font-size: .9em;
+}
+
+.resources{
+    background-attachment: scroll, scroll, fixed;
+    background-color: rgba(138,188,159,0.5);
+    background-image: url(./bamboo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -18px;
+    padding-bottom: 10px;
+}
+
+.resources ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding-inline-start: 10px;
+}
+
+.resources li{
+    display: block;
+    border-top: solid 1px #a0b9ad;
+}
+
+.resources h3{
+    font-size: 1.2em;
+    color: #607476;
+    margin-top: 20px;
+}
+
