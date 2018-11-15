@@ -1,0 +1,87 @@
+@font-face { 
+    font-family: 'verdemoderna';
+    src: url('./fonts/verdemoderna.woff') format('woff');
+    }
+
+@font-face{
+    font-family: 'juliussansone';
+    src: url('./fonts/juliussansone.woff')
+}
+
+#container{
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* grid-template-rows: 100px 1fr 1fr; */
+    border: 1px solid black;
+}
+
+#nav{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+    border: solid 2px black;
+    grid-column: 1/4;
+    grid-row: 1;
+    margin: 0;
+    background-color: #25283D;
+    font-family: 'juliussansone';
+    color: #fff
+}
+
+#info{
+    display: grid;
+    /* grid-template-columns: 1fr auto;
+    grid-column: 1/4;
+    grid-row: 2/4; */
+    margin: 0;
+    padding: 0 0 0 10px;
+    background-color:#EFE9E6;
+    color: #25283D;
+
+}
+
+#store{
+    display: grid;
+    grid-template-rows: 50px 1fr 1fr 1fr;
+}
+#store img{
+    object-fit: contain;
+}
+#softGear{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    grid-row: 2;
+}
+#softGear > div{
+    display: inline-block;
+    width: 25%;
+}
+
+.softgear > .lasportiva{
+    background-image: url(./lasportiva.png);
+    background-size: cover;
+    height: 50%;
+    width: 50%;
+}
+.soft1{
+    display: block;
+    grid-row: 1;
+}
+
+#rope{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row: 2;
+}
+
+#hardGear{
+    grid-row: 3;
+}
+
+#footer{
+    height: 80px;
+    background-color: #357266;
+}

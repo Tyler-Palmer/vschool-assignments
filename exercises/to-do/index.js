@@ -160,6 +160,7 @@ toDoForm.addEventListener("submit", function(event){
         // console.log(response.data) //Should be a new todo with an #id added
     }).catch(error => console.log(error))
 
+})
 //Part 3: Put Part 1, "Put" new value of complete or incomplete in database
 
 function checkOffNow (todo){
@@ -199,7 +200,7 @@ function editItem(itemId){
     }
     //grab the form to edit (the last childNode, then listen for 'submit' from 'save' button)
     console.log(editItem.childNodes)
-    editItem.childNodes[editItem.childNodes.length-1].style.display = "block"
+    editItem.childNodes[editItem.childNodes.length-1].style.display = "block";
     editItem.childNodes[editItem.childNodes.length-1].addEventListener("submit", function(event){
         event.preventDefault()
         //Grab the user input values, if no change to values, values stay the same

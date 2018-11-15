@@ -1,3 +1,4 @@
+
 //1_1
 
 const collectAnimals = (...anm) => anm
@@ -122,7 +123,6 @@ console.log('-----')
 function populatePeople(names){
     return names.map(function(name){
         name = name.split(" ");
-        
         return {
             firstName: firstName,
             lastName: lastName

@@ -47,3 +47,31 @@ var voters = [
     {name: 'Zack', age: 19, voted: false}
 ];
 console.log(totalVotes(voters)) // 7
+
+
+//4: Given an array of all your wishlist items, figure out how much it would cost to just buy everything at once
+
+const wishlist = [
+    { title: "Tesla Model S", price: 90000 },
+    { title: "4 carat diamond ring", price: 45000 },
+    { title: "Fancy hacky Sack", price: 5 },
+    { title: "Gold fidgit spinner", price: 2000 },
+    { title: "A second Tesla Model S", price: 90000 }
+];
+
+const shoppingSpree = (obj) => obj.reduce((acc, item) => acc + item.price, 0)
+
+console.log("--------")
+console.log(shoppingSpree(wishlist)) // 227005
+
+
+//5: Given an array of arrays, flatten them into a single array
+console.log("------")
+const flatten = (arr) => arr.reduce((tot, item) => tot.concat(item),[])
+var arrays = [
+    ["1", "2", "3"],
+    [true],
+    [4, 5, 6]
+];
+
+console.log(flatten(arrays))// ["1", "2", "3", true, 4, 5, 6];
