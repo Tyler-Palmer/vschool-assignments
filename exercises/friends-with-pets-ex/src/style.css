@@ -1,0 +1,10 @@
+.people{
+    border: 1px solid black;
+    width: 300px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.people ul{
+    padding-inline-start: 20px;
+}

@@ -62,7 +62,7 @@ const sortedOfAge = arr => {
         if(a.lastName > b.lastName) {return +1}
         return 0
     })
-    sorted.map(function(item){
+    const sorted2 = sorted.map(item => {
         if (item.age >= 18){
              ageArr.push(`<li>First Name: ${item.firstName} Last Name: ${item.lastName} Age: ${item.age}</li>`)
         }
