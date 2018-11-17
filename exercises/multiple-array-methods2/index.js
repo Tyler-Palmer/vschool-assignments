@@ -88,23 +88,82 @@ const peopleAndPets = [
 ];
 
 const peoplePets = obj => {
-    const petsArr = []
-    obj.map(function(item){
-        if (item.pets){
-            petsArr.push(item.pets.name)
+    const newArr = []
+    obj.forEach(function(item){
+        item.pets.forEach(pet => newArr.push(`<li>${pet.name}</li>`))
+    })
+    return newArr
+}
+console.log(peoplePets(peopleAndPets))
+console.log('----')
+
+///if owners older than 20
+
+const peoplePets2 = obj => {
+    const newArr = []
+    obj.forEach(function(item){
+        if (item.age > 20){
+        item.pets.forEach(pet => newArr.push(`<li>${pet.name}</li>`))
         }
     })
-    return petsArr
+    return newArr
 }
+console.log(` The pets with owners who are over 20 yrs old are: ${peoplePets2(peopleAndPets)}`)
+console.log('----')
 
-console.log(peoplePets(peopleAndPets))
+//older than 20 and pets who have nicknames
 
-peoplePets2 = function(arr){
-    const petsArr = []
-    for(let i = 0; i < arr.length; i++){
-        petsArr.push(arr[i].pets.name)
+const peoplePets3 = obj => {
+    const newArr = []
+    obj.forEach(function(item){
+        if (item.age > 20){
+        item.pets.forEach(pet => newArr.push(`<li>Pet: ${pet.name} Nickname: ${pet.nickNames}</li>`))
+        }
+    })
+    return newArr
+}
+console.log(` The pet's names, if they have nicknames, with  owners who are over 20 yrs old are: ${peoplePets3(peopleAndPets)}`)
+console.log('----')
+
+//everyone that has at least one dog and sort them by age
+
+// const peoplePets4 = obj => {
+//     const newArr = []
+//     obj.forEach(function(item){
+//         if (item.pet){
+//         item.pets.forEach(pet => {
+//             if(pet.type === 'dog'){
+//                 newArr.push(pet)
+//             }
+//         })
+//         }
+//     })
+//     return newArr
+// }
+
+// const peoplePets4 = obj => {
+//     const newArr = []
+//     obj.forEach(function(item){
+//         if (item.pet.forEach(pet => {
+//             if(pet.type === 'dog'){
+//                 newArr.push(item.name.sort(item.age))
+//             }
+//         }))
+//         item.pets
+//     })
+//     return newArr
+// }
+
+const peoplePets4 = obj => {
+    const newArr = []
+    obj.forEach(function(item){
+        if (item.pets){
+        item.pets.forEach(pet => newArr.push(pet))
+        }
+    })
+    for (let i = 0; i < newArr.length; i++){
     }
-    return petsArr
 }
 
-console.log(peoplePets2(peopleAndPets))
+console.log(peoplePets4(peopleAndPets))
+console.log('----')
