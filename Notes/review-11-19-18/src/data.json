@@ -1,0 +1,22 @@
+{
+    "data": [
+        {
+            "name": "Rick",
+            "age": 70,
+            "friends": ["Morty", "Birdman"],
+            "id": 131234
+        },
+        {
+            "name": "Morty",
+            "age": 13,
+            "friends": ["Rick", "Birdman"],
+            "id": 5466
+        },
+        {
+            "name": "Birdman",
+            "age": 39,
+            "friends": ["Morty", "Rick"],
+            "id": 696045645
+        }
+    ]
+}
