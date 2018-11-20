@@ -9,7 +9,7 @@ const Card = (props) => {
             backColor = 'green'
             break;
         case 'Summer':
-        backColor = 'red'
+            backColor = 'red'
             break;
         case 'Fall': 
             backColor = 'orange'

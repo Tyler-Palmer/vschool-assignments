@@ -1,0 +1,30 @@
+#container{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto 1fr;
+    grid-gap: 20px;
+    justify-content: center;
+    /* width: 400px; */
+}
+
+.colorSquare{
+    height: 300px;
+    width: 300px;
+    border: 1px solid grey;
+    background-color: green;
+}
+
+#controlButtonBox{
+    height: 200px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#button1{
+    height: 100px;
+    width: 100px;
+    background-color: red;
+}

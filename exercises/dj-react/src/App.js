@@ -2,16 +2,35 @@ import React, { Component } from 'react';
 import Square from './Square'
 
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+        button1Class: false
+    }
+  }
+
+  toggleClass1 = () => {
+    const currentState = this.state.button1Class
+    this.setState({ button1Class: !currentState})
+  }
+
   render() {
     return (
-      <div className="App">
-          <div class ="controlButtons">
+      <div id="app">
+          <div id ="controlButtonBox">
+              <div id="button1" onClick={this.toggleClass1}>
 
+              </div>
           </div>
-          <Square />
-          <Square />
-          <Square />
-          <Square />
+          <div id="container">
+            <Square button1 = {this.state.button1Class}
+                    backColor />
+            <Square button1 = {this.state.button1Class}
+                    backColor />
+            <Square />
+            <Square />
+          </div>
+          
       </div>
     );
   }
