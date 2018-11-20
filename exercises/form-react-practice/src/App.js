@@ -1,27 +1,43 @@
 import React, { Component } from 'react';
-
+import Person from './Person'
 class App extends Component {
   constructor(){
     super()
+
     this.state ={
       fName: '',
       lName: '',
       age: '',
-      color: ''
+      color: '',
+      people: []
     }
   }
   handleChange = event => {
-    this.setState({[event.target.name]: event.target.value})
+    let {name, value} = event.target
+    this.setState({[name]: value})
   }
 
   handleSubmit = event => {
     event.preventDefault()
-    alert(`A name was submitted: ${this.state.fName} ${this.state.lName}, they are ${this.state.age} years old and ${this.state.color} is their favorite color.`)
+    const newPerson ={
+        fName: this.state.fName,
+        lName: this.state.lName,
+        age: this.state.age,
+        color: this.state.color
+
+    }
+    this.setState(prevState => {
+      return {
+        people: [...prevState.people, newPerson]
+      }
+    }, () => {
+      console.log(this.state.people)
+    })
   }
 
   render() {
     return (
-      <div className="App">
+      <div>
           <form onSubmit={this.handleSubmit}>
               <input type="text"
                       placeholder="First Name"
@@ -45,7 +61,17 @@ class App extends Component {
                       name="color"/>
               <button>Submit</button>
           </form>
-        
+          <h1>People</h1>
+          <ol>
+          {
+            this.state.people.map(person =>
+              <Person fName={person.fName}
+                      lName={person.lName}
+                      age={person.age}
+                      color={person.color}/>
+            
+            )}
+          </ol>
       </div>
     );
   }
