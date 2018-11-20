@@ -1,15 +1,16 @@
 import React, {Component} from 'react'
+import Die from './Die'
 
 class DiceBox extends Component{
 
     constructor(){
         super()
         this.state = {
-            counter1 : 0,
-            counter2 : 0,
-            counter3 : 0,
-            counter4 : 0,
-            counter5 : 0,
+            die1 : 0,
+            die2 : 0,
+            die3 : 0,
+            die4 : 0,
+            die5 : 0,
         }
     }
 
@@ -17,34 +18,36 @@ class DiceBox extends Component{
         let randNum = () =>{
             return (Math.floor(Math.random()*6)+1)
         }
+
+        //reset die value
         this.setState(prevState => {
             return {
-                counter1 : prevState.counter1 - prevState.counter1,
-                counter2 : prevState.counter2 - prevState.counter2,
-                counter3 : prevState.counter3 - prevState.counter3,
-                counter4 : prevState.counter4 - prevState.counter4,
-                counter5 : prevState.counter5 - prevState.counter5,
+                die1 : prevState.die1 - prevState.die1,
+                die2 : prevState.die2 - prevState.die2,
+                die3 : prevState.die3 - prevState.die3,
+                die4 : prevState.die4 - prevState.die4,
+                die5 : prevState.die5 - prevState.die5,
             }
         })
-
+        //assign die value
         this.setState(prevState => {
             return {
-            counter1 : prevState.counter1 + randNum(),
-            counter2 : prevState.counter2 + randNum(),
-            counter3 : prevState.counter3 + randNum(),
-            counter4 : prevState.counter4 + randNum(),
-            counter5 : prevState.counter5 + randNum()
+            die1 : prevState.die1 + randNum(),
+            die2 : prevState.die2 + randNum(),
+            die3 : prevState.die3 + randNum(),
+            die4 : prevState.die4 + randNum(),
+            die5 : prevState.die5 + randNum()
         }
     })
 }
     render(){
         return(
             <div>
-                <h1>{this.state.counter1}</h1>
-                <h1>{this.state.counter2}</h1>
-                <h1>{this.state.counter3}</h1>
-                <h1>{this.state.counter4}</h1>
-                <h1>{this.state.counter5}</h1>
+                <Die roll = {this.state.die1} />
+                <Die roll = {this.state.die2} />
+                <Die roll = {this.state.die3} />
+                <Die roll = {this.state.die4} />
+                <Die roll = {this.state.die5} />
                 <button onClick={this.rollDice}>Roll The Dice</button>
             </div>
         )
