@@ -1,9 +1,17 @@
+body{
+    background: #f12711;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
 #container{
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto 1fr;
     grid-gap: 20px;
     justify-content: center;
+    
     /* width: 400px; */
 }
 
@@ -11,20 +19,49 @@
     height: 300px;
     width: 300px;
     border: 1px solid grey;
-    background-color: green;
+    opacity: .8;
 }
 
 #controlButtonBox{
     height: 200px;
-    border: 1px solid black;
     margin-bottom: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: rgba(255,255,255,.4);
+    /* opacity: .6; */
 }
 
 #button1{
     height: 100px;
     width: 100px;
-    background-color: red;
+    background: -webkit-linear-gradient(to right, #ffffff, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffffff, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#button2{
+    height: 100px;
+    width: 100px;
+    background-color: purple;
+}
+
+#button3{
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#button4{
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
 }

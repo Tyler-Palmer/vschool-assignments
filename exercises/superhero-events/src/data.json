@@ -1,0 +1,13 @@
+{
+    "heroes": [
+        {"name":"Spiderman",
+        "image": "https://vignette.wikia.nocookie.net/marvel-contestofchampions/images/0/0b/Spider-Man_%28Classic%29_portrait.png/revision/latest?cb=20150830075418",
+        "catchphrase":"It's your friendly neighborhood Spider Man!"},
+        {"name": "Superman",
+        "image": "https://pbs.twimg.com/media/DmZnS9GWwAE1LoJ.jpg",
+        "catchphrase": "Up, up, and away!"},
+        {"name": "Batman",
+        "image": "https://a.wattpad.com/useravatar/BATMAN_DA_BOSS.256.599847.jpg",
+        "catchphrase": "WHERE IS HE!?!?!?"}
+    ]
+}
