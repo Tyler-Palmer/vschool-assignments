@@ -15,13 +15,13 @@ class App extends Component {
   toggle1 = () => {
     const currentState = this.state.button1status
     this.setState({button1status: !currentState})
-        if(this.state.button2status !== false){
+        if(this.state.button2status){
             this.setState({button2status: !this.state.button2status})
         }
-        if(this.state.button3status !== false){
+        if(this.state.button3status){
             this.setState({button3status: !this.state.button3status})
         }
-        if(this.state.button4status !== false){
+        if(this.state.button4status){
           this.setState({button4status: !this.state.button4status})
         }
   }
