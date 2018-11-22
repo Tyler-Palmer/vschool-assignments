@@ -1,5 +1,3 @@
-
-
 const Table = (num) => {
     let result = [[0],]
     for(var i = 1; i < num+1; i++){
@@ -9,6 +7,4 @@ const Table = (num) => {
     }
     return result
 }
-
-
 console.log(Table(10))

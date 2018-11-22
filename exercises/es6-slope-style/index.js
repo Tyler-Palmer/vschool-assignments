@@ -120,16 +120,17 @@ console.log('-----')
 
 //4_1
 
-function populatePeople(names){
+const populatePeople = names => {
     return names.map(function(name){
         name = name.split(" ");
+        const [firstName , lastName] = name
         return {
             firstName: firstName,
-            lastName: lastName
+            lastName: lastName,
         }
+    })
 }
-
-console.log(populatePeople(["Frank Peterson", "Suzy Degual", "Liza Jones"])
+console.log(populatePeople(["Frank Peterson", "Suzy Degual", "Liza Jones"]))
 //[
 //  {firstName: "Frank", lastName: "Peterson"},
 //  {firstName: "Suzy", lastName: "Degual"},

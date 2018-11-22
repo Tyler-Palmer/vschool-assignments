@@ -1,0 +1,96 @@
+body{
+    display: flex;
+    justify-content: center;
+    font-family: arial;
+}
+
+#inputContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px 0px 20px 0px;
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 800px;
+    overflow: auto;
+}
+
+#inputBox{
+    height: 600px;
+    width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto .5fr;
+
+}
+
+.column1{
+    height: 30%;
+    margin: 10px;
+
+}
+
+.column2{
+    height: 30%;
+    margin: 10px;
+}
+
+.row4{
+    grid-column: 1/-1;
+    grid-row: 4;
+    height: 200px;
+    font-size: 2em;
+}
+.button-container{
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row5{
+    width: 200px;
+    height: 40px;
+    grid-row: 5;
+    margin-top: 20px;
+}
+
+
+#badgeContainer{
+    border: 2px solid black;
+    width: 860px;
+    padding: 0px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
+}
+
+#banner{
+    display: flex;
+    justify-content: center;
+    grid-column: 1/-1;
+    grid-row: 1;
+    background-color: red;
+    border-radius: 18px;
+    margin-top: 0;
+}
+
+#badgeContainer h3{
+    padding: 10px;
+}
+
+#aboutBadge{
+    border: 1px solid grey;
+    grid-column: 1/-1;
+    grid-row: 5;
+    width: 90%;
+    height: 200px;
+    padding: 5px;
+    justify-self: center;
+    margin-bottom: 15px;
+    margin-top: 0px;
+    font-size: 2em;
+    overflow-wrap: break-word;
+}
