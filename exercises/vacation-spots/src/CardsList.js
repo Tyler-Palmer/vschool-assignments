@@ -32,7 +32,7 @@ const CardsList = () => {
               <Card  place = {item.place}
                      price = {item.price}
                      timeToGo = {item.timeToGo}
-                     backColor/>
+                     backColor />
         )}
       </div>
         
