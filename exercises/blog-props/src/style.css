@@ -150,7 +150,9 @@ body{
 
 .mainContainer #oldPost{
     display: flex;
-    height: 50px;
+    height: auto;
+    width: auto;
+    flex-wrap: nowrap;
     justify-self: flex-end;
     align-self: center;
     font-family: 'openSans_Bold';
@@ -160,11 +162,6 @@ body{
     padding-right: 20px;
     margin: 15px 0 15px 0;
     grid-column: 3/4;
-}
-
-#oldPost{
-    display: flex;
-    align-self: center;
     text-align: center;
 }
 
