@@ -42,12 +42,13 @@ body{
 .navbar{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     font-family: 'openSans_Bold';
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: 5%;
-    margin-right: 5%;
+    /* padding-left: 20px;
+    padding-right: 100px; */
+    /* margin-left: 25px; */
+    /* margin-right: 5%;  */
+    width: 100%;
 }
 .navbar {
     z-index: 1;
@@ -204,4 +205,26 @@ body{
 
 #container hr{
     opacity: .4;
+}
+
+
+.awesome .icons{
+    color: white;
+    background-color: black;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon{
+    font-size: 25px;
+}
+.awesome{
+    margin: 10px;
+    margin-bottom: 0px;
+}
+.icons:hover{
+    background-color: #0085A1
 }

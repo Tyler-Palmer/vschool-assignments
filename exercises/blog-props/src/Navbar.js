@@ -1,14 +1,15 @@
 import React from 'react'
 
-const Navbar = () => {
+const Navbar = (props) => {
+    const {background, fixed, color} = props
     return(
-        <div className="navbar">
-            <h3><a href="#">Start Bootstrap</a></h3>
+        <div className="navbar" style = {{background: background, position: fixed}} >
+            <h3><a style = {{color:color}} href="#">Start Bootstrap</a></h3>
             <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">SAMPLE POST</a></li>
-                <li><a href="#">CONTACT</a></li>
+                <li><a style = {{color:color}} href="#">HOME</a></li>
+                <li><a style = {{color:color}} href="#">ABOUT</a></li>
+                <li><a style = {{color:color}} href="#">SAMPLE POST</a></li>
+                <li><a style = {{color:color}} href="#">CONTACT</a></li>
             </ul>
         </div>
     )
