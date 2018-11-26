@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    font-family: sans-serif
+}
+.nav{
+    background: rgba(248,80,47,1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    padding: 20px;
+}
+
+.icon{
+    background-image: url('./images/plumbing-icon.png');
+    background-size: contain;
+    background-attachment: relative;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 500px;
+    align-self: flex-start;
+    margin-left: 0;
+ 
+}
+
+.nav a{
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: 800;
+    color: #ffffff
+}
+
+.nav a:hover{
+    color: rgba(0,0,0,.5)
+}
+
+.home{
+    background: rgba(255,180,0,1);
+    width: 100%;
+    height: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.home h1{
+    margin-top: 0;
+    padding-top: 50px;
+    grid-column: 1/4;
+    text-align: center;
+    font-size: 5em;
+    color: rgba(255,255,255)
+}
+
+
+.about{
+    background: rgba(0,166,237,1);
+    width: 100%;
+    height: 800px;
+}
+
+.services{
+    background: rgba(127,184,0,1);
+    width: 100%;
+    height: 800px;
+}
