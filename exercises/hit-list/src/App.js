@@ -1,13 +1,17 @@
 import React from 'react'
 import HitList from './HitList'
+import Banner from './Banner'
 
 
-class App extends React.Component{
-    
-    render(){
-        return(
+class App extends React.Component {
+
+    render() {
+        return (
             <div>
-                <HitList />
+                <Banner />
+                <div className="container">
+                    <HitList />
+                </div>
             </div>
         )
     }

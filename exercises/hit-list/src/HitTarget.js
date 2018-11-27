@@ -1,10 +1,11 @@
 import React from 'react'
 
-const HitTarget = () =>{
-    
+const HitTarget = props =>{
+    const {name, image, key} = props
     return(
-        <div>
-
+        <div className="hitTarget">
+            <img src={image}></img>
+            <h3>{name}</h3>
         </div>
     )
 }

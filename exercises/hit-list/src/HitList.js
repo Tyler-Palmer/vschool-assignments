@@ -9,17 +9,27 @@ class HitList extends React.Component{
             peopleToKill: []
         }
     }
-    
     componentDidMount(){
-        axios.get('http://api.vschool.io:6543/hitlist.json').then(response =>{
-            console.log(response)
+        axios.get(`https://s3.amazonaws.com/v-school/data/hitlist.json`).then(response =>{
+            this.setState(() =>{
+                return{
+                    peopleToKill: response.data
+                }
+            })
         })
     }
 
     render(){
+        console.log(this.state.peopleToKill)
         return(
-            <div>
-                <HitTarget />
+            <div className="hitList">
+                {
+                    this.state.peopleToKill.map((person, i) =>
+                       <HitTarget   name = {person.name}
+                                    image = {person.image}
+                                    />
+                    )
+                }
             </div>
         )
     }
