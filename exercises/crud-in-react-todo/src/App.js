@@ -58,6 +58,19 @@ componentDidMount(){
             })
         })
     }
+
+    handleEdit = (id, updates) => {
+        console.log(id)
+        console.log(updates)
+        axios.put(`https://api.vschool.io/tyler/todo/${id}`, updates).then(response => {
+            console.log(response)
+            this.setState(prevState =>{
+                return {
+                    todos: prevState.todos.map(todo => todo._id === id ? response.data : todo)
+                }
+            })
+        })
+    }
     render(){
         return(
             <div>
@@ -71,7 +84,8 @@ componentDidMount(){
                                 description = {todo.description}
                                 key= {todo._id}
                                 id= {todo._id} 
-                                handleDelete = {this.handleDelete}/>
+                                handleDelete = {this.handleDelete}
+                                handleEdit = {this.handleEdit}/>
                     )
                 }
             </div>
