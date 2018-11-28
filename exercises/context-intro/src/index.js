@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
+import './style.css'
+import ThemeProvider from './ThemeProvider'
 
 
-export const {Provider, Consumer} = REact.createContext()
-
-ReactDOM.render(<Provider value={ {theme: "dark"} }>
+ReactDOM.render(<ThemeProvider value={ {theme: "dark"} }>
                     <App />
-                </Provider>, document.getElementById('root'))
+                </ThemeProvider>, document.getElementById('root'))
