@@ -4,6 +4,7 @@ import { withTheme } from './ThemeProvider'
 const Home = (props) =>{
     return(
         <div className="home" className={`${props.theme}`}>
+            <h1>Home home home home home home</h1>
             <h1>Changing Themes Using Context</h1>
             <h3>More text to fill space</h3>
             <h4>Blah blah blah blah blah</h4>
