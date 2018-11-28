@@ -1,8 +1,8 @@
 import React from 'react'
-import {Switch, Route, Link} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 import axios from 'axios'
+import Person from "./Person"
 import Sidebar from './Sidebar'
-import Home from './Home'
 
 class App extends React.Component{
     constructor(){
@@ -14,18 +14,23 @@ class App extends React.Component{
 
     componentDidMount(){
         axios.get(`https://swapi.co/api/people/`).then(response =>{
+            console.log(response.data.results)
             this.setState({
                 people: response.data.results
             })
         })
+        .catch(err => console.log(err))
     }
 
     render(){
         return(
             <div>
-                <Sidebar />
                 <Switch>
-                        <Route exact path ="/" component ={Home}/>
+                    <Route path ="/" render = {props => {
+                        return (
+                        <Sidebar people = {this.state.people}/>
+                        )}}/>
+                    <Route path= "/:id" component = {Person}/>    
                 </Switch>
             </div>
         )
