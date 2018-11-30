@@ -1,25 +1,26 @@
 import React from 'react'
+import { withUglyThings } from "./UglyThingsProvider"
 
 const UglyForm = (props) => {
-    const { uglyTitle, uglyDescription, uglyImgUrl, handleChange, handleSubmit } = props
+    const { uglyTitle, uglyDescription, uglyimgUrl, handleChange, handleSubmit } = props
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <input type="text"
-                    name="uglyTitle"
+                    name="title"
                     value={uglyTitle}
                     onChange={handleChange}
                     placeholder="Title"
                 ></input>
                 <input type="text"
-                    name="uglyDescription"
+                    name="description"
                     value={uglyDescription}
                     onChange={handleChange}
                     placeholder="Description"
                 ></input>
                 <input type="text"
-                    name="uglyImgURL"
-                    value={uglyImgUrl}
+                    name="imgURL"
+                    value={uglyimgUrl}
                     onChange={handleChange}
                     placeholder="Image URL"
                 ></input>
@@ -31,4 +32,4 @@ const UglyForm = (props) => {
 }
 
 
-export default UglyForm
+export default withUglyThings(UglyForm)

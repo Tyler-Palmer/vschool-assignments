@@ -58,8 +58,9 @@ class UglyThingsProvider extends Component {
                 getUglyThings: this.getUglyThings,
                 uglyTitle: this.state.title,
                 uglyDescription: this.state.description,
-                uglyImgUrl: this.state.imgUrl,
-                handleChange: this.handleChange
+                uglyimgUrl: this.state.imgUrl,
+                handleChange: this.handleChange,
+                handleSubmit: this.handleSubmit
             }}>
                 { this.props.children }
             </Provider>

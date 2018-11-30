@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 
-const UglyThing = props =>{
-    return(
-        <div>
-            <h1>{props.title}</h1>
-            <p>{props.description}</p>
-            <img className ="image">{props.imgUrl}</img>
-        </div>
-    )
+class UglyThing extends Component {
+    constructor(){
+        super()
+        this.state = {
+            title: '',
+            description: '',
+            imgUrl: ''
+        }
+    }
+    render() {
+        return (
+            <div>
+                <h1>{this.props.title}</h1>
+                <p>{this.props.description}</p>
+                <img src={this.props.imgUrl}></img>
+            </div>
+        )
+    }
 }
 
 export default UglyThing
