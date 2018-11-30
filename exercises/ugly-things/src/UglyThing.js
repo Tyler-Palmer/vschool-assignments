@@ -6,7 +6,7 @@ const UglyThing = props =>{
         <div>
             <h1>{props.title}</h1>
             <p>{props.description}</p>
-            <img className ="image">{props.imgURL}</img>
+            <img className ="image">{props.imgUrl}</img>
         </div>
     )
 }

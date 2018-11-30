@@ -10,7 +10,7 @@ class UglyThingsProvider extends Component {
             uglyThings: [],
             title: '',
             description: '',
-            imgURL: ''
+            imgUrl: ''
         }
     }
 
@@ -20,30 +20,46 @@ class UglyThingsProvider extends Component {
                 uglyThings: response.data
             })
         })
+        .catch(err => console.log(err))
     }
 
-    // handleChange = e =>{
-    //     const { name, value } = e.target
-    //     this.setState({
-    //         [name]: value
-    //     })
-    // }
+    handleChange = e =>{
+        const { name, value } = e.target
+        this.setState({
+            [name]: value
+        })
+    }
 
-    // handleSubmit = e =>{
-    //     e.preventDefault()
-    //     const newThing = {
-    //         title: this.state.title,
-    //         description: this.state.description,
-    //         imgURL: this.state.imgURL
-    //     }
-    //     this.handleChange
-    // }
+    handleSubmit = e =>{
+        e.preventDefault()
+        const newThing = {
+            title: this.state.title,
+            description: this.state.description,
+            imgUrl: this.state.imgUrl
+        }
+        axios.post('https://api.vschool.io/tyler/todo/', newThing)
+        .then(response => {
+            this.setState(prevState => {
+                return{
+                    uglyThings: [...prevState.uglyThings, response.data],
+                    title:'',
+                    description:'',
+                    imgUrl:''
+                }
+            })
+        })
+        .catch(err => console.log(err))
+    }
 
     render(){
         return(
             <Provider value={{
                 uglyThings: this.state.uglyThings,
-                getUglyThings: this.getUglyThings
+                getUglyThings: this.getUglyThings,
+                uglyTitle: this.state.title,
+                uglyDescription: this.state.description,
+                uglyImgUrl: this.state.imgUrl,
+                handleChange: this.handleChange
             }}>
                 { this.props.children }
             </Provider>
