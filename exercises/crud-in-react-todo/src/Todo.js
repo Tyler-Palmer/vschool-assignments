@@ -26,7 +26,7 @@ class Todo extends Component{
         })
     }
 
-    handleSubmit = e =>{
+    handleSubmit = e => {
         e.preventDefault()
         const updates = {
             title: this.state.title,

@@ -51,6 +51,16 @@ class UglyThingsProvider extends Component {
         .catch(err => console.log(err))
     }
 
+    handleEdit = (id, newUgly) => {
+        axios.put(`https://api.vschool.io/tyler/todo/${id}`, newUgly).then(response => {
+            this.setState(prevState => {
+                return{
+                    uglyThings: prevState.uglyThings.map(thing => thing._id === id ? response.data : thing)
+                }
+            })
+        })
+    }
+
     render(){
         return(
             <Provider value={{
@@ -60,7 +70,8 @@ class UglyThingsProvider extends Component {
                 uglyDescription: this.state.description,
                 uglyimgUrl: this.state.imgUrl,
                 handleChange: this.handleChange,
-                handleSubmit: this.handleSubmit
+                handleSubmit: this.handleSubmit,
+                handleEdit: this.handleEdit
             }}>
                 { this.props.children }
             </Provider>
