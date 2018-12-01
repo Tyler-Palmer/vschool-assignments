@@ -61,6 +61,17 @@ class UglyThingsProvider extends Component {
         })
     }
 
+    handleDelete = (id) => {
+        axios.delete(`https://api.vschool.io/tyler/todo/${id}`).then(response =>{
+            console.log(response)
+            this.setState(prevState =>{
+                return{
+                    uglyThings: prevState.uglyThings.filter(uglyThing => uglyThing._id !== id)
+                }
+            })
+        })
+    }
+
     render(){
         return(
             <Provider value={{
@@ -71,7 +82,8 @@ class UglyThingsProvider extends Component {
                 uglyimgUrl: this.state.imgUrl,
                 handleChange: this.handleChange,
                 handleSubmit: this.handleSubmit,
-                handleEdit: this.handleEdit
+                handleEdit: this.handleEdit,
+                handleDelete: this.handleDelete
             }}>
                 { this.props.children }
             </Provider>

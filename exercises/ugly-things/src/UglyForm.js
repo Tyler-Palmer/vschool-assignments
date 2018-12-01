@@ -10,20 +10,17 @@ const UglyForm = (props) => {
                     name="title"
                     value={uglyTitle}
                     onChange={handleChange}
-                    placeholder="Title"
-                ></input>
+                    placeholder="Title"/>
                 <input type="text"
                     name="description"
                     value={uglyDescription}
                     onChange={handleChange}
-                    placeholder="Description"
-                ></input>
+                    placeholder="Description"/>
                 <input type="text"
-                    name="imgURL"
+                    name="imgUrl"
                     value={uglyimgUrl}
                     onChange={handleChange}
-                    placeholder="Image URL"
-                ></input>
+                    placeholder="Image URL"/>
                 <button>Submit</button>
             </form>
         </div>

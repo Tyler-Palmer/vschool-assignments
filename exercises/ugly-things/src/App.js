@@ -4,15 +4,18 @@ import { withUglyThings } from './UglyThingsProvider'
 import UglyForm from './UglyForm'
 
 class App extends Component {
-    componentDidMount(){
+    componentDidMount() {
         this.props.getUglyThings()
     }
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                <UglyForm />
+                <div>
+                    <h1>Ugly Things Exercise</h1>
+                    <UglyForm />
+                </div>
                 {
-                    this.props.uglyThings.map((thing, i) => <UglyThing {...thing} key = {i}/>)
+                    this.props.uglyThings.map((thing, i) => <UglyThing {...thing} key={i} />)
                 }
             </div>
         )
