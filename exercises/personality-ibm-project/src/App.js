@@ -1,16 +1,22 @@
-import React from 'react'
-const PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3')
-const personalityInsights = new PersonalityInsightsV3({
-    version: '{version}',
-    iam_apikey: '{iam_api_key}',
-    url: '{url}'
-  });
-const App = () =>{
-    return(
-        <div>
+import React, { Component } from 'react'
+import { Switch, Route } from 'react-router-dom'
+import Navbar from './Navbar'
+import Main from './Main'
+import About from './About'
 
-        </div>
-    )
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <Navbar />
+                <Switch>
+                    <Route exact path='/' component={ Home } />
+                    <Route path="/main" component={ Main } />
+                    <Route path="/about" component={ About } />
+                </Switch>
+            </div>
+        )
+    }
 }
 
 export default App
