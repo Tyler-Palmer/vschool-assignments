@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import TextForm from './TextForm'
 
 class Main extends Component{
     constructor(){
@@ -29,35 +30,14 @@ class Main extends Component{
         })
     }
 
-    // handleSubmit = e => {
-    //     e.preventDefault()
-    //     const newText = {
-    //         content: this.state.content
-    //     }
-    //     axios.post(`https://vschool-cors.herokuapp.com?url=https://gateway.watsonplatform.net/personality-insights/api`, newText,{headers: {'version': 'V3', 'iam_apikey':`${process.env.REACT_APP_KEY}`}})
-    //     .then(response => {
-    //         this.setState({
-    //             responseData: response.data,
-    //             content: ''
-    //         })
-    //         console.log(response.data)
-    //     })
-    // }
 
     render(){
         return(
             <div>
-                <form onSubmit ={this.handleSubmit}>
-                    <input  type ="textarea"
-                            name="content"
-                            onChange={this.handleChange}
-                            placeholder="You can enter as few as 100 words, but more words will give you more accurate analysis"
+                <TextForm   handleChange={this.handleChange}
+                            handleSubmit={this.handleSubmit}
+                            content={this.state.content}
                             />
-                    <button>Submit</button>
-                </form>
-                <div>
-
-                </div>
             </div>
         )
     }
