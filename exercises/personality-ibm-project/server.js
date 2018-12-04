@@ -5,7 +5,7 @@ const morgan = require('morgan')
 // const bodyParser = require('body-parser')
 const PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3')
 const personalityRouter = express.Router()
-const PersonalityTextSummaries = require('personality-text-summary')
+
 
 app.use(morgan('dev'))
 
@@ -26,6 +26,8 @@ personalityRouter.post('/', (req, res) => {
         raw_scores: true
     }
     personalityInsights.profile(profileParams, function(error, response){
+        console.log(error)
+        console.log(response)
         if(error){
             res.status(500)
             return res.send(error)
