@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import TextForm from './TextForm'
+import Results from './Results'
 
 class Main extends Component{
     constructor(){
@@ -10,8 +11,8 @@ class Main extends Component{
             wordCount: '0',
             responseData: {}
         }
+        console.log(this.state.responseData)
     }
-
     handleChange = e => {
         const { name, value } = e.target
         this.setState({
@@ -38,6 +39,7 @@ class Main extends Component{
                             handleSubmit={this.handleSubmit}
                             content={this.state.content}
                             />
+                <Results />
             </div>
         )
     }

@@ -15,7 +15,7 @@ class TextForm extends Component {
         const style = {
             maxHeight: "200px",
             minHeight: "38px",
-            width: "400px",
+            width: "300px",
             resize: "none",
             padding: "9px",
             boxSizing: "border-box",
