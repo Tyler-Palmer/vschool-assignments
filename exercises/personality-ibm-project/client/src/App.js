@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Home from './Home'
-import Navbar from './Navbar'
+import BarNav from './BarNav'
 import Main from './Main'
 import About from './About'
+import Footer from './Footer'
 
 class App extends Component {
     render() {
         return (
             <div>
-                <Navbar />
+                <BarNav />
                 <Switch>
-                    <Route exact path='/' component={ Home } />
                     <Route path="/main" component={ Main } />
                     <Route path="/about" component={ About } />
                 </Switch>
+                <Footer />
             </div>
         )
     }

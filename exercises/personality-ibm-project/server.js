@@ -5,6 +5,8 @@ const morgan = require('morgan')
 // const bodyParser = require('body-parser')
 const PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3')
 const personalityRouter = express.Router()
+const PersonalityTextSummaries = require('personality-text-summary')
+
 app.use(morgan('dev'))
 
 app.use(express.json())
