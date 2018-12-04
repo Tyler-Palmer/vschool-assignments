@@ -4,6 +4,8 @@ import BarNav from './BarNav'
 import Main from './Main'
 import About from './About'
 import Footer from './Footer'
+import Home from './Home'
+import { withResults } from './context/ResultsProvider'
 
 class App extends Component {
     render() {
@@ -11,7 +13,8 @@ class App extends Component {
             <div>
                 <BarNav />
                 <Switch>
-                    <Route path="/main" component={ Main } />
+                    <Route exact path="/" component={ Home } />
+                    <Route path="/main" render= {props => <Main {...props}/>} />
                     <Route path="/about" component={ About } />
                 </Switch>
                 <Footer />
@@ -20,4 +23,4 @@ class App extends Component {
     }
 }
 
-export default App
+export default withResults(App)

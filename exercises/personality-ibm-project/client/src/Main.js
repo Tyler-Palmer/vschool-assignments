@@ -1,48 +1,18 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import TextForm from './TextForm'
 import Results from './Results'
+import { withResults } from './context/ResultsProvider'
 
-class Main extends Component{
-    constructor(){
-        super()
-        this.state = {
-            content: '',
-            wordCount: '0',
-            responseData: {}
-        }
-        console.log(this.state.responseData)
-    }
-    handleChange = e => {
-        const { name, value } = e.target
-        this.setState({
-            [name]: value
-        })
-    }
+class Main extends Component {
 
-    handleSubmit = e =>{
-        e.preventDefault()
-        axios.post("/results",{content: this.state.content}).then(response => {
-            console.log(response)
-            this.setState({
-                responseData:response.data,
-                content:''
-            })
-        })
-    }
-
-
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                <TextForm   handleChange={this.handleChange}
-                            handleSubmit={this.handleSubmit}
-                            content={this.state.content}
-                            />
+                <TextForm />
                 <Results />
             </div>
         )
     }
 }
 
-export default Main
+export default withResults(Main)

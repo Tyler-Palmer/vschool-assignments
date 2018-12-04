@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withResults } from './context/ResultsProvider'
 import profile from './profile.json'
 import BigFive from './components/BigFive'
 import Needs from './components/Needs'
@@ -7,8 +8,8 @@ import Values from './components/Values'
 class ResultsDetails extends Component {
     constructor() {
         super()
-        console.log(profile)
-        console.log(profile.personality)
+        // console.log(profile)
+        // console.log(profile.personality)
     }
 
     render() {
@@ -31,4 +32,4 @@ class ResultsDetails extends Component {
     }
 }
 
-export default ResultsDetails
+export default withResults(ResultsDetails)

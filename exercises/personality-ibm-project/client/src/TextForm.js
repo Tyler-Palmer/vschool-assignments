@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import autosize from 'autosize'
+import { withResults } from './context/ResultsProvider'
 
 class TextForm extends Component {
 
@@ -38,4 +39,4 @@ class TextForm extends Component {
     }
 }
 
-export default TextForm
+export default withResults(TextForm)
