@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import autosize from 'autosize'
 
 class TextForm extends Component {
-    constructor(props){
-        super(props)
-    }
 
     componentDidMount() {
         this.textarea.focus()
@@ -34,7 +31,7 @@ class TextForm extends Component {
                             ref={c => (this.textarea = c)}
                             rows={1}
                     />
-                    <button>Submit</button>
+                    <button type="button" className="btn btn-primary">Submit</button>
                 </form>
             </div>
         )
