@@ -7,9 +7,9 @@
     height: 100%;
   }
  
-  body {
+  /* body {
     overflow: hidden;
-  }
+  } */
   
   canvas {
     display: block;
@@ -27,7 +27,7 @@
     }
   
   /* .gradient {
-    -webkit-background: linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));
+    background: -webkit-linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));
     -ms-background: linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));
     -moz-background: linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));
     -o-background: linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));

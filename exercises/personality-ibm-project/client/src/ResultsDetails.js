@@ -4,6 +4,7 @@ import profile from './profile.json'
 import BigFive from './components/BigFive'
 import Needs from './components/Needs'
 import Values from './components/Values'
+import './resultsdetails.css'
 
 class ResultsDetails extends Component {
     constructor() {
@@ -13,7 +14,7 @@ class ResultsDetails extends Component {
     render() {
         console.log(this.props.responseData)
         return (
-            <div>
+            <div id="results-details">
                 {this.props.responseData.hasOwnProperty("word_count") &&
                     <div>
                         <h3>Big Five Personality</h3>

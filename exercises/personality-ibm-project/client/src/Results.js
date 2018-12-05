@@ -9,7 +9,7 @@ import Visualization from './Visualization'
 const Results = (props) =>{
     console.log(props)
     return(
-        <div>
+        <div id ="results-box">
             <ResultsSummary />
             <ResultsDetails />
             <Visualization />

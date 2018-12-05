@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import './barnav.css'
 import {
     Collapse,
     Navbar,
@@ -31,7 +32,7 @@ class BarNav extends Component {
         return (
             <div>
                 <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/">Watson Personality Analyzer</NavbarBrand>
+                    <NavbarBrand id ="nav-title" href="/">Watson Personality Analyzer</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import autosize from 'autosize'
 import { withResults } from './context/ResultsProvider'
+import './textform.css'
 
 class TextForm extends Component {
 
@@ -14,15 +15,21 @@ class TextForm extends Component {
         const style = {
             maxHeight: "200px",
             minHeight: "38px",
-            width: "300px",
+            minWidth: "300px",
+            width: "70%",
+            height: "100px",
             resize: "none",
             padding: "9px",
             boxSizing: "border-box",
-            fontSize: "inherit"
+            fontSize: "inherit",
+            marginLeft: "10px"
         }
 
         return (
             <div>
+                <div id="examples">
+
+                </div>
                 <form id="textInput" onSubmit={this.props.handleSubmit}>
                     <textarea
                         type="text"

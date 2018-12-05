@@ -5,10 +5,14 @@ import profile from './profile.json'
 class ResultsSummary extends Component {
     render() {
         return (
-            <div>
-                <h3>Text Summary</h3>
-                <p>{this.props.textSummary}</p>
+            <div>{ this.props.textSummary &&
+                <div>
+                    <h3>Text Summary</h3>
+                    <p>{this.props.textSummary}</p>
+                </div>
+            }
             </div>
+
         )
     }
 }
