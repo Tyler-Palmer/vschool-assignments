@@ -21,7 +21,7 @@ export default class ResultsProvider extends Component{
         })
     }
 
-    handleSubmit = e =>{
+    handleSubmit = (e) =>{
         e.preventDefault()
         axios.post("/results",{content: this.state.content}).then(response => {
             console.log(response)
@@ -35,10 +35,14 @@ export default class ResultsProvider extends Component{
     render(){
         return(
             <Provider value={{
-                profiles: this.state.profiles
+                profiles: this.state.profiles,
+                responseData: this.state.responseData,
+                handleSubmit: this.handleSubmit,
+                handleChange: this.handleChange,
+                content: this.state.content
             }}>
             {
-                this.props.children
+            this.props.children
             }
             </Provider>
         )

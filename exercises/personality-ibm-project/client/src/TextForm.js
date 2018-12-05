@@ -10,6 +10,7 @@ class TextForm extends Component {
     }
 
     render() {
+        console.log(this.props)
         const style = {
             maxHeight: "200px",
             minHeight: "38px",
@@ -24,6 +25,7 @@ class TextForm extends Component {
             <div>
                 <form id="textInput" onSubmit={this.props.handleSubmit}>
                     <textarea
+                        type="text"
                             name="content"
                             onChange={this.props.handleChange}
                             value={this.props.content}
@@ -32,7 +34,7 @@ class TextForm extends Component {
                             ref={c => (this.textarea = c)}
                             rows={1}
                     />
-                    <button type="button" className="btn btn-primary">Submit</button>
+                    <button id="analyzebutton" className="btn btn-primary">Analyze</button>
                 </form>
             </div>
         )
