@@ -1,13 +1,18 @@
 import React from 'react'
-import ResultsDetails from './ResultsDetails'
 import { withResults } from './context/ResultsProvider'
+import ResultsDetails from './ResultsDetails'
+import ResultsSummary from './ResultsSummary'
+import Visualization from './Visualization'
+
 
 
 const Results = (props) =>{
     console.log(props)
     return(
         <div>
+            <ResultsSummary />
             <ResultsDetails />
+            <Visualization />
         </div>
     )
 }
