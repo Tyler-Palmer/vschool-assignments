@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Particles from 'react-particles-js'
-import watsonSvg from './images/ibm-watson.svg'
+import watsonSvg from './images/IBM_logo_animated.svg'
 import './home.css'
 
 class Home extends Component {
@@ -79,14 +79,14 @@ class Home extends Component {
                             }
                         },
                         "interactivity": {
-                            "detect_on": "canvas",
+                            "detect_on": "window",
                             "events": {
                                 "onhover": {
-                                    "enable": false,
+                                    "enable": true,
                                     "mode": "bubble"
                                 },
                                 "onclick": {
-                                    "enable": false,
+                                    "enable": true,
                                     "mode": "repulse"
                                 },
                                 "resize": true

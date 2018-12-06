@@ -88,11 +88,12 @@ class Main extends Component {
                             }
                         },
                         "interactivity": {
-                            "detect_on": "canvas",
+                            "detect_on": "window",
                             "events": {
                                 "onhover": {
-                                    "enable": false,
-                                    "mode": "bubble"
+                                    "enable": true,
+                                    "mode": "bubble",
+                                    "duration": 5,
                                 },
                                 "onclick": {
                                     "enable": false,

@@ -9,7 +9,7 @@ const Top = () =>{
             <h4>Gain insight into how and why people think, act, and feel the way they do. The underlying AI applies linguistic analytics and personality theory to infer attributes from a person's unstructured text.</h4>
             </div>
             <br></br>
-
+            
         </div>
     )
 }

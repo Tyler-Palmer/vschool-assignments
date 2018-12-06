@@ -56,10 +56,10 @@ export default class ResultsProvider extends Component {
 
     handlePreload = (e) => {
         e.preventDefault()
-        const { name, value } = e.target
+        const { name } = e.target
         this.setState({
-            preloadedPerson: value
-            
+            preloadedPerson: name,
+            content: this.state.preloadedProfiles.filter((e) => e.title === this.state.preloadedPerson).map(e => e.description)
         })
     }
 
@@ -67,9 +67,7 @@ export default class ResultsProvider extends Component {
     render() {
         return (
             <Provider value={{
-                preloadedPerson: this.state.preloadedPerson,
                 handlePreload: this.handlePreload,
-                preloaded: this.state.preloaded,
                 responseData: this.state.responseData,
                 handleSubmit: this.handleSubmit,
                 handleChange: this.handleChange,
