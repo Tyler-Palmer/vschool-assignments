@@ -6,7 +6,7 @@ import './home.css'
 class Home extends Component {
     render() {
         return (
-            <div>
+            <div id="home" className="d-flex justify-content-center">
                 <div id="watson-logo" style ={{backgroundImage: `url(${watsonSvg})`}}></div>
                 <div id="particle-js" className="gradient">
                     <Particles params={{

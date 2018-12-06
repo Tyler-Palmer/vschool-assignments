@@ -11,6 +11,10 @@
     height: 610px;
 }
 
+#results-details h3{
+    font-weight: bolder;
+}
+
 #big-five-box{
     grid-column: 1;
     display: flex;

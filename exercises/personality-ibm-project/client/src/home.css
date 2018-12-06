@@ -1,53 +1,38 @@
- *:before, *:after {
-    box-sizing: border-box;
-  }
-  
-  html,
-  body {
-    height: 100%;
-  }
- 
-  /* body {
-    overflow: hidden;
-  } */
-  
-  canvas {
-    display: block;
-    height: 100%;
-    width: 100%;
-    /* vertical-align: bottom; */
-  }
-  
-    #particles-js {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: #131623;
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: 2;
-    }
-  
-  /* .gradient {
-    background: -webkit-linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));
-    -ms-background: linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));
-    -moz-background: linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));
-    -o-background: linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));
-    background: linear-gradient(rgba(226, 70, 107, 0.95), rgba(255, 147, 52, 0.95));
-  } */
+svg{
+  fill: white !important;
+}
+#home canvas {
+  display: block;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 
-  /* #home-container{
-    display: flex;
-  } */
+#particles-js {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background: #131623;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 2;
+}
 
-  #watson-logo{
-      position: absolute;
-      fill: black;
-      z-index: 3;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      height: 600px;
-      width: 600px;
+#home{
+  height: 600px;
+}
 
-  }
+#watson-logo{
+  position: absolute;
+  z-index: 3;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 600px;
+  width: 600px;
+
+}

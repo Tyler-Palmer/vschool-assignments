@@ -36,7 +36,7 @@ class TextForm extends Component {
                             name="content"
                             onChange={this.props.handleChange}
                             value={this.props.content}
-                            placeholder="You can enter as few as 100 words, but more words will give you more accurate analysis"
+                            placeholder="You can enter as few as 100 words, but for a more accurate analysis, you need ore words. Watson requires a minimum of 600, preferably 1,200 or more, to compute statistically significant estimates"
                             style={style}
                             ref={c => (this.textarea = c)}
                             rows={1}

@@ -39,10 +39,10 @@ class BarNav extends Component {
                             <NavItem>
                             </NavItem>
                             <NavItem>
-                                <Link className ="p-2" to='/main'>Main</Link>
+                                <Link className ="p-2 navlink" to='/main'>Analyzer</Link>
                             </NavItem>
                             <NavItem>
-                                <Link className="p-2" to='/about'>About</Link>
+                                <Link className="p-2 navlink" to='/about'>About</Link>
                             </NavItem>
                         </Nav>
                     </Collapse>

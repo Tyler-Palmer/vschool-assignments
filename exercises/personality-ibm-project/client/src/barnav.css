@@ -6,6 +6,10 @@
     font-size: 3em;
 }
 
+.navlink{
+    text-decoration: none !important;
+}
+
 @media (max-width: 836px){
     #nav-title{
         font-size: 2em;
