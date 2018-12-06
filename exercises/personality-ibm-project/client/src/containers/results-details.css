@@ -52,18 +52,28 @@ h3{
     color:rgb(233,88,73) !important
 }
 
-@media (maxwidth: 600px){
+@media (max-width: 600px){
     #results-details{
         height: auto;
+        grid-template-columns: 1fr;
     }
-
+    #detail-div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
     #big-five-box{
-        grid-column: 0/3;
+        grid-column: 1;
+        margin-bottom: 0;
     }
     #needs-box{
-        grid-column: 0/3;
+        grid-column: 1;
+        margin-bottom: 0;
     }
     #values-box{
-        grid-column: 0/3;
+        grid-column: 1;
+        margin-bottom: 0;
     }
+
+
 }

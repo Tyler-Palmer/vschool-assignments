@@ -17,7 +17,7 @@ class TextForm extends Component {
             minHeight: "100px",
             minWidth: "300px",
             width: "70%",
-            height: "100px",
+            height: "300px",
             resize: "none",
             padding: "9px",
             boxSizing: "border-box",

@@ -10,7 +10,7 @@ class ResultsDetails extends Component {
     render() {
         console.log(this.props.responseData)
         return (
-            <div>
+            <div id="detail-div">
                 {this.props.responseData.hasOwnProperty("word_count") &&
                     <div id="results-details">
                         <div id="big-five-box">

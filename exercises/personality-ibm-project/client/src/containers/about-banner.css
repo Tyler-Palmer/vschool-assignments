@@ -1,0 +1,38 @@
+#about-ban-background{
+    background: #2980B9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #DCDCDC, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #DCDCDC, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    opacity: .95;
+    /* background-attachment: fixed;
+    overflow: hidden; */
+    /* padding: 10px 10px 10px 30px; */
+    padding: 10px;
+    /* background: -webkit-linear-gradient(rgba(226, 70, 107, 0.8), rgba(255, 147, 52, 0.8)); */
+    /* margin-top: 5px;
+    border-radius: 8px; */
+    justify-self: flex-start !important;
+    height: 60px;
+}
+
+#thing{
+
+}
+
+#thing{
+    color: white;
+}
+
+#thing h1{
+    font-weight: bolder;
+}
+
+#thing h4{
+    font-weight: bold;
+}
+
+#thing hr{
+    width: 100%;
+    margin: 0;
+
+}
+
