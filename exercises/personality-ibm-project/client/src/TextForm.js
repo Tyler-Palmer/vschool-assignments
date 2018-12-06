@@ -27,19 +27,28 @@ class TextForm extends Component {
 
         return (
             <div>
-                <div id="examples">
-
+                <div id="pre-loaded">
+                    <form>
+                        <button className=" btn btn-secondary"
+                                name="Socrates"
+                                value="Socrates"
+                                onClick={this.props.handlePreload}>Socrates - "Apology"
+                                </button>
+                        <button className=" btn btn-secondary">secondary</button>
+                        <button className=" btn btn-secondary">secondary</button>
+                    </form>
                 </div>
                 <form id="textInput" onSubmit={this.props.handleSubmit}>
                     <textarea
                         type="text"
-                            name="content"
-                            onChange={this.props.handleChange}
-                            value={this.props.content}
-                            placeholder="You can enter as few as 100 words, but for a more accurate analysis, you need ore words. Watson requires a minimum of 600, preferably 1,200 or more, to compute statistically significant estimates"
-                            style={style}
-                            ref={c => (this.textarea = c)}
-                            rows={1}
+                        name="content"
+                        onChange={this.props.handleChange}
+                        value={this.props.content}
+                        placeholder="You can enter as few as 100 words, but for a more accurate analysis, you need ore words. Watson requires a minimum of 600, preferably 1,200 or more, to compute statistically significant estimates."
+                        style={style}
+                        ref={c => (this.textarea = c)}
+                        rows={1}
+                        id="text-area"
                     />
                     <button id="analyzebutton" className="btn btn-primary">Analyze</button>
                 </form>

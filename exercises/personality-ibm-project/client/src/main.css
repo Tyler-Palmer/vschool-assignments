@@ -1,4 +1,4 @@
-canvas {
+#main canvas {
     display: block;
     position: absolute;
     z-index: -1;
@@ -27,7 +27,7 @@ canvas {
 #main{
     position: absolute;
     z-index: 5;
-    min-height: 600px;
+    min-height: 1000px;
 }
 
 #main-body{

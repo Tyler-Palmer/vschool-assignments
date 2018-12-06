@@ -13,8 +13,20 @@ export default class ResultsProvider extends Component {
             wordCount: '0',
             responseData: {},
             textSummary: '',
-            profiles: []
+            preloadedProfiles: [],
+            preloadedtext: '',
+            preloadedPerson: ''
         }
+    }
+
+    componentDidMount(){
+        axios.get(`https://api.vschool.io/tyler/todo/`).then(response =>{
+            console.log(response.data)
+            this.setState({
+                    preloadedProfiles: response.data
+            })
+        })
+        .catch(err => console.log(err))
     }
 
     handleChange = e => {
@@ -42,11 +54,22 @@ export default class ResultsProvider extends Component {
         })
     }
 
+    handlePreload = (e) => {
+        e.preventDefault()
+        const { name, value } = e.target
+        this.setState({
+            preloadedPerson: value
+            
+        })
+    }
+
 
     render() {
         return (
             <Provider value={{
-                profiles: this.state.profiles,
+                preloadedPerson: this.state.preloadedPerson,
+                handlePreload: this.handlePreload,
+                preloaded: this.state.preloaded,
                 responseData: this.state.responseData,
                 handleSubmit: this.handleSubmit,
                 handleChange: this.handleChange,

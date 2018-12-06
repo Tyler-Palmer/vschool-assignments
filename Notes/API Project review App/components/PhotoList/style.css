@@ -1,0 +1,62 @@
+
+/* Add Photo Flexbox */
+.form-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: darkslategrey;
+}
+
+.form-container form input {
+    margin: 5px;
+    border: 1px solid black;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.form-container button {
+    margin: 5px;
+    border: 1px solid black;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+
+/* Photo Gallery Grid */
+.photo-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 0 auto;
+    width: 660px;
+    grid-gap: 5px;
+}
+
+.photo {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center; 
+   border: 2px solid #333;
+   padding: 5px;
+   margin-top: 5px;
+}
+
+.photo-img {
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+@media only screen and (min-width: 1200px){
+    .photo-grid {
+        width: 900px;
+    }
+
+    .photo-img {
+        width: 280px;
+        height: 280px;
+    }
+}
