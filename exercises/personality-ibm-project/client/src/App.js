@@ -6,11 +6,12 @@ import About from './About'
 import Footer from './Footer'
 import Home from './Home'
 import { withResults } from './context/ResultsProvider'
+import './style.css'
 
 class App extends Component {
     render() {
         return (
-            <div>
+            <div id="first-div">
                 <BarNav />
                 <Switch>
                     <Route exact path="/" component={ Home } />

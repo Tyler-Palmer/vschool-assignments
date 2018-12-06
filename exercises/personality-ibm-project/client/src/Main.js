@@ -13,7 +13,10 @@ class Main extends Component {
             <div id="main-body">
                 <div id="main">
                     <Top />
-                    <TextForm />
+                    <div id="input-box">
+                        <TextForm />
+                    </div>
+
                     <Results />
                     <Particles params={{
                         "particles": {

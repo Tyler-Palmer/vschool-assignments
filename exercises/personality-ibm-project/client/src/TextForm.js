@@ -14,7 +14,7 @@ class TextForm extends Component {
         console.log(this.props)
         const style = {
             maxHeight: "200px",
-            minHeight: "38px",
+            minHeight: "100px",
             minWidth: "300px",
             width: "70%",
             height: "100px",

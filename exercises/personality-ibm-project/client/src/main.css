@@ -23,10 +23,12 @@ background-size: contain;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
     /* width: 80%; */
 }
 
 #main-body{
+    margin: 0;
 }
 
 /* .above{
@@ -35,7 +37,6 @@ background-size: contain;
     margin: 30px;
 } */
 
-#part div{
-    height: 100%;
-    position: relative;
+#input-box{
+    min-height: 600px;
 }

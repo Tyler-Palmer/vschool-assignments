@@ -6,7 +6,7 @@ import './home.css'
 class Home extends Component {
     render() {
         return (
-            <div id ="home-container">
+            <div>
                 <div id="watson-logo" style ={{backgroundImage: `url(${watsonSvg})`}}></div>
                 <div id="particle-js" className="gradient">
                     <Particles params={{

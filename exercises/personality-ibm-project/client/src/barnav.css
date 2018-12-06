@@ -3,5 +3,31 @@
 }
 
 .p-2{
-    font-size: 2em;
+    font-size: 3em;
 }
+
+@media (max-width: 836px){
+    #nav-title{
+        font-size: 2em;
+    }
+    .p-2{
+        font-size: 2em;
+    }
+}
+
+@media(max-width: 425px){
+    #nav-title{
+        font-size: 1.25em;
+    }
+    .p-2{
+        font-size: 1.25em;
+    }
+}
+/* @media(max-width: 425px){
+    #nav-title{
+        font-size: .5em;
+    }
+    .p-2{
+        font-size: .5em;
+    }
+} */
