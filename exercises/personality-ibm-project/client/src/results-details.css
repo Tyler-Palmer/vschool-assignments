@@ -1,0 +1,35 @@
+/* #results-details{
+    height: 100%;
+    width: 100%;
+} */
+
+#results-details{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 5%;
+    height: 360px;
+}
+
+#big-five-box{
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#needs-box{
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+#values-box{
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+@mediaqui
