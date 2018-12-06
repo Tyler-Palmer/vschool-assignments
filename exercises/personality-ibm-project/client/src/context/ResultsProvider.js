@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import profile from '../profile.json'
 const PersonalityTextSummaries = require('personality-text-summary');
 
 export const { Provider, Consumer } = React.createContext()

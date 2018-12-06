@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import autosize from 'autosize'
-import { withResults } from './context/ResultsProvider'
+import { withResults } from '../context/ResultsProvider'
 import './textform.css'
 
 class TextForm extends Component {

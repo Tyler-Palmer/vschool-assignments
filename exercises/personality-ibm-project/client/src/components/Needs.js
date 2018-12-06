@@ -1,5 +1,5 @@
 import React from 'react'
-import '../results-details.css'
+import '../containers/results-details.css'
 import './needs.css'
 import { Progress } from 'reactstrap'
 

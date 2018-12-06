@@ -1,25 +1,14 @@
 import React, { Component } from 'react'
-import TextForm from './TextForm'
-import Results from './Results'
-import Top from './Top'
 import Particles from 'react-particles-js'
-import { withResults } from './context/ResultsProvider'
-import LoadingSpinner from './components/LoadingSpinner'
-import './main.css'
+import watsonSvg from '../images/IBM_logo_animated.svg'
+import './home.css'
 
-class Main extends Component {
-
+class Home extends Component {
     render() {
         return (
-            <div id="main-body">
-                <div id="main">
-                    <Top />
-                    <div id="input-box">
-                        <TextForm />
-                    </div>
-                    { this.props.loading ? <LoadingSpinner /> :
-                    <Results />
-                    }
+            <div id="home" className="d-flex justify-content-center">
+                <div id="watson-logo" style ={{backgroundImage: `url(${watsonSvg})`}}></div>
+                <div id="particle-js" className="gradient">
                     <Particles params={{
                         "particles": {
                             "number": {
@@ -94,11 +83,10 @@ class Main extends Component {
                             "events": {
                                 "onhover": {
                                     "enable": true,
-                                    "mode": "bubble",
-                                    "duration": 5,
+                                    "mode": "bubble"
                                 },
                                 "onclick": {
-                                    "enable": false,
+                                    "enable": true,
                                     "mode": "repulse"
                                 },
                                 "resize": true
@@ -139,4 +127,10 @@ class Main extends Component {
     }
 }
 
-export default withResults(Main)
+export default Home
+
+
+// style={{
+//     width: '100%',
+//     backgroundImage: `url(${logo})` 
+//   }}

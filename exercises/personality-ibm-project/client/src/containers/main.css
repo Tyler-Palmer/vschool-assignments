@@ -40,3 +40,8 @@ canvas {
     justify-content: center;
     width: 100%;
 }
+
+#organizer{
+    display: flex;
+    justify-content: center;
+}

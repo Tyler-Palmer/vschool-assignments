@@ -1,8 +1,7 @@
 import React from 'react'
-import { withResults } from './context/ResultsProvider'
+import { withResults } from '../context/ResultsProvider'
 import ResultsDetails from './ResultsDetails'
 import ResultsSummary from './ResultsSummary'
-import Visualization from './Visualization'
 import './results.css'
 
 

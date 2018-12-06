@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
-import { withResults } from './context/ResultsProvider'
-import profile from './profile.json'
-import BigFive from './components/BigFive'
-import Needs from './components/Needs'
-import Values from './components/Values'
+import { withResults } from '../context/ResultsProvider'
+import BigFive from '../components/BigFive'
+import Needs from '../components/Needs'
+import Values from '../components/Values'
 import './results-details.css'
 
 class ResultsDetails extends Component {
-    constructor() {
-        super()
-    }
 
     render() {
         console.log(this.props.responseData)

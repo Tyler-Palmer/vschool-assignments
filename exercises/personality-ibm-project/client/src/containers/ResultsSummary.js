@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { withResults } from './context/ResultsProvider'
-import profile from './profile.json'
+import { withResults } from '../context/ResultsProvider'
 import './results-summary.css'
 
 class ResultsSummary extends Component {

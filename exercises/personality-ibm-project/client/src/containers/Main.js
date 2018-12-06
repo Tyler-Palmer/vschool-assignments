@@ -1,14 +1,27 @@
 import React, { Component } from 'react'
+import TextForm from '../components/TextForm'
+import Results from './Results'
+import Top from './Top'
 import Particles from 'react-particles-js'
-import watsonSvg from './images/IBM_logo_animated.svg'
-import './home.css'
+import { withResults } from '../context/ResultsProvider'
+import LoadingSpinner from '../components/LoadingSpinner'
+import './main.css'
 
-class Home extends Component {
+class Main extends Component {
+
     render() {
         return (
-            <div id="home" className="d-flex justify-content-center">
-                <div id="watson-logo" style ={{backgroundImage: `url(${watsonSvg})`}}></div>
-                <div id="particle-js" className="gradient">
+            <div id="main-body">
+                <div id="main">
+                    <Top />
+                    <div id="input-box">
+                        <TextForm />
+                    </div>
+                    <div id="organizer">
+                        {this.props.loading ? <LoadingSpinner /> :
+                            <Results />
+                        }
+                    </div>
                     <Particles params={{
                         "particles": {
                             "number": {
@@ -83,10 +96,11 @@ class Home extends Component {
                             "events": {
                                 "onhover": {
                                     "enable": true,
-                                    "mode": "bubble"
+                                    "mode": "bubble",
+                                    "duration": 5,
                                 },
                                 "onclick": {
-                                    "enable": true,
+                                    "enable": false,
                                     "mode": "repulse"
                                 },
                                 "resize": true
@@ -127,10 +141,4 @@ class Home extends Component {
     }
 }
 
-export default Home
-
-
-// style={{
-//     width: '100%',
-//     backgroundImage: `url(${logo})` 
-//   }}
+export default withResults(Main)
