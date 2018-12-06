@@ -4,6 +4,7 @@ import Results from './Results'
 import Top from './Top'
 import Particles from 'react-particles-js'
 import { withResults } from './context/ResultsProvider'
+import LoadingSpinner from './components/LoadingSpinner'
 import './main.css'
 
 class Main extends Component {
@@ -16,8 +17,9 @@ class Main extends Component {
                     <div id="input-box">
                         <TextForm />
                     </div>
-
+                    { this.props.loading ? <LoadingSpinner /> :
                     <Results />
+                    }
                     <Particles params={{
                         "particles": {
                             "number": {

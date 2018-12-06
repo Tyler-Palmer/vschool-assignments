@@ -15,7 +15,8 @@ export default class ResultsProvider extends Component {
             textSummary: '',
             preloadedProfiles: [],
             preloadedtext: '',
-            preloadedPerson: ''
+            preloadedPerson: '',
+            loading: false
         }
     }
 
@@ -38,6 +39,15 @@ export default class ResultsProvider extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        this.setState({
+            loading: true
+        }) 
+        setTimeout(function(){
+            console.log("Im working")
+            this.setState({
+                loading: false
+            })
+        }.bind(this),3500)
         axios.post("/results", { content: this.state.content }).then(response => {
             console.log(response)
             this.setState({
@@ -51,7 +61,7 @@ export default class ResultsProvider extends Component {
                 })
                 console.log('The summary for the provided profile is ' + textSummary);
             })
-        })
+         })
     }
 
     handlePreload = (e) => {
@@ -65,6 +75,7 @@ export default class ResultsProvider extends Component {
 
 
     render() {
+        console.log(this.state.loading)
         return (
             <Provider value={{
                 handlePreload: this.handlePreload,
@@ -72,7 +83,8 @@ export default class ResultsProvider extends Component {
                 handleSubmit: this.handleSubmit,
                 handleChange: this.handleChange,
                 content: this.state.content,
-                textSummary: this.state.textSummary
+                textSummary: this.state.textSummary,
+                loading: this.state.loading
             }}>
                 {
                     this.props.children

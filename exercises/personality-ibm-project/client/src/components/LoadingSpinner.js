@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import loadingsvg from './images/loading.svg'
+import loadingsvg from '../images/loading.svg'
 import './loading-spinner.css'
 const LoadingSpinner = () => {
         return(

@@ -1,4 +1,6 @@
 #loadingsvg{
     background-repeat: no-repeat;
-    width: 150px;
+    width: 500px;
+    height: 500px;
+    z-index: 3;
 }
