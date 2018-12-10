@@ -30,7 +30,7 @@ app.get('/bounties', (req, res) => {
 
 app.get('/bounties/:id', (req, res) => {
     const bountyID = req.params.id
-    const selectedBounty = bounties.filter(item => item.ID === bountyID)
+    const selectedBounty = bounties.find(item => item.ID === bountyID)
     res.send(selectedBounty)
 })
 
@@ -40,16 +40,16 @@ app.post('/bounties', (req, res) => {
     const newBounty = req.body
     newBounty.ID = uuid()
     bounties.push(newBounty)
-    res.send(bounties)
+    res.send(newBounty)
 })
 
 //Put
 
-app.put('/bounties:id', (req, res) => {
+app.put('/bounties/:id', (req, res) => {
     const bountyID = req.params.id
-    const updateBounty = req.body
-    const selectedBounty = bounties.filter(item => item.ID === bountyID)
-
+    const bountyUpdate = req.body
+    const updatedBounties = bounties.map(bounty => bounty.ID === bountyID ? {...bounty, ...bountyUpdate} : bounty)
+    res.send(updatedBounties)
 })
 
 //Delete
