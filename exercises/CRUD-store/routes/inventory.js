@@ -27,7 +27,7 @@ inventoryRouter.get('/:id', (req, res) => {
 
 // Post
 
-planetRouter.post('/', (req, res) => {
+inventoryRouter.post('/', (req, res) => {
     const newInventory = new Inventory(req.body)
     newInventory.save((err, inventory) => {
         if (err){
@@ -38,3 +38,33 @@ planetRouter.post('/', (req, res) => {
 })
 
 // Put
+
+inventoryRouter.put('/:id', (req, res) => {
+    Inventory.findOneAndUpdate(
+        {_id: req.params.id},
+        req.body,
+        {new: true},
+        (err, updatedItem) => {
+            if (err) {
+                // handle it
+            }
+            return res.status(201).send(updatedItem)
+        }
+    )
+})
+
+// Delete
+
+inventoryRouter.delete('/:id', (req, res) => {
+    Inventory.findOneAndDelete(
+        {_id: req.params.id},
+        (err, deletedItem) => {
+            if (err) {
+                //do something about it already
+            }
+            return (res.status(202).send("Successfully deleted the item"))
+        }
+    )
+})
+
+module.exports = inventoryRouter

@@ -8,7 +8,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 
 //Routes
-app.use('/inventory', require('/routes/inventory'))
+app.use('/inventory', require('./routes/inventory'))
 
 //Database Connection
 mongoose.connect('mongodb://localhost:27017/crud-store', {useNewUrlParser: true}, () => {
