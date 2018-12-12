@@ -1,4 +1,5 @@
 body{
+    margin: 0;
     display: flex;
     flex-direction: column;
     font-family: arial;
@@ -6,6 +7,7 @@ body{
     width: 100%;
     /* background-color: #F25F5C; */
     z-index: -1;
+   
 }
 
 main{
@@ -24,6 +26,12 @@ header{
     z-index: 1;
 }
 
+header p{
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-align: center;
+}
+
 nav{
     position: relative;
     margin-top: 0px;
@@ -35,6 +43,9 @@ nav{
     height: 15%;
 }
 
+a{
+    text-decoration: none;
+}
 nav a{
     display: flex;
     text-decoration: none;
@@ -43,6 +54,8 @@ nav a{
     padding: 10px;
     color: white;
     z-index:1;
+    font-weight: bolder;
+    font-size: 1.2em;
 }
 
 nav a:hover{
@@ -75,7 +88,7 @@ h1{
 
 .parallax1{
     display: flex;
-    height: 600px;
+    height: 45vh;
     width: 100%;
     position: relative;
     background-image: url(./images/succulents.jpg);
@@ -175,7 +188,7 @@ z-index:2;
 
 .benefits,
 .about,
-.calendar,{
+.calendar{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -233,6 +246,15 @@ span{
     }        
 }
 
+@media (min-width: 425px){
+    .text-container-2{
+        height: 55%;
+    }
+    .about-container{
+        height: 39vh;
+    }
+}
+
 @media (min-width: 768px){
     .menuBox{
         display: flex;
@@ -244,20 +266,18 @@ span{
         height: 400px;
     }
     .text-container-2{
-        height: 200px;
+        height: 45%;
     }
     .about-container{
-        height: 200px;
+        height: 32vh;
         padding-left: 40px;
         padding-right: 10px;
     }
 }
 
-@media only screen and (min-width: 425px){
+
+@media (min-width: 1024px){
     .text-container-2{
         height: 40%;
-    }
-    .about-container{
-        height: 380px;
     }
 }
