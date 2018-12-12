@@ -17,4 +17,4 @@ inventorySchema = new mongoose.Schema({
     }
 })
 
-module.exports= Mongoose.model("Inventory", inventorySchema)
+module.exports= mongoose.model("Inventory", inventorySchema)

@@ -9,11 +9,11 @@ app.use(morgan('dev'))
 app.use(express.json())
 
 //Routes
-app.use('/things', require('./routes/things'))
+app.use('/inventory', require('./routes/inventory'))
 
 //Connect to the db
 
-mongoose.connect('mongo://localhost:27017/thing-finder-db', {newUrlParser: true}, () =>{
+mongoose.connect('mongodb://localhost:27017/thing-finder-db', {useNewUrlParser: true}, () =>{
     console.log("Cheerio, guv'nor, we're connected to the db!")
 })
 
