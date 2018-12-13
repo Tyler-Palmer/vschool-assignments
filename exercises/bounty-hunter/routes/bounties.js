@@ -46,8 +46,34 @@ bountyRouter.post('/', (req, res, next) => {
 
 //Put
 
+bountyRouter.put('/:id', (req, res, next) => {
+    // const editId = req.params.id
+    Bounty.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, update) => {
+        if (err) {
+            res.status(500)
+            return next(err)
+        } else {
+            return res.status(202).send(update)
+        }
+    })
+})
+
 //Delete
 
+bountyRouter.delete('/:id', (req, res, next) => {
+    Bounty.findByIdAndRemove(req.params.id, (err, deleted) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }else{
+            const response ={
+                message: "Bounty Successfully Deleted",
+                id: req.params.id
+            }
+            return res.status(202).send(response)
+        }
+    })
+})
 
 
 module.exports = bountyRouter
