@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const mongoose = require('mongoose')
 const uuid = require('uuid/v4')
 
 // Simualated Database
@@ -16,10 +17,12 @@ let bounties = [
 ]
 
 //Middleware
-
+app.use(morgan,('dev'))
 app.use(express.json())
 
 //Routes
+mongoose.connect('mongodb://localhost:27107/bounties-list', {useNewUrlParser: true})
+
 
 //Get All
 app.get('/bounties', (req, res) => {

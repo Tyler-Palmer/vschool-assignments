@@ -5,15 +5,21 @@ const Inventory = require('../models/inventory')
 //Get all
 
 inventoryRouter.get('/', (req, res) => {
-    Inventory.find({type:req.query},(err, data) => {
+    console.log(req.query)
+    let type = req.query.type
+    if(req.query.type){
+    Inventory.find({type: type}, (err, data) => {
         if (err) {
             console.log(err)
-        } else if (!req.query){
-            return res.status(200).send(data)
-        } else{
-            return res.status(200).send(data.query)
         }
+        return res.status(200).send(data)
     })
+    }
+    else{
+        Inventory.find((err,data) => {
+            return res.status(200).send(data)
+        })
+    }
 })
 
 //Post
