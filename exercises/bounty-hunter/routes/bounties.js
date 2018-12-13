@@ -4,15 +4,51 @@ const Bounty = require('../models/bounty')
 
 //Get All
 
-bountyRouter.get('/', (req, res) => {
+bountyRouter.get('/', (req, res, next) => {
     Bounty.find((err, data) => {
-        if(err){
-            console.log(err)
-        }else{
-            res.status(200).send(data)
+        if (err) {
+            res.status(500)
+            return next(err)
+        } else {
+            return res.status(200).send(data)
         }
     })
 })
+
+//Get One
+
+bountyRouter.get('/:id', (req, res, next) => {
+    const bountyId = req.params.id
+    Bounty.findOne({ _id: bountyId }, (err, bounty, next) => {
+        if (err) {
+            res.status(500)
+            return next(err)
+        } else {
+            return res.status(201).send(bounty)
+        }
+    })
+})
+
+
+//Post
+
+bountyRouter.post('/', (req, res, next) => {
+    const newBounty = new Bounty(req.body)
+    newBounty.save((err, bounty) => {
+        if (err) {
+            res.status(500)
+            return next(err)
+        } else {
+            return res.status(201).send(bounty)
+        }
+    })
+})
+
+//Put
+
+//Delete
+
+
 
 module.exports = bountyRouter
 
