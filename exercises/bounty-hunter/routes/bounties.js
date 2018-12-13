@@ -48,7 +48,7 @@ bountyRouter.post('/', (req, res, next) => {
 
 bountyRouter.put('/:id', (req, res, next) => {
     // const editId = req.params.id
-    Bounty.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, update) => {
+    Bounty.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, update) => {
         if (err) {
             res.status(500)
             return next(err)
@@ -61,7 +61,7 @@ bountyRouter.put('/:id', (req, res, next) => {
 //Delete
 
 bountyRouter.delete('/:id', (req, res, next) => {
-    Bounty.findByIdAndRemove(req.params.id, (err, deleted) => {
+    Bounty.findOneAndDelete(req.params.id, (err, deleted) => {
         if(err){
             res.status(500)
             return next(err)
@@ -70,7 +70,7 @@ bountyRouter.delete('/:id', (req, res, next) => {
                 message: "Bounty Successfully Deleted",
                 id: req.params.id
             }
-            return res.status(202).send(response)
+            return res.status(202).send(deleted)
         }
     })
 })
