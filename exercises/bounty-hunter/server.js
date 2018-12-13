@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const morgan = require('morgan')
 const uuid = require('uuid/v4')
 
 // Simualated Database
@@ -17,53 +18,17 @@ let bounties = [
 ]
 
 //Middleware
-app.use(morgan,('dev'))
+app.use(morgan('dev'))
 app.use(express.json())
 
 //Routes
-mongoose.connect('mongodb://localhost:27107/bounties-list', {useNewUrlParser: true})
 
+app.use('/bounties', require('./routes/bounties'))
 
-//Get All
-app.get('/bounties', (req, res) => {
-    res.send(bounties)
+//Connect to the Database
+mongoose.connect('mongodb://localhost:27107/bounties-list', { useNewUrlParser: true }, () => {
+    console.log("Running smoothly, guv'nor!")
 })
-
-//Get One
-
-app.get('/bounties/:id', (req, res) => {
-    const bountyID = req.params.id
-    const selectedBounty = bounties.find(item => item.ID === bountyID)
-    res.send(selectedBounty)
-})
-
-//Post -- Add One
-
-app.post('/bounties', (req, res) => {
-    const newBounty = req.body
-    newBounty.ID = uuid()
-    bounties.push(newBounty)
-    res.send(newBounty)
-})
-
-//Put
-
-app.put('/bounties/:id', (req, res) => {
-    const bountyID = req.params.id
-    const bountyUpdate = req.body
-    const updatedBounties = bounties.map(bounty => bounty.ID === bountyID ? {...bounty, ...bountyUpdate} : bounty)
-    res.send(updatedBounties)
-})
-
-//Delete
-
-app.delete('/bounties/:id', (req, res) => {
-    const bountyID = req.params.id
-    const updatedBounties = bounties.filter(item => item.ID !== bountyID)
-    bounties = updatedBounties
-    res.send(bounties)
-})
-
 
 
 

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema()
+const Schema = mongoose.Schema
 
 
-const bounty = new Schema({
+const bountySchema = new Schema({
     "firstName": {
         type: String,
         required: true,
@@ -26,3 +26,5 @@ const bounty = new Schema({
         required: true
     }
 })
+
+module.exports = mongoose.model('Bounty', bountySchema)
