@@ -17,7 +17,9 @@ class Bounties extends Component {
                                 lastName = {bounty.lastName}
                                 type = {bounty.type}
                                 bountyAmount = {bounty.bountyAmount}
-                                key = {bounty._id}/>
+                                key = {bounty._id}
+                                id = {bounty._id}
+                                handleDelete = {this.props.handleDelete}/>
                     )
                 }
             </div>

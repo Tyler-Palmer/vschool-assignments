@@ -21,6 +21,8 @@ export default class BountyProvider extends Component {
         })
     }
 
+    //Post
+
     handleSubmit = e => {
         e.preventDefault()
         const newBounty = {
@@ -35,9 +37,9 @@ export default class BountyProvider extends Component {
                 firstName: "",
                 lastName: "",
                 type: "",
-                bountyAmount:""
+                bountyAmount: ""
             }))
-        
+
         })
     }
 
@@ -52,16 +54,29 @@ export default class BountyProvider extends Component {
 
     }
 
+    //Delete
+
+    handleDelete = id => {
+        axios.delete('/bounties/:id').then(response => {
+            this.setState(prevState => {
+                return {
+                    bounties: prevState.bounties.filter(bounty => bounty._id !== id)
+                }
+            })
+        })
+    }
+
     render() {
         return (
             <div>
                 <BountyContext.Provider value={{
                     firstName: this.state.firstName,
                     lastName: this.state.lastName,
-                    type:this.state.type,
-                    bountyAmount:this.state.bountyAmount,
+                    type: this.state.type,
+                    bountyAmount: this.state.bountyAmount,
                     handleChange: this.handleChange,
                     handleSubmit: this.handleSubmit,
+                    handleDelete: this.handleDelete,
                     bounties: this.state.bounties,
                     getBounties: this.getBounties,
                 }}>
