@@ -2,48 +2,55 @@ const express = require('express')
 const bountyRouter = express.Router()
 const Bounty = require('../models/bounty')
 
-//Get All
 
-bountyRouter.get('/', (req, res, next) => {
-    Bounty.find((err, data) => {
-        if (err) {
-            res.status(500)
-            return next(err)
-        } else {
-            return res.status(200).send(data)
-        }
-    })
-})
 
 //Get One
 
-bountyRouter.get('/:id', (req, res, next) => {
-    const bountyId = req.params.id
-    Bounty.findOne({ _id: bountyId }, (err, bounty, next) => {
-        if (err) {
-            res.status(500)
-            return next(err)
-        } else {
-            return res.status(201).send(bounty)
-        }
+bountyRouter.route('/')
+
+    //Get All
+
+    .get((req, res, next) => {
+        Bounty.find((err, data) => {
+            if (err) {
+                res.status(500)
+                return next(err)
+            } else {
+                return res.status(200).send(data)
+            }
+        })
     })
-})
+
+    //Create New
+
+    .post((req, res, next) => {
+        const newBounty = new Bounty(req.body)
+        newBounty.save((err, bounty) => {
+            if (err) {
+                res.status(500)
+                return next(err)
+            } else {
+                return res.status(201).send(bounty)
+            }
+        })
+    })
 
 
 //Post
 
-bountyRouter.post('/', (req, res, next) => {
-    const newBounty = new Bounty(req.body)
-    newBounty.save((err, bounty) => {
-        if (err) {
-            res.status(500)
-            return next(err)
-        } else {
-            return res.status(201).send(bounty)
-        }
-    })
-})
+bountyRouter.route('/:id')
 
+    .get((req, res, next) => {
+        const bountyId = req.params.id
+        Bounty.findOne({ _id: bountyId }, (err, bounty, next) => {
+            if (err) {
+                res.status(500)
+                return next(err)
+            } else {
+                return res.status(201).send(bounty)
+            }
+        })
+    })
 //Put
 
 bountyRouter.put('/:id', (req, res, next) => {

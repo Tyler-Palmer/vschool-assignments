@@ -41,5 +41,5 @@ mongoose.connect('mongodb://localhost:27017/bounties-list', { useNewUrlParser: t
 
 //Server
 app.listen(9000, () => {
-    console.log('listening at port 5000')
+    console.log('listening at port 9000')
 })
