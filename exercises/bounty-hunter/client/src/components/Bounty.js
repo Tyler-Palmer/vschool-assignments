@@ -11,6 +11,7 @@ const Bounty = (props) => {
             <h3>{type}</h3>
             <h3>{bountyAmount}</h3>
             <button onClick={() => handleDelete(id)}>Delete</button>
+            <button>Edit</button>
         </div>
     )
 }
