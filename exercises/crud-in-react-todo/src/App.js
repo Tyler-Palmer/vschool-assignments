@@ -19,7 +19,6 @@ componentDidMount(){
                 todos: response.data
         })
     })
-    .catch(err => console.log(err))
 }
 
     handleChange = e => {

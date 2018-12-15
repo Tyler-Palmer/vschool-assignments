@@ -66,6 +66,22 @@ export default class BountyProvider extends Component {
         })
     }
 
+    //Put
+
+
+    handleEdit = (id, updates) => {
+        console.log(id)
+        console.log(updates)
+        axios.put('/bounties/:id', editedBounty).then(response => {
+            console.log(response)
+            this.setState(prevState => {
+                return{
+                    bounties: prevState.bounties.map(bounty => bounty._id === id ? response.data : bounty )
+                }
+            })
+        })
+    }
+
     render() {
         return (
             <div>
@@ -77,6 +93,7 @@ export default class BountyProvider extends Component {
                     handleChange: this.handleChange,
                     handleSubmit: this.handleSubmit,
                     handleDelete: this.handleDelete,
+                    handleEdit: this.handleEdit,
                     bounties: this.state.bounties,
                     getBounties: this.getBounties,
                 }}>

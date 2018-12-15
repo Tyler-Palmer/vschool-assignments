@@ -28,13 +28,12 @@ class Bounty extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        const editBounty = {
+        const editedBounty = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             type: this.state.type,
             bountyAmount: this.state.bountyAmount
         }
-        axios
     }
 
     render() {

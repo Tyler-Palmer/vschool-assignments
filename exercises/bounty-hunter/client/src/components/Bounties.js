@@ -7,7 +7,6 @@ class Bounties extends Component {
         this.props.getBounties()
     }
 
-
     render() {
         console.log(this.props)
         return (
