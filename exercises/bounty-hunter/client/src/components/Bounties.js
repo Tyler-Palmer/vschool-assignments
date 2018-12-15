@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Bounty from './Bounty'
+import BountyForm from '../components/Bountyform'
 import { withBountyProvider } from '../context/BountyProvider'
 class Bounties extends Component {
     componentDidMount(){
@@ -9,6 +10,7 @@ class Bounties extends Component {
         console.log(this.props)
         return (
             <div>
+            <BountyForm />
                 {
                     this.props.bounties.map(bounty => 
                         <Bounty firstName = {bounty.firstName}

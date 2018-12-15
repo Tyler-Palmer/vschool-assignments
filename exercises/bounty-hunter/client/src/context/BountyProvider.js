@@ -7,7 +7,11 @@ export default class BountyProvider extends Component {
     constructor() {
         super()
         this.state = {
-            bounties: []
+            bounties: [],
+            firstName: '',
+            lastName: '',
+            type: '',
+            bountyAmount: ''
         }
     }
 
@@ -19,8 +23,21 @@ export default class BountyProvider extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.setState({
-
+        const newBounty = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            type: this.state.type,
+            bountyAmount: this.state.bountyAmount
+        }
+        axios.post('/bounties', newBounty).then(response => {
+            this.setState(prevState => ({
+                bounties: [response.data, ...prevState.bounties],
+                firstName: "",
+                lastName: "",
+                type: "",
+                bountyAmount:""
+            }))
+        
         })
     }
 
@@ -35,23 +52,18 @@ export default class BountyProvider extends Component {
 
     }
 
-    addOneBounty = (newBounty) => {
-        axios.post('/bounties', newBounty).then(response => {
-            this.setState(prevState => {
-                return {
-                    bounties: [response.data, ...prevState.bounties]
-                }
-            })
-        })
-    }
-
     render() {
         return (
             <div>
                 <BountyContext.Provider value={{
+                    firstName: this.state.firstName,
+                    lastName: this.state.lastName,
+                    type:this.state.type,
+                    bountyAmount:this.state.bountyAmount,
+                    handleChange: this.handleChange,
+                    handleSubmit: this.handleSubmit,
                     bounties: this.state.bounties,
                     getBounties: this.getBounties,
-                    addOneBounty: this.addOneBounty
                 }}>
                     {this.props.children}
                 </BountyContext.Provider>
