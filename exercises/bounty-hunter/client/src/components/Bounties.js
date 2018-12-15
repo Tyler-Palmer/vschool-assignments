@@ -3,20 +3,8 @@ import Bounty from './Bounty'
 import BountyForm from '../components/Bountyform'
 import { withBountyProvider } from '../context/BountyProvider'
 class Bounties extends Component {
-    constructor(){
-        super()
-        this.state = {
-            editToggler: false
-        }
-    }
     componentDidMount(){
         this.props.getBounties()
-    }
-
-    editToggler = () => {
-        this.setState({
-            editToggler: !editToggler
-        })
     }
 
 

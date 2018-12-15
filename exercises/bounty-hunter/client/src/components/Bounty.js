@@ -1,19 +1,87 @@
-import React from 'react'
+import React, { Component, Fragment } from 'react'
+import axios from 'axios'
 
 
-const Bounty = (props) => {
-    const { firstName, lastName, type, bountyAmount, handleDelete, id } = props
-    return(
-        <div>
-            <h1>Bounty</h1>
-            <h2>{firstName}</h2>
-            <h2>{lastName}</h2>
-            <h3>{type}</h3>
-            <h3>{bountyAmount}</h3>
-            <button onClick={() => handleDelete(id)}>Delete</button>
-            <button>Edit</button>
-        </div>
-    )
+class Bounty extends Component {
+    constructor() {
+        super()
+        this.state = {
+            editing: false,
+            firstName: '',
+            lastName: '',
+            type: '',
+            bountyAmount: ''
+        }
+    }
+
+    editToggler = () => {
+        this.setState({
+            editToggler: !this.state.editToggler
+        })
+    }
+
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    handleSubmit = e => {
+        e.preventDefault()
+        const editBounty = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            type: this.state.type,
+            bountyAmount: this.state.bountyAmount
+        }
+        axios
+    }
+
+    render() {
+        return (
+            <div>
+                <Fragment>
+                    {
+                        this.state.editing ?
+                            <div>
+                                <form onSubmit={this.handleSubmit}>
+                                    <input  type="text"
+                                            value={this.state.firstName}
+                                            onChange={this.handleChange}
+                                            placeholder="First Name"
+                                            name = "firstName"/>
+                                    <input  type="text"
+                                            value={this.state.lastName}
+                                            onChange={this.handleChange}
+                                            placeholder="Last Name"
+                                            name="lastName"/>
+                                    <input  type="text"
+                                            value={this.state.type}
+                                            onChange={this.handleChange}
+                                            placeholder="Jedi or Sith?"
+                                            name="type"/>
+                                    <input  type="text"
+                                            value={this.state.bountyAmount}
+                                            onChange={this.handleChange}
+                                            placeholder="$ Bounty Amount"
+                                            name="bountyAmount" />
+                                    <button onClick={this.editToggler}>Close</button>
+                                    <button>Submit Edit</button>
+                                </form>
+                            </div>
+                            :
+                }
+                </Fragment>
+                <h1>Bounty</h1>
+                <h2>{this.props.firstName}</h2>
+                <h2>{this.props.lastName}</h2>
+                <h3>{this.props.type}</h3>
+                <h3>{this.props.bountyAmount}</h3>
+                <button onClick={() => this.props.handleDelete(id)}>Delete</button>
+                <button onClick={this.editToggler}>Edit</button>
+            </div>
+        )
+    }
 }
 
 export default Bounty
