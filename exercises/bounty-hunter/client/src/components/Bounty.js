@@ -15,8 +15,10 @@ class Bounty extends Component {
     }
 
     editToggler = () => {
-        this.setState({
-            editToggler: !this.state.editToggler
+        this.setState(prevState => {
+            return {
+                editing: !prevState.editing
+            }
         })
     }
 
@@ -40,44 +42,48 @@ class Bounty extends Component {
         return (
             <div>
                 <Fragment>
-                    {
-                        this.state.editing ?
-                            <div>
-                                <form onSubmit={this.handleSubmit}>
-                                    <input  type="text"
-                                            value={this.state.firstName}
-                                            onChange={this.handleChange}
-                                            placeholder="First Name"
-                                            name = "firstName"/>
-                                    <input  type="text"
-                                            value={this.state.lastName}
-                                            onChange={this.handleChange}
-                                            placeholder="Last Name"
-                                            name="lastName"/>
-                                    <input  type="text"
-                                            value={this.state.type}
-                                            onChange={this.handleChange}
-                                            placeholder="Jedi or Sith?"
-                                            name="type"/>
-                                    <input  type="text"
-                                            value={this.state.bountyAmount}
-                                            onChange={this.handleChange}
-                                            placeholder="$ Bounty Amount"
-                                            name="bountyAmount" />
-                                    <button onClick={this.editToggler}>Close</button>
-                                    <button>Submit Edit</button>
-                                </form>
-                            </div>
-                            :
-                }
+                    {this.state.editing ?
+
+                        <div>
+                            <form onSubmit={this.handleSubmit}>
+                                <input type="text"
+                                    value={this.state.firstName}
+                                    onChange={this.handleChange}
+                                    placeholder="First Name"
+                                    name="firstName" />
+                                <input type="text"
+                                    value={this.state.lastName}
+                                    onChange={this.handleChange}
+                                    placeholder="Last Name"
+                                    name="lastName" />
+                                <input type="text"
+                                    value={this.state.type}
+                                    onChange={this.handleChange}
+                                    placeholder="Jedi or Sith?"
+                                    name="type" />
+                                <input type="text"
+                                    value={this.state.bountyAmount}
+                                    onChange={this.handleChange}
+                                    placeholder="$ Bounty Amount"
+                                    name="bountyAmount" />
+                                <button onClick={this.editToggler}>Close</button>
+                                <button>Submit Edit</button>
+                            </form>
+                        </div>
+
+
+                        :
+                        <div>
+                            <h1>Bounty</h1>
+                            <h2>{this.props.firstName}</h2>
+                            <h2>{this.props.lastName}</h2>
+                            <h3>{this.props.type}</h3>
+                            <h3>{this.props.bountyAmount}</h3>
+                            <button onClick={() => this.props.handleDelete(this.props.id)}>Delete</button>
+                            <button onClick={this.editToggler}>Edit</button>
+                        </div>
+                    }
                 </Fragment>
-                <h1>Bounty</h1>
-                <h2>{this.props.firstName}</h2>
-                <h2>{this.props.lastName}</h2>
-                <h3>{this.props.type}</h3>
-                <h3>{this.props.bountyAmount}</h3>
-                <button onClick={() => this.props.handleDelete(id)}>Delete</button>
-                <button onClick={this.editToggler}>Edit</button>
             </div>
         )
     }

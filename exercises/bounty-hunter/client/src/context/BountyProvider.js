@@ -72,6 +72,7 @@ export default class BountyProvider extends Component {
     handleEdit = (id, updates) => {
         console.log(id)
         console.log(updates)
+        const editedBounty = 
         axios.put('/bounties/:id', editedBounty).then(response => {
             console.log(response)
             this.setState(prevState => {
