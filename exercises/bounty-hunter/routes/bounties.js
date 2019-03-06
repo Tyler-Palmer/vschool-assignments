@@ -4,8 +4,6 @@ const Bounty = require('../models/bounty')
 
 
 
-//Get One
-
 bountyRouter.route('/')
 
     //Get All
@@ -36,7 +34,7 @@ bountyRouter.route('/')
     })
 
 
-//Post
+//Get One
 
 bountyRouter.route('/:id')
 

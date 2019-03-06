@@ -8,6 +8,10 @@
     src: url('./fonts/italic.woff') format('woff');
     }
 
+*{
+    box-sizing: border-box;
+}
+
 body{
   color: #325050;
   font-family: 'Libre Baskerville', sans-serif;
@@ -22,6 +26,15 @@ body{
   margin: 0;
   font-family: 'Libre Baskerville', 'sans-serif';
   background: #fff;
+}
+
+a{
+    text-decoration: none;
+    color: #0d8ba1;
+}
+
+a:visited{
+    color: #1a5952;
 }
 
 h1{
@@ -66,8 +79,10 @@ h2{
 
 h3{
     font-family: 'Julius Sans One', 'sans-serif';
-    font-size: 1.5em;
+    font-size: 1.7em;
     font-weight: 100;
+    margin-top: 2em;
+    margin-bottom: .8em;
     /* line-height: 1.2;
     margin: 2em 0 0 0; */
 }
@@ -97,7 +112,7 @@ p{
 .view-designs{
     display: flex;
     grid-row: 3;
-    height: 70px;
+    height: 25vh;
     background-color: rgba(255, 255, 255, .3);
     width: 100%;
 }
@@ -106,29 +121,37 @@ p{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     padding:0;
+    margin: 0;
     width: 100%;
-    height: 100%;
-    
+    height: 25vh;
     /* background-color: rgba(255, 255, 255, .9); */
     /* height: 70px;
     margin-top: 20px; */
 }
-.back, .forward{
-    font-family: 'verdemoderna';
-    color: #fff;
-    font-size: 4em;
-}
 
 .all-designs{
-    /* padding: 0, 15px, 0 15px; */
+    color: rgba(255,255,255, .8);
+}
+
+.all-designs h3{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.back, .forward{
+    font-family: 'verdemoderna';
+    color: rgba(255,255,255, .8);
+    font-size: 4em;
 }
 
 .mainLeft{
 display: block;
 grid-column: 1/-1;
 grid-row: 2;
-font-size: 80%;
+font-size: 85%;
+margin-bottom: 2em;
 }
 
 .intro, .enlightenment, .about{
@@ -136,6 +159,10 @@ font-size: 80%;
 }
 .intro{
     padding-top: 2em;
+}
+
+.about{
+    margin-bottom: 3em;
 }
 
 .participation{
@@ -146,6 +173,11 @@ font-size: 80%;
     background-size: auto, auto, cover;
     padding: 10px 10% 15px 10%;
 }
+
+.participation, .benefits, .requirements h3{
+    margin-top: 1.5em;
+}
+
 .requirements{
     margin: 0 10%;
 }
@@ -173,26 +205,57 @@ font-size: 80%;
 .footer{
     grid-column: 1/-1;
     grid-row: 4;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     background-color: #325050;
-    height: 65px;
+    height: 95px;
     font-family: 'verdemoderna';
     font-size: 2em;
     padding-bottom: 0;
     margin-bottom: 0;
 }
 
-.footer a:link{
+.footer a {
+    color: rgba(255, 255, 255, 0.5);
+    -webkit-font-smoothing: antialiased;
+    -webkit-transition: color 0.25s ease-out, box-shadow 0.25s ease-out;
+    -moz-transition: color 0.25s ease-out, box-shadow 0.25s ease-out;
+}
+
+.footer .icons-container .icon a {
     text-decoration: none;
     color: #fff;
+    font-weight: lighter;
+}
+
+.footer .icons-container .icon a:visited{
+    color: white;
+}
+
+.footer .icons-container .icon a:link{
+    text-decoration: none;
+    color: #fff;
+    font-weight: lighter;
+}
+
+.icons-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+.icon{
+    height: 10vh;
+    width: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: .7;
 }
 
 .pre-footer a:link{
     text-decoration: none;
     color: #fff;
-    opacity: .5;
+    opacity: .7;
     font-family:'Libre Baskerville', sans-serif;
 }
 
@@ -200,12 +263,12 @@ font-size: 80%;
 .mainRight{
     grid-column: 1/-1;
     grid-row: 5;
-    margin-top: -20px;
+    margin-top: 0px; /*Sometimes -20px*/
+    background-color: #EEF4F0;
 }
 
 .examples{
     padding-bottom: 10px;
-    background-color: #EEF4F0
 }
 
 .examples ul{
@@ -264,6 +327,12 @@ font-size: 80%;
     margin-top: 20px;
 }
 
+/* Display styling */
+
+.hide1{
+    display: none;
+}
+
 @media screen and (min-width: 1440px){
     body{
         grid-template-rows: auto 1fr 1fr 1fr auto auto;
@@ -314,6 +383,7 @@ font-size: 80%;
         grid-template-rows: 1fr 1fr 1fr;
         grid-column: 3/4;
         grid-row: 2/4;
+        margin-top: -20px;
     }
 
     .examples{
@@ -336,5 +406,9 @@ font-size: 80%;
 
     .footer{
         grid-row: 5/6;
+    }
+
+    .hide1{
+        display: block;
     }
 }
